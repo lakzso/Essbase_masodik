@@ -1,0 +1,47 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+Model:
+	InitialStatement
+	(Statements+=Statement)*
+	'!';
+
+Statement:
+	Column | Row | Descendants | Declaration | Reference | Child;
+
+InitialStatement:
+	'{SUPEMPTYROWS}' '{TabDelim}';
+
+Descendants:
+	'descendants' group=ID ',' dimension=Reference;
+
+Declaration:
+	DimensionDeclaration | GroupDeclaration | MemberDeclaration;
+
+DimensionDeclaration:
+	'dim' name=ID value=STRING;
+
+GroupDeclaration:
+	'group' name=ID value=STRING;
+
+MemberDeclaration:
+	'member' name=ID value=STRING;
+
+Row:
+	'row' {Row} '{' dimensions+=Reference (',' dimensions+=Reference)* '}';
+
+Column:
+	'column' {Column} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
+; 	
+Child:
+	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
+; 	
+
+
+Reference:
+	referred=[Declaration] | StringReference;
+
+StringReference:
+	value=STRING;
+
