@@ -15,12 +15,13 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 
 import com.essbase.api.dataquery.IEssGridView;
 
+import net.sourceforge.texlipse.builder.TexlipseNature;
 import net.sourceforge.texlipse.wizards.TexlipseProjectAttributes;
 import net.sourceforge.texlipse.wizards.TexlipseProjectCreationOperation;
 
 public class ReportCreation {
 	
-public IProject createProject(String name, String[] natureIds) throws CoreException {
+public IProject CreateLatexReportAndProject1(String name) throws CoreException {
 		// Referring a project in the workspace by it's name
 		IProject project = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(name);
@@ -35,15 +36,15 @@ public IProject createProject(String name, String[] natureIds) throws CoreExcept
 
 		// Setting natures of the project
 		IProjectDescription desc = project.getDescription();
-		desc.setNatureIds(natureIds
-			/*new String[] { "org.eclipse.jdt.core.javanature"
-		     ,"org.eclipse.pde.PluginNature" }*/);
+		desc.setNatureIds(
+			new String[] { TexlipseNature.NATURE_ID}
+		     /*,"org.eclipse.pde.PluginNature" }*/);
 		project.setDescription(desc, monitor);
-		project.setDefaultCharset("UTF-8", new NullProgressMonitor());
+		project.setDefaultCharset("Cp1250", new NullProgressMonitor());
 		//project.getFolder("src");
 		return project;
 	}
- public void CreateLatexReportAndProject(IEssGridView grid) throws InvocationTargetException, InterruptedException{
+ public void CreateLatexReportAndProject2(IEssGridView grid) throws InvocationTargetException, InterruptedException{
 	 
 	 /*int cntRows = grid.getCountRows(), cntCols = grid.getCountColumns();
 	 for (int i = 0; i < cntRows; i++) {
@@ -53,12 +54,13 @@ public IProject createProject(String name, String[] natureIds) throws CoreExcept
 		}
 	 */
 	 TexlipseProjectAttributes attr=new TexlipseProjectAttributes();
-	 attr.setProjectName("LatexReport2");
+	 attr.setProjectName("LatexReport3");
 	 attr.setLanguageCode("hu");
-	 attr.setOutputFormat("pdf");
 	 attr.setTemplate("Article");
+	 attr.setOutputFormat("pdf");
 	 TexlipseProjectCreationOperation pr=new TexlipseProjectCreationOperation (attr);
 	 pr.run(null);
+	 
 	 
   }
 }

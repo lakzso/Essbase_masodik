@@ -6,6 +6,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -19,6 +20,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
+ * 
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
  */
@@ -34,34 +36,28 @@ public class LatexHandler extends AbstractHandler {
 	 * from the application context.
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchPart workbenchPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart(); 
-		IFile file = (IFile) workbenchPart.getSite().getPage().getActiveEditor().getEditorInput().getAdapter(IFile.class);
-		
+		IWorkbenchPart workbenchPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+				.getActivePart();
+		IFile file = (IFile) workbenchPart.getSite().getPage().getActiveEditor().getEditorInput()
+				.getAdapter(IFile.class);
+
 		String content = file.getName();
-		
-		ReportParser rp=new ReportParser();
-		String rawReport=rp.Parser(file.getLocation().toString());
-		DataQuery query=new DataQuery();
-		
-		
-	    ReportCreation cr=new ReportCreation();
-		
+
+		ReportParser rp = new ReportParser();
+		String rawReport = rp.Parser(file.getLocation().toString());
+		DataQuery query = new DataQuery();
+
+		ReportCreation cr = new ReportCreation();
+
 		try {
-			cr.CreateLatexReportAndProject(null);
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+			cr.CreateLatexReportAndProject1("teszt");
+		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		MessageDialog.openInformation(
-				window.getShell(),
-				"Latex",
-				rawReport);
+		MessageDialog.openInformation(window.getShell(), "Latex", rawReport);
 		return null;
 
 	}
