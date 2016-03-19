@@ -1,10 +1,14 @@
 package hu.bme.mit.inf.essbase;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
@@ -21,7 +25,7 @@ import net.sourceforge.texlipse.wizards.TexlipseProjectCreationOperation;
 
 public class ReportCreation {
 	
-public IProject CreateLatexReportAndProject1(String name) throws CoreException {
+public IProject CreateProject(String name) throws CoreException {
 		// Referring a project in the workspace by it's name
 		IProject project = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(name);
@@ -37,13 +41,34 @@ public IProject CreateLatexReportAndProject1(String name) throws CoreException {
 		// Setting natures of the project
 		IProjectDescription desc = project.getDescription();
 		desc.setNatureIds(
-			new String[] { TexlipseNature.NATURE_ID}
+			new String[] { "net.sourceforge.texlipse.builder.TexlipseNature"}
 		     /*,"org.eclipse.pde.PluginNature" }*/);
 		project.setDescription(desc, monitor);
 		project.setDefaultCharset("Cp1250", new NullProgressMonitor());
 		//project.getFolder("src");
 		return project;
 	}
+public void createDir(IProject project, IProgressMonitor monitor, String dir,
+        boolean derivedAsDefault) throws CoreException {
+    if (dir != null && dir.length() > 0) {
+        IFolder folder = project.getFolder(dir);
+        folder.create(true, true, monitor);
+        if (derivedAsDefault) {
+            folder.setDerived(true);
+        }
+    }
+}
+
+
+public void createMainFile(IProject project, IProgressMonitor monitor)
+        throws CoreException {
+
+    
+	  IFile mainFile;
+     // mainFile.create(stream, true, monitor);
+}
+
+
  public void CreateLatexReportAndProject2(IEssGridView grid) throws InvocationTargetException, InterruptedException{
 	 
 	 /*int cntRows = grid.getCountRows(), cntCols = grid.getCountColumns();

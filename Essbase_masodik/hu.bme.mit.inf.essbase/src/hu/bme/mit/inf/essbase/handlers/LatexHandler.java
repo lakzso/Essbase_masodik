@@ -6,6 +6,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -48,13 +49,17 @@ public class LatexHandler extends AbstractHandler {
 		DataQuery query = new DataQuery();
 
 		ReportCreation cr = new ReportCreation();
-
+        String dir="Temp";
+		
 		try {
-			cr.CreateLatexReportAndProject1("teszt");
+			IProject lproject=cr.CreateProject("teszt");
+			cr.createDir(lproject, null, dir, true);
+			
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(window.getShell(), "Latex", rawReport);
