@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringBufferInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import com.essbase.api.dataquery.IEssGridView;
 
 import net.sourceforge.texlipse.builder.TexlipseNature;
+import net.sourceforge.texlipse.properties.TexlipseProperties;
 import net.sourceforge.texlipse.wizards.TexlipseProjectAttributes;
 import net.sourceforge.texlipse.wizards.TexlipseProjectCreationOperation;
 
@@ -103,23 +105,49 @@ public StringBuilder getLatexContent(IEssGridView grid) throws CoreException
 }
 
 
- public void createLatexReportAndProject2(IEssGridView grid) throws InvocationTargetException, InterruptedException{
+ public IFile createProject2(String name) throws InvocationTargetException, InterruptedException{
 	 
-	 /*int cntRows = grid.getCountRows(), cntCols = grid.getCountColumns();
-	 for (int i = 0; i < cntRows; i++) {
-			for (int j = 0; j < cntCols; j++)
-				System.out.print(grid.getValue(i, j) + "\t");
-			System.out.println();
-		}
-	 */
 	 TexlipseProjectAttributes attr=new TexlipseProjectAttributes();
-	 attr.setProjectName("LatexReport3");
+	 attr.setProjectName(name);
 	 attr.setLanguageCode("hu");
 	 attr.setTemplate("Article");
-	 attr.setOutputFormat("pdf");
-	 TexlipseProjectCreationOperation pr=new TexlipseProjectCreationOperation (attr);
+	 attr.setOutputFormat(TexlipseProperties.OUTPUT_FORMAT_PDF);
+	 attr.setBuilder(2);
+	 TexlipseProjectCreationOperation2 pr=new TexlipseProjectCreationOperation2 (attr);
 	 pr.run(null);
 	 
-	 
+	 return pr.getMainFile();
   }
+ public void setLatexContent(IFile mainFile,IEssGridView grid){
+	 
+	 
+	 
+	 StringBuilder sb=new StringBuilder();
+		
+	  sb.append("\\documentclass{standalone}");
+	  sb.append("\\usepackage{pgfplots}");
+	  sb.append("\\begin{document}");
+	  sb.append("\\begin{tikzpicture}");
+	  sb.append("\\begin{axis}[ ");
+	  sb.append("xlabel=$x$,");
+	  sb.append("ylabel={$f(x) = x^2 - x +4$}");
+	  sb.append("] ");
+	  sb.append("\\addplot {x^2 - x +4};"); 
+	  sb.append("\\end{axis}");
+	  sb.append("\\end{tikzpicture}");
+	  sb.append("\\end{document}");
+	 
+	  InputStream str=new StringBufferInputStream(sb.toString());
+	  
+	 try {
+		mainFile.setContents(str, 1, null);
+	} catch (CoreException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	 
+	 
+ }
+ 
+ 
 }

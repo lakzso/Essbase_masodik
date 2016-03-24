@@ -21,6 +21,7 @@ import hu.bme.mit.inf.essbase.ReportCreation;
 import hu.bme.mit.inf.essbase.ReportParser;
 import net.sourceforge.texlipse.TexlipsePlugin;
 import net.sourceforge.texlipse.builder.TexlipseBuilder;
+import net.sourceforge.texlipse.properties.TexlipseProperties;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 
@@ -52,8 +53,20 @@ public class LatexHandler extends AbstractHandler {
 		DataQuery query = new DataQuery();
 		IEssGridView grid=query.query(rawReport);
 		ReportCreation cr = new ReportCreation();
-		String dir = "Temp";
 		
+		
+	    try {
+			cr.setLatexContent(cr.createProject2("Teszt5"),grid);
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		/*
+		String dir = "Temp";
 		try {
 			IProject lproject = cr.createProject("teszt");
 			cr.createDir(lproject, null, dir, true);
@@ -65,12 +78,11 @@ public class LatexHandler extends AbstractHandler {
 			lproject.build(IncrementalProjectBuilder.AUTO_BUILD, null);
             
 			
-			
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+         */
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(window.getShell(), "Latex", rawReport);
 		return null;
