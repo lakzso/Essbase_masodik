@@ -1,5 +1,6 @@
 package hu.bme.mit.inf.essbase;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,7 +26,7 @@ import net.sourceforge.texlipse.wizards.TexlipseProjectCreationOperation;
 
 public class ReportCreation {
 	
-public IProject CreateProject(String name) throws CoreException {
+public IProject createProject(String name) throws CoreException {
 		// Referring a project in the workspace by it's name
 		IProject project = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(name);
@@ -58,18 +59,51 @@ public void createDir(IProject project, IProgressMonitor monitor, String dir,
         }
     }
 }
+public IFile createMainFile(IFile file,
+		boolean derived, CharSequence content) throws CoreException
+{
+	// If the file existed before, and it is not editable, it should be
+	// deleted
+	IProgressMonitor monitor = new NullProgressMonitor();
+	if (file.exists() && file.isDerived())
+		file.delete(true, monitor);
 
+	// Create the file if it is to exists.
+	if (!file.exists()) {
+		file.create(
+				new ByteArrayInputStream(content.toString().getBytes()),
+				true, monitor);
 
-public void createMainFile(IProject project, IProgressMonitor monitor)
-        throws CoreException {
+		// Setting the properties of the file.
+		if (derived)
+			file.setDerived(true, monitor);
+	}
 
-    
-	  IFile mainFile;
-     // mainFile.create(stream, true, monitor);
+	// Return with the file.
+	return file;
+}
+public StringBuilder getLatexContent(IEssGridView grid) throws CoreException
+{ 	  
+	StringBuilder sb=new StringBuilder();
+	
+	  sb.append("\\documentclass{standalone}");
+	  sb.append("\\usepackage{pgfplots}");
+	  sb.append("\\begin{document}");
+	  sb.append("\\begin{tikzpicture}");
+	  sb.append("\\begin{axis}[ ");
+	  sb.append("xlabel=$x$,");
+	  sb.append("ylabel={$f(x) = x^2 - x +4$}");
+	  sb.append("] ");
+	  sb.append("\\addplot {x^2 - x +4};"); 
+	  sb.append("\\end{axis}");
+	  sb.append("\\end{tikzpicture}");
+	  sb.append("\\end{document}");
+	  
+	  return sb;
 }
 
 
- public void CreateLatexReportAndProject2(IEssGridView grid) throws InvocationTargetException, InterruptedException{
+ public void createLatexReportAndProject2(IEssGridView grid) throws InvocationTargetException, InterruptedException{
 	 
 	 /*int cntRows = grid.getCountRows(), cntCols = grid.getCountColumns();
 	 for (int i = 0; i < cntRows; i++) {
