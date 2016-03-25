@@ -16,6 +16,7 @@ import org.xtext.example.mydsl.myDsl.Declaration;
 import org.xtext.example.mydsl.myDsl.Descendants;
 import org.xtext.example.mydsl.myDsl.DimensionDeclaration;
 import org.xtext.example.mydsl.myDsl.GroupDeclaration;
+import org.xtext.example.mydsl.myDsl.Link;
 import org.xtext.example.mydsl.myDsl.MemberDeclaration;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
@@ -95,6 +96,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass columnEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass linkEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -345,6 +353,36 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getLink()
+  {
+    return linkEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLink_Desc()
+  {
+    return (EReference)linkEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLink_Lev()
+  {
+    return (EReference)linkEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getChild()
   {
     return childEClass;
@@ -455,6 +493,10 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     columnEClass = createEClass(COLUMN);
     createEReference(columnEClass, COLUMN__DIMENSIONS);
 
+    linkEClass = createEClass(LINK);
+    createEReference(linkEClass, LINK__DESC);
+    createEReference(linkEClass, LINK__LEV);
+
     childEClass = createEClass(CHILD);
     createEReference(childEClass, CHILD__DIMENSIONS);
 
@@ -501,6 +543,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     memberDeclarationEClass.getESuperTypes().add(this.getDeclaration());
     rowEClass.getESuperTypes().add(this.getStatement());
     columnEClass.getESuperTypes().add(this.getStatement());
+    linkEClass.getESuperTypes().add(this.getStatement());
     childEClass.getESuperTypes().add(this.getStatement());
     referenceEClass.getESuperTypes().add(this.getStatement());
     stringReferenceEClass.getESuperTypes().add(this.getReference());
@@ -530,6 +573,10 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getColumn_Dimensions(), this.getReference(), null, "dimensions", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLink_Desc(), this.getReference(), null, "desc", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLink_Lev(), this.getReference(), null, "lev", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChild_Dimensions(), this.getReference(), null, "dimensions", null, 0, -1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

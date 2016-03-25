@@ -105,6 +105,15 @@ public interface MyDslFactory extends EFactory
   Column createColumn();
 
   /**
+   * Returns a new object of class '<em>Link</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Link</em>'.
+   * @generated
+   */
+  Link createLink();
+
+  /**
    * Returns a new object of class '<em>Child</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -62,12 +62,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDeclarationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cReferenceParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cChildParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cLinkParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Statement:
-		//	Column | Row | Descendants | Declaration | Reference | Child;
+		//	Column | Row | Descendants | Declaration | Reference | Child | Link;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Column | Row | Descendants | Declaration | Reference | Child
+		//Column | Row | Descendants | Declaration | Reference | Child | Link
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Column
@@ -87,25 +88,32 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Child
 		public RuleCall getChildParserRuleCall_5() { return cChildParserRuleCall_5; }
+		
+		//Link
+		public RuleCall getLinkParserRuleCall_6() { return cLinkParserRuleCall_6; }
 	}
 	public class InitialStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.InitialStatement");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSUPEMPTYROWSKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cTabDelimKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cSUPEMPTYROWSDECIMAL10TABDELIMITROWREPEATSUPBRACKETSSUPCOMMASNOINDENTGENKeyword = (Keyword)rule.eContents().get(1);
 		
 		//InitialStatement:
-		//	'{SUPEMPTYROWS}' '{TabDelim}';
+		//"{SUPEMPTYROWS}
+		//	{DECIMAL 10}
+		//	{TABDELIMIT}
+		//	{ROWREPEAT}
+		//	{SUPBRACKETS}
+		//	{SUPCOMMAS}
+		//	{NOINDENTGEN}";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'{SUPEMPTYROWS}' '{TabDelim}'
-		public Group getGroup() { return cGroup; }
-		
-		//'{SUPEMPTYROWS}'
-		public Keyword getSUPEMPTYROWSKeyword_0() { return cSUPEMPTYROWSKeyword_0; }
-		
-		//'{TabDelim}'
-		public Keyword getTabDelimKeyword_1() { return cTabDelimKeyword_1; }
+		//"{SUPEMPTYROWS}
+		//	{DECIMAL 10}
+		//	{TABDELIMIT}
+		//	{ROWREPEAT}
+		//	{SUPBRACKETS}
+		//	{SUPCOMMAS}
+		//	{NOINDENTGEN}"
+		public Keyword getSUPEMPTYROWSDECIMAL10TABDELIMITROWREPEATSUPBRACKETSSUPCOMMASNOINDENTGENKeyword() { return cSUPEMPTYROWSDECIMAL10TABDELIMITROWREPEATSUPBRACKETSSUPCOMMASNOINDENTGENKeyword; }
 	}
 	public class DescendantsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Descendants");
@@ -360,6 +368,53 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
+	public class LinkElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Link");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLinkKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Action cLinkAction_1 = (Action)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDescAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDescReferenceParserRuleCall_3_0 = (RuleCall)cDescAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cLevAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cLevReferenceParserRuleCall_5_0 = (RuleCall)cLevAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Link:
+		//	'link' {Link} '{' desc=Reference ',' lev=Reference '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'link' {Link} '{' desc=Reference ',' lev=Reference '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'link'
+		public Keyword getLinkKeyword_0() { return cLinkKeyword_0; }
+		
+		//{Link}
+		public Action getLinkAction_1() { return cLinkAction_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//desc=Reference
+		public Assignment getDescAssignment_3() { return cDescAssignment_3; }
+		
+		//Reference
+		public RuleCall getDescReferenceParserRuleCall_3_0() { return cDescReferenceParserRuleCall_3_0; }
+		
+		//','
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//lev=Reference
+		public Assignment getLevAssignment_5() { return cLevAssignment_5; }
+		
+		//Reference
+		public RuleCall getLevReferenceParserRuleCall_5_0() { return cLevReferenceParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
 	public class ChildElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Child");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -465,6 +520,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final MemberDeclarationElements pMemberDeclaration;
 	private final RowElements pRow;
 	private final ColumnElements pColumn;
+	private final LinkElements pLink;
 	private final ChildElements pChild;
 	private final ReferenceElements pReference;
 	private final StringReferenceElements pStringReference;
@@ -488,6 +544,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMemberDeclaration = new MemberDeclarationElements();
 		this.pRow = new RowElements();
 		this.pColumn = new ColumnElements();
+		this.pLink = new LinkElements();
 		this.pChild = new ChildElements();
 		this.pReference = new ReferenceElements();
 		this.pStringReference = new StringReferenceElements();
@@ -533,7 +590,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Statement:
-	//	Column | Row | Descendants | Declaration | Reference | Child;
+	//	Column | Row | Descendants | Declaration | Reference | Child | Link;
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -543,7 +600,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//InitialStatement:
-	//	'{SUPEMPTYROWS}' '{TabDelim}';
+	//"{SUPEMPTYROWS}
+	//	{DECIMAL 10}
+	//	{TABDELIMIT}
+	//	{ROWREPEAT}
+	//	{SUPBRACKETS}
+	//	{SUPCOMMAS}
+	//	{NOINDENTGEN}";
 	public InitialStatementElements getInitialStatementAccess() {
 		return pInitialStatement;
 	}
@@ -620,6 +683,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getColumnRule() {
 		return getColumnAccess().getRule();
+	}
+	
+	//Link:
+	//	'link' {Link} '{' desc=Reference ',' lev=Reference '}';
+	public LinkElements getLinkAccess() {
+		return pLink;
+	}
+	
+	public ParserRule getLinkRule() {
+		return getLinkAccess().getRule();
 	}
 	
 	//Child:

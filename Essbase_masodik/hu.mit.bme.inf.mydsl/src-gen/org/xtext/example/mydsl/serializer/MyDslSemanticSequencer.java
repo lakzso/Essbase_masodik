@@ -19,6 +19,7 @@ import org.xtext.example.mydsl.myDsl.Column;
 import org.xtext.example.mydsl.myDsl.Descendants;
 import org.xtext.example.mydsl.myDsl.DimensionDeclaration;
 import org.xtext.example.mydsl.myDsl.GroupDeclaration;
+import org.xtext.example.mydsl.myDsl.Link;
 import org.xtext.example.mydsl.myDsl.MemberDeclaration;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -55,6 +56,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.GROUP_DECLARATION:
 				sequence_GroupDeclaration(context, (GroupDeclaration) semanticObject); 
+				return; 
+			case MyDslPackage.LINK:
+				sequence_Link(context, (Link) semanticObject); 
 				return; 
 			case MyDslPackage.MEMBER_DECLARATION:
 				sequence_MemberDeclaration(context, (MemberDeclaration) semanticObject); 
@@ -166,6 +170,28 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getGroupDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getGroupDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Link
+	 *     Link returns Link
+	 *
+	 * Constraint:
+	 *     (desc=Reference lev=Reference)
+	 */
+	protected void sequence_Link(ISerializationContext context, Link semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.LINK__DESC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.LINK__DESC));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.LINK__LEV) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.LINK__LEV));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLinkAccess().getDescReferenceParserRuleCall_3_0(), semanticObject.getDesc());
+		feeder.accept(grammarAccess.getLinkAccess().getLevReferenceParserRuleCall_5_0(), semanticObject.getLev());
 		feeder.finish();
 	}
 	

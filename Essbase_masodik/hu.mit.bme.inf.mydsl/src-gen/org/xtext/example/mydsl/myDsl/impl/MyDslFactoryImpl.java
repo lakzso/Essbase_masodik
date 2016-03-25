@@ -74,6 +74,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.MEMBER_DECLARATION: return createMemberDeclaration();
       case MyDslPackage.ROW: return createRow();
       case MyDslPackage.COLUMN: return createColumn();
+      case MyDslPackage.LINK: return createLink();
       case MyDslPackage.CHILD: return createChild();
       case MyDslPackage.REFERENCE: return createReference();
       case MyDslPackage.STRING_REFERENCE: return createStringReference();
@@ -179,6 +180,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ColumnImpl column = new ColumnImpl();
     return column;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Link createLink()
+  {
+    LinkImpl link = new LinkImpl();
+    return link;
   }
 
   /**

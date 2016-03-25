@@ -27,6 +27,10 @@
     <genClasses ecoreClass="MyDsl.ecore#//Column">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Column/dimensions"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Link">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Link/desc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Link/lev"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Child/dimensions"/>
     </genClasses>

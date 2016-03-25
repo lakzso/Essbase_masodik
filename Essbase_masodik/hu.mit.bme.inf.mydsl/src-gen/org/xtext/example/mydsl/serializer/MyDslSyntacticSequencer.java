@@ -33,12 +33,18 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * InitialStatement:
-	 * 	'{SUPEMPTYROWS}' '{TabDelim}';
+	 * 	"{SUPEMPTYROWS}
+	 * 	{DECIMAL 10}
+	 * 	{TABDELIMIT}
+	 * 	{ROWREPEAT}
+	 * 	{SUPBRACKETS}
+	 * 	{SUPCOMMAS}
+	 * 	{NOINDENTGEN}";
 	 */
 	protected String getInitialStatementToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "{SUPEMPTYROWS}{TabDelim}";
+		return "{SUPEMPTYROWS}\r\n\t{DECIMAL 10}\r\n\t{TABDELIMIT}\r\n\t{ROWREPEAT}\r\n\t{SUPBRACKETS}\r\n\t{SUPCOMMAS}\r\n\t{NOINDENTGEN}";
 	}
 	
 	@Override

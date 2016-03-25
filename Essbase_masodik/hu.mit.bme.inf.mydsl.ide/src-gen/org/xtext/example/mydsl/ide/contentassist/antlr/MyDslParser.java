@@ -39,7 +39,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeclarationAccess().getAlternatives(), "rule__Declaration__Alternatives");
 					put(grammarAccess.getReferenceAccess().getAlternatives(), "rule__Reference__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
-					put(grammarAccess.getInitialStatementAccess().getGroup(), "rule__InitialStatement__Group__0");
 					put(grammarAccess.getDescendantsAccess().getGroup(), "rule__Descendants__Group__0");
 					put(grammarAccess.getDimensionDeclarationAccess().getGroup(), "rule__DimensionDeclaration__Group__0");
 					put(grammarAccess.getGroupDeclarationAccess().getGroup(), "rule__GroupDeclaration__Group__0");
@@ -48,6 +47,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRowAccess().getGroup_4(), "rule__Row__Group_4__0");
 					put(grammarAccess.getColumnAccess().getGroup(), "rule__Column__Group__0");
 					put(grammarAccess.getColumnAccess().getGroup_4(), "rule__Column__Group_4__0");
+					put(grammarAccess.getLinkAccess().getGroup(), "rule__Link__Group__0");
 					put(grammarAccess.getChildAccess().getGroup(), "rule__Child__Group__0");
 					put(grammarAccess.getChildAccess().getGroup_4(), "rule__Child__Group_4__0");
 					put(grammarAccess.getModelAccess().getStatementsAssignment_1(), "rule__Model__StatementsAssignment_1");
@@ -63,6 +63,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRowAccess().getDimensionsAssignment_4_1(), "rule__Row__DimensionsAssignment_4_1");
 					put(grammarAccess.getColumnAccess().getDimensionsAssignment_3(), "rule__Column__DimensionsAssignment_3");
 					put(grammarAccess.getColumnAccess().getDimensionsAssignment_4_1(), "rule__Column__DimensionsAssignment_4_1");
+					put(grammarAccess.getLinkAccess().getDescAssignment_3(), "rule__Link__DescAssignment_3");
+					put(grammarAccess.getLinkAccess().getLevAssignment_5(), "rule__Link__LevAssignment_5");
 					put(grammarAccess.getChildAccess().getDimensionsAssignment_3(), "rule__Child__DimensionsAssignment_3");
 					put(grammarAccess.getChildAccess().getDimensionsAssignment_4_1(), "rule__Child__DimensionsAssignment_4_1");
 					put(grammarAccess.getReferenceAccess().getReferredAssignment_0(), "rule__Reference__ReferredAssignment_0");

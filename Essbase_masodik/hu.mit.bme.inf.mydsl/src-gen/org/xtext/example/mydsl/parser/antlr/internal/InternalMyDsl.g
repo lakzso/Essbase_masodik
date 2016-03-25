@@ -178,6 +178,15 @@ ruleStatement returns [EObject current=null]
 			$current = $this_Child_5.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getStatementAccess().getLinkParserRuleCall_6());
+		}
+		this_Link_6=ruleLink
+		{
+			$current = $this_Link_6.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -196,18 +205,11 @@ ruleInitialStatement returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
 @after {
 	leaveRule();
 }:
-	(
-		kw='{SUPEMPTYROWS}'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getInitialStatementAccess().getSUPEMPTYROWSKeyword_0());
-		}
-		kw='{TabDelim}'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getInitialStatementAccess().getTabDelimKeyword_1());
-		}
-	)
+	kw='{SUPEMPTYROWS}\r\n\t{DECIMAL 10}\r\n\t{TABDELIMIT}\r\n\t{ROWREPEAT}\r\n\t{SUPBRACKETS}\r\n\t{SUPCOMMAS}\r\n\t{NOINDENTGEN}'
+	{
+		$current.merge(kw);
+		newLeafNode(kw, grammarAccess.getInitialStatementAccess().getSUPEMPTYROWSDECIMAL10TABDELIMITROWREPEATSUPBRACKETSSUPCOMMASNOINDENTGENKeyword());
+	}
 ;
 
 // Entry rule entryRuleDescendants
@@ -656,6 +658,86 @@ ruleColumn returns [EObject current=null]
 		otherlv_6='}'
 		{
 			newLeafNode(otherlv_6, grammarAccess.getColumnAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleLink
+entryRuleLink returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLinkRule()); }
+	iv_ruleLink=ruleLink
+	{ $current=$iv_ruleLink.current; }
+	EOF;
+
+// Rule Link
+ruleLink returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='link'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLinkAccess().getLinkKeyword_0());
+		}
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getLinkAccess().getLinkAction_1(),
+					$current);
+			}
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getLinkAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLinkAccess().getDescReferenceParserRuleCall_3_0());
+				}
+				lv_desc_3_0=ruleReference
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLinkRule());
+					}
+					set(
+						$current,
+						"desc",
+						lv_desc_3_0,
+						"org.xtext.example.mydsl.MyDsl.Reference");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=','
+		{
+			newLeafNode(otherlv_4, grammarAccess.getLinkAccess().getCommaKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLinkAccess().getLevReferenceParserRuleCall_5_0());
+				}
+				lv_lev_5_0=ruleReference
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLinkRule());
+					}
+					set(
+						$current,
+						"lev",
+						lv_lev_5_0,
+						"org.xtext.example.mydsl.MyDsl.Reference");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6='}'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getLinkAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

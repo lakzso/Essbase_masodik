@@ -8,12 +8,14 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import com.essbase.api.base.EssException;
 import com.essbase.api.dataquery.IEssGridView;
 
 import hu.bme.mit.inf.essbase.DataQuery;
@@ -56,14 +58,20 @@ public class LatexHandler extends AbstractHandler {
 		
 		
 	    try {
-			cr.setLatexContent(cr.createProject2("Teszt5"),grid);
+	    	IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+	    	
+			cr.setLatexContent(cr.createProject2("Teszt6"),grid);
+			
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (EssException e){
+			e.printStackTrace();
 		}
+	    
 		
 		/*
 		String dir = "Temp";

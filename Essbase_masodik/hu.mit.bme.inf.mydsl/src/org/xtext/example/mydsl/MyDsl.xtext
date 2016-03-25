@@ -8,10 +8,16 @@ Model:
 	'!';
 
 Statement:
-	Column | Row | Descendants | Declaration | Reference | Child;
+	Column | Row | Descendants | Declaration | Reference | Child | Link;
 
 InitialStatement:
-	'{SUPEMPTYROWS}' '{TabDelim}';
+	"{SUPEMPTYROWS}
+	{DECIMAL 10}
+	{TABDELIMIT}
+	{ROWREPEAT}
+	{SUPBRACKETS}
+	{SUPCOMMAS}
+	{NOINDENTGEN}";
 
 Descendants:
 	'descendants' group=ID ',' dimension=Reference;
@@ -33,6 +39,9 @@ Row:
 
 Column:
 	'column' {Column} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
+; 	
+Link:
+	'link' {Link} '{' desc=Reference ',' lev=Reference '}'
 ; 	
 Child:
 	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'

@@ -346,6 +346,43 @@ public interface MyDslPackage extends EPackage
   int COLUMN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LinkImpl <em>Link</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LinkImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLink()
+   * @generated
+   */
+  int LINK = 9;
+
+  /**
+   * The feature id for the '<em><b>Desc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK__DESC = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Lev</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK__LEV = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Link</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ChildImpl <em>Child</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -353,7 +390,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getChild()
    * @generated
    */
-  int CHILD = 9;
+  int CHILD = 10;
 
   /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
@@ -381,7 +418,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 10;
+  int REFERENCE = 11;
 
   /**
    * The feature id for the '<em><b>Referred</b></em>' reference.
@@ -409,7 +446,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStringReference()
    * @generated
    */
-  int STRING_REFERENCE = 11;
+  int STRING_REFERENCE = 12;
 
   /**
    * The feature id for the '<em><b>Referred</b></em>' reference.
@@ -605,6 +642,38 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getColumn_Dimensions();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Link <em>Link</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Link</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Link
+   * @generated
+   */
+  EClass getLink();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Link#getDesc <em>Desc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Desc</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Link#getDesc()
+   * @see #getLink()
+   * @generated
+   */
+  EReference getLink_Desc();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Link#getLev <em>Lev</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lev</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Link#getLev()
+   * @see #getLink()
+   * @generated
+   */
+  EReference getLink_Lev();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Child <em>Child</em>}'.
@@ -837,6 +906,32 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference COLUMN__DIMENSIONS = eINSTANCE.getColumn_Dimensions();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LinkImpl <em>Link</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LinkImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLink()
+     * @generated
+     */
+    EClass LINK = eINSTANCE.getLink();
+
+    /**
+     * The meta object literal for the '<em><b>Desc</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LINK__DESC = eINSTANCE.getLink_Desc();
+
+    /**
+     * The meta object literal for the '<em><b>Lev</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LINK__LEV = eINSTANCE.getLink_Lev();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ChildImpl <em>Child</em>}' class.
