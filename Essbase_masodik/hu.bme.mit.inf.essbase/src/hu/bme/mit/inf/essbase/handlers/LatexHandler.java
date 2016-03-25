@@ -60,7 +60,7 @@ public class LatexHandler extends AbstractHandler {
 	    try {
 	    	IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 	    	
-			cr.setLatexContent(cr.createProject2("Teszt6"),grid);
+			cr.setLatexContent(cr.createProject2("Teszt8"),grid);
 			
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
