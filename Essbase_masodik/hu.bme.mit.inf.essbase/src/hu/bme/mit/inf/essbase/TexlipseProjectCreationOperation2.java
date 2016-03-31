@@ -30,7 +30,7 @@ import org.eclipse.ui.ide.IDE;
  * Operation to add latex nature to the project.
  * The main file is also created here, using the appropriate template.
  * 
- * @author Kimmo Karlsson
+ * @author Zsolt Lakatos
  */
 public class TexlipseProjectCreationOperation2 implements IRunnableWithProgress {
 
