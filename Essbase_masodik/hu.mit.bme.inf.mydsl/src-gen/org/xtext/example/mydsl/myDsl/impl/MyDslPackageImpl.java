@@ -22,6 +22,7 @@ import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Reference;
+import org.xtext.example.mydsl.myDsl.Report;
 import org.xtext.example.mydsl.myDsl.Row;
 import org.xtext.example.mydsl.myDsl.Statement;
 import org.xtext.example.mydsl.myDsl.StringReference;
@@ -110,6 +111,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass childEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reportEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -403,6 +411,26 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getReport()
+  {
+    return reportEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReport_Dimension()
+  {
+    return (EReference)reportEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getReference()
   {
     return referenceEClass;
@@ -500,6 +528,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     childEClass = createEClass(CHILD);
     createEReference(childEClass, CHILD__DIMENSIONS);
 
+    reportEClass = createEClass(REPORT);
+    createEReference(reportEClass, REPORT__DIMENSION);
+
     referenceEClass = createEClass(REFERENCE);
     createEReference(referenceEClass, REFERENCE__REFERRED);
 
@@ -545,6 +576,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     columnEClass.getESuperTypes().add(this.getStatement());
     linkEClass.getESuperTypes().add(this.getStatement());
     childEClass.getESuperTypes().add(this.getStatement());
+    reportEClass.getESuperTypes().add(this.getStatement());
     referenceEClass.getESuperTypes().add(this.getStatement());
     stringReferenceEClass.getESuperTypes().add(this.getReference());
 
@@ -580,6 +612,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChild_Dimensions(), this.getReference(), null, "dimensions", null, 0, -1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reportEClass, Report.class, "Report", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReport_Dimension(), this.getReference(), null, "dimension", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReference_Referred(), this.getDeclaration(), null, "referred", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

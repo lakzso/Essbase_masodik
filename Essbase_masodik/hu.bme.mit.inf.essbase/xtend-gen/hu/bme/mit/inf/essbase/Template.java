@@ -24,7 +24,7 @@ public class Template {
     _builder.newLine();
     _builder.append("\\begin{document}");
     _builder.newLine();
-    _builder.append("\\section{Objektumok költség megszlása}");
+    _builder.append("\\section{Objektumok költség megoszlása}");
     _builder.newLine();
     _builder.append("\\begin {tikzpicture}");
     _builder.newLine();

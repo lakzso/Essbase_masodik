@@ -8,16 +8,16 @@ Model:
 	'!';
 
 Statement:
-	Column | Row | Descendants | Declaration | Reference | Child | Link;
+	Column | Row | Descendants | Declaration | Reference | Child | Link | Report;
 
 InitialStatement:
-	"{SUPEMPTYROWS}
-	{DECIMAL 10}
-	{TABDELIMIT}
-	{ROWREPEAT}
-	{SUPBRACKETS}
-	{SUPCOMMAS}
-	{NOINDENTGEN}";
+"{SUPEMPTYROWS}
+{DECIMAL 10}
+{TABDELIMIT}
+{ROWREPEAT}
+{SUPBRACKETS}
+{SUPCOMMAS}
+{NOINDENTGEN}";
 
 Descendants:
 	'descendants' group=ID ',' dimension=Reference;
@@ -46,7 +46,9 @@ Link:
 Child:
 	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
 ; 	
-
+Report:
+	'reportOutput' {Report} '{' dimension=Reference '}'
+;
 
 Reference:
 	referred=[Declaration] | StringReference;

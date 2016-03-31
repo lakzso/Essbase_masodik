@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.myDsl.MemberDeclaration;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Reference;
+import org.xtext.example.mydsl.myDsl.Report;
 import org.xtext.example.mydsl.myDsl.Row;
 import org.xtext.example.mydsl.myDsl.StringReference;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -68,6 +69,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.REFERENCE:
 				sequence_Reference(context, (Reference) semanticObject); 
+				return; 
+			case MyDslPackage.REPORT:
+				sequence_Report(context, (Report) semanticObject); 
 				return; 
 			case MyDslPackage.ROW:
 				sequence_Row(context, (Row) semanticObject); 
@@ -246,6 +250,25 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getReferenceAccess().getReferredDeclarationIDTerminalRuleCall_0_0_1(), semanticObject.getReferred());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Report
+	 *     Report returns Report
+	 *
+	 * Constraint:
+	 *     dimension=Reference
+	 */
+	protected void sequence_Report(ISerializationContext context, Report semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REPORT__DIMENSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REPORT__DIMENSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0(), semanticObject.getDimension());
 		feeder.finish();
 	}
 	

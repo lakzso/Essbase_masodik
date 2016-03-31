@@ -131,6 +131,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createChildAdapter();
       }
       @Override
+      public Adapter caseReport(Report object)
+      {
+        return createReportAdapter();
+      }
+      @Override
       public Adapter caseReference(Reference object)
       {
         return createReferenceAdapter();
@@ -323,6 +328,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createChildAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Report <em>Report</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Report
+   * @generated
+   */
+  public Adapter createReportAdapter()
   {
     return null;
   }

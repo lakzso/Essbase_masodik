@@ -187,6 +187,15 @@ ruleStatement returns [EObject current=null]
 			$current = $this_Link_6.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getStatementAccess().getReportParserRuleCall_7());
+		}
+		this_Report_7=ruleReport
+		{
+			$current = $this_Report_7.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -205,7 +214,7 @@ ruleInitialStatement returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
 @after {
 	leaveRule();
 }:
-	kw='{SUPEMPTYROWS}\r\n\t{DECIMAL 10}\r\n\t{TABDELIMIT}\r\n\t{ROWREPEAT}\r\n\t{SUPBRACKETS}\r\n\t{SUPCOMMAS}\r\n\t{NOINDENTGEN}'
+	kw='{SUPEMPTYROWS}\r\n{DECIMAL 10}\r\n{TABDELIMIT}\r\n{ROWREPEAT}\r\n{SUPBRACKETS}\r\n{SUPCOMMAS}\r\n{NOINDENTGEN}'
 	{
 		$current.merge(kw);
 		newLeafNode(kw, grammarAccess.getInitialStatementAccess().getSUPEMPTYROWSDECIMAL10TABDELIMITROWREPEATSUPBRACKETSSUPCOMMASNOINDENTGENKeyword());
@@ -820,6 +829,63 @@ ruleChild returns [EObject current=null]
 		otherlv_6='}'
 		{
 			newLeafNode(otherlv_6, grammarAccess.getChildAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleReport
+entryRuleReport returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReportRule()); }
+	iv_ruleReport=ruleReport
+	{ $current=$iv_ruleReport.current; }
+	EOF;
+
+// Rule Report
+ruleReport returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='reportOutput'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getReportAccess().getReportOutputKeyword_0());
+		}
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getReportAccess().getReportAction_1(),
+					$current);
+			}
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getReportAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0());
+				}
+				lv_dimension_3_0=ruleReference
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReportRule());
+					}
+					set(
+						$current,
+						"dimension",
+						lv_dimension_3_0,
+						"org.xtext.example.mydsl.MyDsl.Reference");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getReportAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;

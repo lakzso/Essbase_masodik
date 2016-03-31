@@ -36,6 +36,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" upperBound="-1"
         eType="#//Reference" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Report" eSuperTypes="#//Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" eType="#//Reference"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referred" eType="#//Declaration"/>
   </eClassifiers>

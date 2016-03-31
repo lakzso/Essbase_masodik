@@ -411,6 +411,34 @@ public interface MyDslPackage extends EPackage
   int CHILD_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl <em>Report</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReportImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReport()
+   * @generated
+   */
+  int REPORT = 11;
+
+  /**
+   * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__DIMENSION = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Report</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReferenceImpl <em>Reference</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -418,7 +446,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 11;
+  int REFERENCE = 12;
 
   /**
    * The feature id for the '<em><b>Referred</b></em>' reference.
@@ -446,7 +474,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStringReference()
    * @generated
    */
-  int STRING_REFERENCE = 12;
+  int STRING_REFERENCE = 13;
 
   /**
    * The feature id for the '<em><b>Referred</b></em>' reference.
@@ -695,6 +723,27 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getChild_Dimensions();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Report <em>Report</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Report</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Report
+   * @generated
+   */
+  EClass getReport();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Report#getDimension <em>Dimension</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Dimension</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Report#getDimension()
+   * @see #getReport()
+   * @generated
+   */
+  EReference getReport_Dimension();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Reference <em>Reference</em>}'.
@@ -950,6 +999,24 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference CHILD__DIMENSIONS = eINSTANCE.getChild_Dimensions();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl <em>Report</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReportImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReport()
+     * @generated
+     */
+    EClass REPORT = eINSTANCE.getReport();
+
+    /**
+     * The meta object literal for the '<em><b>Dimension</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REPORT__DIMENSION = eINSTANCE.getReport_Dimension();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReferenceImpl <em>Reference</em>}' class.

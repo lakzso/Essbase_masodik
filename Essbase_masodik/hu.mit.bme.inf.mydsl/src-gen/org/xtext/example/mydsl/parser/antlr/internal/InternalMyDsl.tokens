@@ -7,9 +7,10 @@
 'group'=16
 'link'=22
 'member'=17
+'reportOutput'=24
 'row'=18
 '{'=19
-'{SUPEMPTYROWS}\r\n\t{DECIMAL 10}\r\n\t{TABDELIMIT}\r\n\t{ROWREPEAT}\r\n\t{SUPBRACKETS}\r\n\t{SUPCOMMAS}\r\n\t{NOINDENTGEN}'=12
+'{SUPEMPTYROWS}\r\n{DECIMAL 10}\r\n{TABDELIMIT}\r\n{ROWREPEAT}\r\n{SUPBRACKETS}\r\n{SUPCOMMAS}\r\n{NOINDENTGEN}'=12
 '}'=20
 RULE_ANY_OTHER=10
 RULE_ID=4
@@ -31,3 +32,4 @@ T__20=20
 T__21=21
 T__22=22
 T__23=23
+T__24=24

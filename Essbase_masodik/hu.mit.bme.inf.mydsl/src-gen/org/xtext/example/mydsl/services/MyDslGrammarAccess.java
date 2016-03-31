@@ -63,12 +63,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cReferenceParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cChildParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cLinkParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cReportParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//Statement:
-		//	Column | Row | Descendants | Declaration | Reference | Child | Link;
+		//	Column | Row | Descendants | Declaration | Reference | Child | Link | Report;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Column | Row | Descendants | Declaration | Reference | Child | Link
+		//Column | Row | Descendants | Declaration | Reference | Child | Link | Report
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Column
@@ -91,6 +92,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Link
 		public RuleCall getLinkParserRuleCall_6() { return cLinkParserRuleCall_6; }
+		
+		//Report
+		public RuleCall getReportParserRuleCall_7() { return cReportParserRuleCall_7; }
 	}
 	public class InitialStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.InitialStatement");
@@ -98,21 +102,21 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//InitialStatement:
 		//"{SUPEMPTYROWS}
-		//	{DECIMAL 10}
-		//	{TABDELIMIT}
-		//	{ROWREPEAT}
-		//	{SUPBRACKETS}
-		//	{SUPCOMMAS}
-		//	{NOINDENTGEN}";
+		//{DECIMAL 10}
+		//{TABDELIMIT}
+		//{ROWREPEAT}
+		//{SUPBRACKETS}
+		//{SUPCOMMAS}
+		//{NOINDENTGEN}";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//"{SUPEMPTYROWS}
-		//	{DECIMAL 10}
-		//	{TABDELIMIT}
-		//	{ROWREPEAT}
-		//	{SUPBRACKETS}
-		//	{SUPCOMMAS}
-		//	{NOINDENTGEN}"
+		//{DECIMAL 10}
+		//{TABDELIMIT}
+		//{ROWREPEAT}
+		//{SUPBRACKETS}
+		//{SUPCOMMAS}
+		//{NOINDENTGEN}"
 		public Keyword getSUPEMPTYROWSDECIMAL10TABDELIMITROWREPEATSUPBRACKETSSUPCOMMASNOINDENTGENKeyword() { return cSUPEMPTYROWSDECIMAL10TABDELIMITROWREPEATSUPBRACKETSSUPCOMMASNOINDENTGENKeyword; }
 	}
 	public class DescendantsElements extends AbstractParserRuleElementFinder {
@@ -466,6 +470,41 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
+	public class ReportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Report");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cReportOutputKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Action cReportAction_1 = (Action)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDimensionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDimensionReferenceParserRuleCall_3_0 = (RuleCall)cDimensionAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Report:
+		//	'reportOutput' {Report} '{' dimension=Reference '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'reportOutput' {Report} '{' dimension=Reference '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'reportOutput'
+		public Keyword getReportOutputKeyword_0() { return cReportOutputKeyword_0; }
+		
+		//{Report}
+		public Action getReportAction_1() { return cReportAction_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//dimension=Reference
+		public Assignment getDimensionAssignment_3() { return cDimensionAssignment_3; }
+		
+		//Reference
+		public RuleCall getDimensionReferenceParserRuleCall_3_0() { return cDimensionReferenceParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
 	public class ReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Reference");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -522,6 +561,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ColumnElements pColumn;
 	private final LinkElements pLink;
 	private final ChildElements pChild;
+	private final ReportElements pReport;
 	private final ReferenceElements pReference;
 	private final StringReferenceElements pStringReference;
 	
@@ -546,6 +586,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pColumn = new ColumnElements();
 		this.pLink = new LinkElements();
 		this.pChild = new ChildElements();
+		this.pReport = new ReportElements();
 		this.pReference = new ReferenceElements();
 		this.pStringReference = new StringReferenceElements();
 	}
@@ -590,7 +631,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Statement:
-	//	Column | Row | Descendants | Declaration | Reference | Child | Link;
+	//	Column | Row | Descendants | Declaration | Reference | Child | Link | Report;
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -601,12 +642,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//InitialStatement:
 	//"{SUPEMPTYROWS}
-	//	{DECIMAL 10}
-	//	{TABDELIMIT}
-	//	{ROWREPEAT}
-	//	{SUPBRACKETS}
-	//	{SUPCOMMAS}
-	//	{NOINDENTGEN}";
+	//{DECIMAL 10}
+	//{TABDELIMIT}
+	//{ROWREPEAT}
+	//{SUPBRACKETS}
+	//{SUPCOMMAS}
+	//{NOINDENTGEN}";
 	public InitialStatementElements getInitialStatementAccess() {
 		return pInitialStatement;
 	}
@@ -703,6 +744,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getChildRule() {
 		return getChildAccess().getRule();
+	}
+	
+	//Report:
+	//	'reportOutput' {Report} '{' dimension=Reference '}';
+	public ReportElements getReportAccess() {
+		return pReport;
+	}
+	
+	public ParserRule getReportRule() {
+		return getReportAccess().getRule();
 	}
 	
 	//Reference:

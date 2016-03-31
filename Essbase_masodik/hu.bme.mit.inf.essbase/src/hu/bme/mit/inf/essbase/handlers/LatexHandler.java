@@ -94,8 +94,8 @@ public class LatexHandler extends AbstractHandler {
 		 * } catch (CoreException e) { // TODO Auto-generated catch block
 		 * e.printStackTrace(); }
 		 */
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		MessageDialog.openInformation(window.getShell(), "Latex", rawReport);
+		//IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+		//MessageDialog.openInformation(window.getShell(), "Latex", rawReport);
 		return null;
 
 	}

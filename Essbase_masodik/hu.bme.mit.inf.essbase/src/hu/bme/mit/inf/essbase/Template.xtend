@@ -13,7 +13,7 @@ class Template {
 	  \usepackage{pgf-pie}
 	  \pgfplotsset{compat=1.5}
 	  \begin{document}
-	  \section{Objektumok költség megszlása}
+	  \section{Objektumok költség megoszlása}
 	  \begin {tikzpicture}
 	  \pie {«ktgh»/ Költséghelyek , «szolg»/ Szolgáltatások , «gepj»/ Autók , «ugyf»/ Ügyfelek }
 	  \end {tikzpicture}

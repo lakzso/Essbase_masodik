@@ -34,6 +34,9 @@
     <genClasses ecoreClass="MyDsl.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Child/dimensions"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Report">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Report/dimension"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Reference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Reference/referred"/>
     </genClasses>
