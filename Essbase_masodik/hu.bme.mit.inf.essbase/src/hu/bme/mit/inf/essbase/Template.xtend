@@ -18,20 +18,23 @@ class Template {
 	  \pie {«ktgh»/ Költséghelyek , «szolg»/ Szolgáltatások , «gepj»/ Autók , «ugyf»/ Ügyfelek }
 	  \end {tikzpicture}
 	  
+	  
+	  \section{Ügyfelek költség megszlása}
+	  
 	  \begin{tikzpicture}
 	  \begin{axis}[
 	  view={120}{40},
-	  width=220pt,
-	  height=220pt,
+	  width=350pt,
+	  height=350pt,
 	  grid=major,
 	  z buffer=sort,
-	  xmin=-1,xmax=9,
-	  ymin=-1,ymax=9,
-	  zmin=-1,zmax=9,
+	  xmin=-1,xmax=30,
+	  ymin=-1,ymax=30,
+	  zmin=-1,zmax=30,
 	  enlargelimits=upper,
-	  xtick={-1,1,...,19},
-	  ytick={-1,1,...,19},
-	  ztick={-1,1,...,19},
+	  xtick={-1,1,...,30},
+	  ytick={-1,1,...,30},
+	  ztick={-1,1,...,30},
 	  xlabel={$Ugyfel$},
 	  ylabel={$Koltsegnem$},
 	  zlabel={$Ertek$},

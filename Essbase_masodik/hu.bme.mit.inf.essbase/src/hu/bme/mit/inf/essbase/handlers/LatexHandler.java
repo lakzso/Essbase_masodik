@@ -49,48 +49,51 @@ public class LatexHandler extends AbstractHandler {
 				.getActivePart();
 		IFile file = (IFile) workbenchPart.getSite().getPage().getActiveEditor().getEditorInput()
 				.getAdapter(IFile.class);
-		String content = file.getName();
+		String xtextFileName = file.getName().replaceFirst(".mydsl", "");
+		Boolean projectCreated = false;
 		ReportParser rp = new ReportParser();
 		String rawReport = rp.Parser(file.getLocation().toString());
 		DataQuery query = new DataQuery();
-		IEssGridView grid=query.query(rawReport);
+		IEssGridView grid = query.query(rawReport);
 		ReportCreation cr = new ReportCreation();
-		
-		
-	    try {
-	    	IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-	    	
-			cr.setLatexContent(cr.createProject2("Teszt8"),grid);
+
+		try {
+			IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+			for (int i = 0; i < projects.length; i++) {
+				IProject project = projects[i];
+
+				if (project.getName().equalsIgnoreCase(xtextFileName)) {
+					projectCreated = true;
+				}
+			}
+			if (!projectCreated){
+				cr.setLatexContent(cr.createProject2(xtextFileName), grid,xtextFileName);
 			
+			}
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (EssException e){
+		} catch (EssException e) {
 			e.printStackTrace();
 		}
-	    
-		
+
 		/*
-		String dir = "Temp";
-		try {
-			IProject lproject = cr.createProject("teszt");
-			cr.createDir(lproject, null, dir, true);
-			StringBuilder latexReport = cr.getLatexContent(grid);
-			IFile mainFile = lproject.getFile("/tesztelo.tex");
-			cr.createMainFile(mainFile, false, latexReport);
-			
-			lproject.open(null);
-			lproject.build(IncrementalProjectBuilder.AUTO_BUILD, null);
-            
-			
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-         */
+		 * String dir = "Temp"; try { IProject lproject =
+		 * cr.createProject("teszt"); cr.createDir(lproject, null, dir, true);
+		 * StringBuilder latexReport = cr.getLatexContent(grid); IFile mainFile
+		 * = lproject.getFile("/tesztelo.tex"); cr.createMainFile(mainFile,
+		 * false, latexReport);
+		 * 
+		 * lproject.open(null);
+		 * lproject.build(IncrementalProjectBuilder.AUTO_BUILD, null);
+		 * 
+		 * 
+		 * } catch (CoreException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(window.getShell(), "Latex", rawReport);
 		return null;

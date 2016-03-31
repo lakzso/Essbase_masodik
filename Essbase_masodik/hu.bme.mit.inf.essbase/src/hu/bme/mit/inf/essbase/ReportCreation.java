@@ -92,11 +92,12 @@ public class ReportCreation {
 		attr.setBuilder(2);
 		TexlipseProjectCreationOperation2 pr = new TexlipseProjectCreationOperation2(attr);
 		pr.run(null);
-
+		
+		
 		return pr.getMainFile();
 	}
 
-	public void setLatexContent(IFile mainFile, IEssGridView grid) throws EssException {
+	public void setLatexContent(IFile mainFile, IEssGridView grid,String projectName) throws EssException {
 
 		Template t = new Template();
 		int cntRows = 0, cntCols = 0;
@@ -131,7 +132,28 @@ public class ReportCreation {
         ugyf*=100;
 		@SuppressWarnings("deprecation")
 		InputStream str = new StringBufferInputStream(t.getLatexContent( Math.round(ktgh), Math.round(szolg), Math.round(gepj), Math.round(ugyf)).toString());
-
+        
+	
+		
+		
+		IProject latexProject=ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+		IFolder plotFolder=latexProject.getFolder("plotdata");
+		try {
+			plotFolder.create(true, true, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		IFile dataFile=plotFolder.getFile("data.dat");
+		try {
+			dataFile.create(null, 0, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 		try {
 			mainFile.setContents(str, 1, null);
 		} catch (CoreException e) {
