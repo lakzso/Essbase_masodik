@@ -260,15 +260,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Report returns Report
 	 *
 	 * Constraint:
-	 *     dimension=Reference
+	 *     repout=StringReference
 	 */
 	protected void sequence_Report(ISerializationContext context, Report semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REPORT__DIMENSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REPORT__DIMENSION));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REPORT__REPOUT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REPORT__REPOUT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0(), semanticObject.getDimension());
+		feeder.accept(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_3_0(), semanticObject.getRepout());
 		feeder.finish();
 	}
 	

@@ -11,6 +11,7 @@ import org.xtext.example.mydsl.myDsl.DimensionDeclaration;
 import org.xtext.example.mydsl.myDsl.Link;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.Reference;
+import org.xtext.example.mydsl.myDsl.Report;
 import org.xtext.example.mydsl.myDsl.Row;
 import org.xtext.example.mydsl.myDsl.Statement;
 
@@ -34,7 +35,8 @@ public class ReportParser {
 		Row row = null;
 		Child child;
 	    Link link;
-		
+		Report rep;
+	    
 		for (Statement statement : m.getStatements()) {
 			if (statement instanceof Column) {
 				col = (Column) statement;
@@ -64,6 +66,10 @@ public class ReportParser {
 			else if (statement instanceof Link) {
 				link = (Link) statement;
 				Report += " <LINK(<DESCENDANTS(\""+link.getDesc().getReferred().getValue()+"\") AND <LEV (\""+ link.getLev().getReferred().getValue() +"\",  0))";
+			}
+			else if (statement instanceof Report) {
+				rep = (Report) statement;
+				ReportCreation.reportOut=rep.getRepout().getValue().toString();
 			}
 		}
 		Report+=" !";

@@ -42,7 +42,7 @@ public class Template {
     _builder.newLine();
     _builder.newLine();
     _builder.newLine();
-    _builder.append("\\section{Ügyfelek költség megszlása}");
+    _builder.append("\\section{Adott objektum költség megoszlása}");
     _builder.newLine();
     _builder.newLine();
     _builder.append("\\begin{tikzpicture}");
@@ -73,7 +73,7 @@ public class Template {
     _builder.newLine();
     _builder.append("ztick={-1,1,...,30},");
     _builder.newLine();
-    _builder.append("xlabel={$Ugyfel$},");
+    _builder.append("xlabel={$Objektum$},");
     _builder.newLine();
     _builder.append("ylabel={$Koltsegnem$},");
     _builder.newLine();

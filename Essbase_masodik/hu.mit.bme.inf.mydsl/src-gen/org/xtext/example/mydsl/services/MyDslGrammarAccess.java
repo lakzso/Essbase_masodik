@@ -476,15 +476,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReportOutputKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Action cReportAction_1 = (Action)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDimensionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDimensionReferenceParserRuleCall_3_0 = (RuleCall)cDimensionAssignment_3.eContents().get(0);
+		private final Assignment cRepoutAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRepoutStringReferenceParserRuleCall_3_0 = (RuleCall)cRepoutAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Report:
-		//	'reportOutput' {Report} '{' dimension=Reference '}';
+		//	'reportOutput' {Report} '{' repout=StringReference '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'reportOutput' {Report} '{' dimension=Reference '}'
+		//'reportOutput' {Report} '{' repout=StringReference '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'reportOutput'
@@ -496,11 +496,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//dimension=Reference
-		public Assignment getDimensionAssignment_3() { return cDimensionAssignment_3; }
+		//repout=StringReference
+		public Assignment getRepoutAssignment_3() { return cRepoutAssignment_3; }
 		
-		//Reference
-		public RuleCall getDimensionReferenceParserRuleCall_3_0() { return cDimensionReferenceParserRuleCall_3_0; }
+		//StringReference
+		public RuleCall getRepoutStringReferenceParserRuleCall_3_0() { return cRepoutStringReferenceParserRuleCall_3_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -747,7 +747,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Report:
-	//	'reportOutput' {Report} '{' dimension=Reference '}';
+	//	'reportOutput' {Report} '{' repout=StringReference '}';
 	public ReportElements getReportAccess() {
 		return pReport;
 	}

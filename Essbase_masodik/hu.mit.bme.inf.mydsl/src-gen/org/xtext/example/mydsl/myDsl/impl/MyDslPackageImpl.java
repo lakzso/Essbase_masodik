@@ -421,7 +421,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReport_Dimension()
+  public EReference getReport_Repout()
   {
     return (EReference)reportEClass.getEStructuralFeatures().get(0);
   }
@@ -529,7 +529,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(childEClass, CHILD__DIMENSIONS);
 
     reportEClass = createEClass(REPORT);
-    createEReference(reportEClass, REPORT__DIMENSION);
+    createEReference(reportEClass, REPORT__REPOUT);
 
     referenceEClass = createEClass(REFERENCE);
     createEReference(referenceEClass, REFERENCE__REFERRED);
@@ -614,7 +614,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getChild_Dimensions(), this.getReference(), null, "dimensions", null, 0, -1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reportEClass, Report.class, "Report", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getReport_Dimension(), this.getReference(), null, "dimension", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReport_Repout(), this.getStringReference(), null, "repout", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReference_Referred(), this.getDeclaration(), null, "referred", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

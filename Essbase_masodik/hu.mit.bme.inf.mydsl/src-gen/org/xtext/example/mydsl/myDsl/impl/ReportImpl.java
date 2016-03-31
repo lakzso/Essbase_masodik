@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Reference;
 import org.xtext.example.mydsl.myDsl.Report;
+import org.xtext.example.mydsl.myDsl.StringReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +23,7 @@ import org.xtext.example.mydsl.myDsl.Report;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl#getDimension <em>Dimension</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl#getRepout <em>Repout</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,14 +31,14 @@ import org.xtext.example.mydsl.myDsl.Report;
 public class ReportImpl extends StatementImpl implements Report
 {
   /**
-   * The cached value of the '{@link #getDimension() <em>Dimension</em>}' containment reference.
+   * The cached value of the '{@link #getRepout() <em>Repout</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDimension()
+   * @see #getRepout()
    * @generated
    * @ordered
    */
-  protected Reference dimension;
+  protected StringReference repout;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,9 +66,9 @@ public class ReportImpl extends StatementImpl implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public Reference getDimension()
+  public StringReference getRepout()
   {
-    return dimension;
+    return repout;
   }
 
   /**
@@ -76,13 +76,13 @@ public class ReportImpl extends StatementImpl implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDimension(Reference newDimension, NotificationChain msgs)
+  public NotificationChain basicSetRepout(StringReference newRepout, NotificationChain msgs)
   {
-    Reference oldDimension = dimension;
-    dimension = newDimension;
+    StringReference oldRepout = repout;
+    repout = newRepout;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__DIMENSION, oldDimension, newDimension);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__REPOUT, oldRepout, newRepout);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +93,20 @@ public class ReportImpl extends StatementImpl implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDimension(Reference newDimension)
+  public void setRepout(StringReference newRepout)
   {
-    if (newDimension != dimension)
+    if (newRepout != repout)
     {
       NotificationChain msgs = null;
-      if (dimension != null)
-        msgs = ((InternalEObject)dimension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT__DIMENSION, null, msgs);
-      if (newDimension != null)
-        msgs = ((InternalEObject)newDimension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT__DIMENSION, null, msgs);
-      msgs = basicSetDimension(newDimension, msgs);
+      if (repout != null)
+        msgs = ((InternalEObject)repout).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT__REPOUT, null, msgs);
+      if (newRepout != null)
+        msgs = ((InternalEObject)newRepout).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT__REPOUT, null, msgs);
+      msgs = basicSetRepout(newRepout, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__DIMENSION, newDimension, newDimension));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__REPOUT, newRepout, newRepout));
   }
 
   /**
@@ -119,8 +119,8 @@ public class ReportImpl extends StatementImpl implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__DIMENSION:
-        return basicSetDimension(null, msgs);
+      case MyDslPackage.REPORT__REPOUT:
+        return basicSetRepout(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +135,8 @@ public class ReportImpl extends StatementImpl implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__DIMENSION:
-        return getDimension();
+      case MyDslPackage.REPORT__REPOUT:
+        return getRepout();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +151,8 @@ public class ReportImpl extends StatementImpl implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__DIMENSION:
-        setDimension((Reference)newValue);
+      case MyDslPackage.REPORT__REPOUT:
+        setRepout((StringReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +168,8 @@ public class ReportImpl extends StatementImpl implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__DIMENSION:
-        setDimension((Reference)null);
+      case MyDslPackage.REPORT__REPOUT:
+        setRepout((StringReference)null);
         return;
     }
     super.eUnset(featureID);
@@ -185,8 +185,8 @@ public class ReportImpl extends StatementImpl implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__DIMENSION:
-        return dimension != null;
+      case MyDslPackage.REPORT__REPOUT:
+        return repout != null;
     }
     return super.eIsSet(featureID);
   }

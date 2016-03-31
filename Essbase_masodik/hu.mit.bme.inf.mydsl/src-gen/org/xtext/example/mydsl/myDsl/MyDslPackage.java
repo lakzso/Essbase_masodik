@@ -421,13 +421,13 @@ public interface MyDslPackage extends EPackage
   int REPORT = 11;
 
   /**
-   * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+   * The feature id for the '<em><b>Repout</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPORT__DIMENSION = STATEMENT_FEATURE_COUNT + 0;
+  int REPORT__REPOUT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Report</em>' class.
@@ -735,15 +735,15 @@ public interface MyDslPackage extends EPackage
   EClass getReport();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Report#getDimension <em>Dimension</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Dimension</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Report#getDimension()
+   * @return the meta object for the containment reference '<em>Repout</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Report#getRepout()
    * @see #getReport()
    * @generated
    */
-  EReference getReport_Dimension();
+  EReference getReport_Repout();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Reference <em>Reference</em>}'.
@@ -1011,12 +1011,12 @@ public interface MyDslPackage extends EPackage
     EClass REPORT = eINSTANCE.getReport();
 
     /**
-     * The meta object literal for the '<em><b>Dimension</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Repout</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REPORT__DIMENSION = eINSTANCE.getReport_Dimension();
+    EReference REPORT__REPOUT = eINSTANCE.getReport_Repout();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReferenceImpl <em>Reference</em>}' class.

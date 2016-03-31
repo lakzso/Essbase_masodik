@@ -13,7 +13,7 @@ package org.xtext.example.mydsl.myDsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Report#getDimension <em>Dimension</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReport()
@@ -23,29 +23,29 @@ package org.xtext.example.mydsl.myDsl;
 public interface Report extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Dimension</b></em>' containment reference.
+   * Returns the value of the '<em><b>Repout</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Dimension</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Repout</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Dimension</em>' containment reference.
-   * @see #setDimension(Reference)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReport_Dimension()
+   * @return the value of the '<em>Repout</em>' containment reference.
+   * @see #setRepout(StringReference)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReport_Repout()
    * @model containment="true"
    * @generated
    */
-  Reference getDimension();
+  StringReference getRepout();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Report#getDimension <em>Dimension</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Dimension</em>' containment reference.
-   * @see #getDimension()
+   * @param value the new value of the '<em>Repout</em>' containment reference.
+   * @see #getRepout()
    * @generated
    */
-  void setDimension(Reference value);
+  void setRepout(StringReference value);
 
 } // Report

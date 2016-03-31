@@ -867,18 +867,18 @@ ruleReport returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_3_0());
 				}
-				lv_dimension_3_0=ruleReference
+				lv_repout_3_0=ruleStringReference
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getReportRule());
 					}
 					set(
 						$current,
-						"dimension",
-						lv_dimension_3_0,
-						"org.xtext.example.mydsl.MyDsl.Reference");
+						"repout",
+						lv_repout_3_0,
+						"org.xtext.example.mydsl.MyDsl.StringReference");
 					afterParserOrEnumRuleCall();
 				}
 			)

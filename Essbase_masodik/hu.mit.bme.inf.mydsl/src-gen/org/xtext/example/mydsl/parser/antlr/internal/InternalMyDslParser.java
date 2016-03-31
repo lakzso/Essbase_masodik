@@ -2078,25 +2078,25 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReport"
-    // InternalMyDsl.g:844:1: ruleReport returns [EObject current=null] : (otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_dimension_3_0= ruleReference ) ) otherlv_4= '}' ) ;
+    // InternalMyDsl.g:844:1: ruleReport returns [EObject current=null] : (otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_repout_3_0= ruleStringReference ) ) otherlv_4= '}' ) ;
     public final EObject ruleReport() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
         Token otherlv_4=null;
-        EObject lv_dimension_3_0 = null;
+        EObject lv_repout_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalMyDsl.g:850:2: ( (otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_dimension_3_0= ruleReference ) ) otherlv_4= '}' ) )
-            // InternalMyDsl.g:851:2: (otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_dimension_3_0= ruleReference ) ) otherlv_4= '}' )
+            // InternalMyDsl.g:850:2: ( (otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_repout_3_0= ruleStringReference ) ) otherlv_4= '}' ) )
+            // InternalMyDsl.g:851:2: (otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_repout_3_0= ruleStringReference ) ) otherlv_4= '}' )
             {
-            // InternalMyDsl.g:851:2: (otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_dimension_3_0= ruleReference ) ) otherlv_4= '}' )
-            // InternalMyDsl.g:852:3: otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_dimension_3_0= ruleReference ) ) otherlv_4= '}'
+            // InternalMyDsl.g:851:2: (otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_repout_3_0= ruleStringReference ) ) otherlv_4= '}' )
+            // InternalMyDsl.g:852:3: otherlv_0= 'reportOutput' () otherlv_2= '{' ( (lv_repout_3_0= ruleStringReference ) ) otherlv_4= '}'
             {
             otherlv_0=(Token)match(input,24,FOLLOW_8); 
 
@@ -2117,17 +2117,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getReportAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalMyDsl.g:867:3: ( (lv_dimension_3_0= ruleReference ) )
-            // InternalMyDsl.g:868:4: (lv_dimension_3_0= ruleReference )
+            // InternalMyDsl.g:867:3: ( (lv_repout_3_0= ruleStringReference ) )
+            // InternalMyDsl.g:868:4: (lv_repout_3_0= ruleStringReference )
             {
-            // InternalMyDsl.g:868:4: (lv_dimension_3_0= ruleReference )
-            // InternalMyDsl.g:869:5: lv_dimension_3_0= ruleReference
+            // InternalMyDsl.g:868:4: (lv_repout_3_0= ruleStringReference )
+            // InternalMyDsl.g:869:5: lv_repout_3_0= ruleStringReference
             {
 
-            					newCompositeNode(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_3_0());
             				
             pushFollow(FOLLOW_10);
-            lv_dimension_3_0=ruleReference();
+            lv_repout_3_0=ruleStringReference();
 
             state._fsp--;
 
@@ -2137,9 +2137,9 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             					}
             					set(
             						current,
-            						"dimension",
-            						lv_dimension_3_0,
-            						"org.xtext.example.mydsl.MyDsl.Reference");
+            						"repout",
+            						lv_repout_3_0,
+            						"org.xtext.example.mydsl.MyDsl.StringReference");
             					afterParserOrEnumRuleCall();
             				
 

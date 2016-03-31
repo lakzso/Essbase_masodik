@@ -1897,9 +1897,9 @@ rule__Report__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getReportAccess().getDimensionAssignment_3()); }
-	(rule__Report__DimensionAssignment_3)
-	{ after(grammarAccess.getReportAccess().getDimensionAssignment_3()); }
+	{ before(grammarAccess.getReportAccess().getRepoutAssignment_3()); }
+	(rule__Report__RepoutAssignment_3)
+	{ after(grammarAccess.getReportAccess().getRepoutAssignment_3()); }
 )
 ;
 finally {
@@ -2188,15 +2188,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Report__DimensionAssignment_3
+rule__Report__RepoutAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0()); }
-		ruleReference
-		{ after(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0()); }
+		{ before(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_3_0()); }
+		ruleStringReference
+		{ after(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_3_0()); }
 	)
 ;
 finally {

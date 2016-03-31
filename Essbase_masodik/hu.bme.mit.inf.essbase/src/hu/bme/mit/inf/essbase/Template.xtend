@@ -19,7 +19,7 @@ class Template {
 	  \end {tikzpicture}
 	  
 	  
-	  \section{Ügyfelek költség megszlása}
+	  \section{Adott objektum költség megoszlása}
 	  
 	  \begin{tikzpicture}
 	  \begin{axis}[
@@ -35,7 +35,7 @@ class Template {
 	  xtick={-1,1,...,30},
 	  ytick={-1,1,...,30},
 	  ztick={-1,1,...,30},
-	  xlabel={$Ugyfel$},
+	  xlabel={$Objektum$},
 	  ylabel={$Koltsegnem$},
 	  zlabel={$Ertek$},
 	  point meta={x+y+z+3},

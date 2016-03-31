@@ -31,6 +31,7 @@ import net.sourceforge.texlipse.wizards.TexlipseProjectAttributes;
 import net.sourceforge.texlipse.wizards.TexlipseProjectCreationOperation;
 
 public class ReportCreation {
+	public static String reportOut;
 
 	public IProject createProject(String name) throws CoreException {
 		// Referring a project in the workspace by it's name
@@ -117,7 +118,7 @@ public class ReportCreation {
 		objectData.newLine();
 
 		for (int i = 0; i < cntRows; i++) {
-			for (int j = 0; j < cntCols; j++){
+			for (int j = 0; j < cntCols; j++) {
 				if (grid.getValue(i, j).toString().contains("KH")) {
 					ktgh += Double.valueOf(grid.getValue(i, j + 2).toString().replace("E", ""));
 				} else if (grid.getValue(i, j).toString().contains("SZOL")) {
@@ -128,8 +129,8 @@ public class ReportCreation {
 				} else if (grid.getValue(i, j).toString().contains("UGYF")) {
 					ugyf += Double.valueOf(grid.getValue(i, j + 2).toString().replace("E", ""));
 				}
-			    
-				if (grid.getValue(i, j).toString().contains("UGYF")) {
+
+				if (grid.getValue(i, j).toString().contains(reportOut)) {
 					if (!objectNumber.contains(grid.getValue(i, j).toString())) {
 						clnumber++;
 						objectNumber.put(grid.getValue(i, j).toString(), clnumber.toString());
@@ -146,7 +147,7 @@ public class ReportCreation {
 											Double.valueOf(grid.getValue(i, j + 2).toString().replace("E", "")) % 29)
 													.toString());
 					objectData.newLine();
-				}	
+				}
 			}
 		}
 		sum = ktgh + szolg + gepj + ugyf;

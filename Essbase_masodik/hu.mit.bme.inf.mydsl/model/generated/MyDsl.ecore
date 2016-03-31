@@ -37,7 +37,7 @@
         eType="#//Reference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Report" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" eType="#//Reference"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repout" eType="#//StringReference"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Statement">

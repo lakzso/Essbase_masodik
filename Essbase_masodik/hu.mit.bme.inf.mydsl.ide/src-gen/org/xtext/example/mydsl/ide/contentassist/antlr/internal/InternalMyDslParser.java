@@ -5654,31 +5654,31 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Report__Group__3__Impl"
-    // InternalMyDsl.g:1894:1: rule__Report__Group__3__Impl : ( ( rule__Report__DimensionAssignment_3 ) ) ;
+    // InternalMyDsl.g:1894:1: rule__Report__Group__3__Impl : ( ( rule__Report__RepoutAssignment_3 ) ) ;
     public final void rule__Report__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:1898:1: ( ( ( rule__Report__DimensionAssignment_3 ) ) )
-            // InternalMyDsl.g:1899:1: ( ( rule__Report__DimensionAssignment_3 ) )
+            // InternalMyDsl.g:1898:1: ( ( ( rule__Report__RepoutAssignment_3 ) ) )
+            // InternalMyDsl.g:1899:1: ( ( rule__Report__RepoutAssignment_3 ) )
             {
-            // InternalMyDsl.g:1899:1: ( ( rule__Report__DimensionAssignment_3 ) )
-            // InternalMyDsl.g:1900:2: ( rule__Report__DimensionAssignment_3 )
+            // InternalMyDsl.g:1899:1: ( ( rule__Report__RepoutAssignment_3 ) )
+            // InternalMyDsl.g:1900:2: ( rule__Report__RepoutAssignment_3 )
             {
-             before(grammarAccess.getReportAccess().getDimensionAssignment_3()); 
-            // InternalMyDsl.g:1901:2: ( rule__Report__DimensionAssignment_3 )
-            // InternalMyDsl.g:1901:3: rule__Report__DimensionAssignment_3
+             before(grammarAccess.getReportAccess().getRepoutAssignment_3()); 
+            // InternalMyDsl.g:1901:2: ( rule__Report__RepoutAssignment_3 )
+            // InternalMyDsl.g:1901:3: rule__Report__RepoutAssignment_3
             {
             pushFollow(FOLLOW_2);
-            rule__Report__DimensionAssignment_3();
+            rule__Report__RepoutAssignment_3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getReportAccess().getDimensionAssignment_3()); 
+             after(grammarAccess.getReportAccess().getRepoutAssignment_3()); 
 
             }
 
@@ -6439,26 +6439,26 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Child__DimensionsAssignment_4_1"
 
 
-    // $ANTLR start "rule__Report__DimensionAssignment_3"
-    // InternalMyDsl.g:2191:1: rule__Report__DimensionAssignment_3 : ( ruleReference ) ;
-    public final void rule__Report__DimensionAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__Report__RepoutAssignment_3"
+    // InternalMyDsl.g:2191:1: rule__Report__RepoutAssignment_3 : ( ruleStringReference ) ;
+    public final void rule__Report__RepoutAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:2195:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:2196:2: ( ruleReference )
+            // InternalMyDsl.g:2195:1: ( ( ruleStringReference ) )
+            // InternalMyDsl.g:2196:2: ( ruleStringReference )
             {
-            // InternalMyDsl.g:2196:2: ( ruleReference )
-            // InternalMyDsl.g:2197:3: ruleReference
+            // InternalMyDsl.g:2196:2: ( ruleStringReference )
+            // InternalMyDsl.g:2197:3: ruleStringReference
             {
-             before(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0()); 
+             before(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
-            ruleReference();
+            ruleStringReference();
 
             state._fsp--;
 
-             after(grammarAccess.getReportAccess().getDimensionReferenceParserRuleCall_3_0()); 
+             after(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_3_0()); 
 
             }
 
@@ -6477,7 +6477,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Report__DimensionAssignment_3"
+    // $ANTLR end "rule__Report__RepoutAssignment_3"
 
 
     // $ANTLR start "rule__Reference__ReferredAssignment_0"

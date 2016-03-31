@@ -47,7 +47,7 @@ Child:
 	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
 ; 	
 Report:
-	'reportOutput' {Report} '{' dimension=Reference '}'
+	'reportOutput' {Report} '{' repout=StringReference '}'
 ;
 
 Reference:
