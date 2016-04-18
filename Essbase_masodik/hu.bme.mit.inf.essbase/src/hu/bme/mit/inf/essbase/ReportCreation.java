@@ -3,6 +3,7 @@ package hu.bme.mit.inf.essbase;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
@@ -103,7 +104,7 @@ public class ReportCreation {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void setLatexContent(IFile mainFile, IEssGridView grid, String projectName,String repUrl) throws EssException {
+	public void setLatexContent(IFile mainFile, IEssGridView grid, String projectName,String repUrl) throws EssException, FileNotFoundException {
 
 		Template t = new Template();
 		int cntRows = 0, cntCols = 0;
@@ -191,7 +192,7 @@ public class ReportCreation {
 		}
 		IFile rawFile = rawFolder.getFile("raw_rep.pl");
 		try {
-			rawFile.create(new StringBufferInputStream(URI.createFileURI(repUrl).toFileString()), 0, null);
+			rawFile.create(new FileInputStream(repUrl), 0, null);
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,5 +1,6 @@
 package hu.bme.mit.inf.essbase.handlers;
 
+import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ListIterator;
 
@@ -73,7 +74,12 @@ public class LatexHandler extends AbstractHandler {
 				}
 			}
 			if (!projectCreated) {
-				cr.setLatexContent(cr.createProject2(xtextFileName), grid, xtextFileName,file.getLocation().toString());
+				try {
+					cr.setLatexContent(cr.createProject2(xtextFileName), grid, xtextFileName,file.getLocation().toString());
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
 			}
 		} catch (InvocationTargetException e) {
