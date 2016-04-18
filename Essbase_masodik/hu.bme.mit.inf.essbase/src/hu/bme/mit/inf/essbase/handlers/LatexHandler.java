@@ -73,7 +73,7 @@ public class LatexHandler extends AbstractHandler {
 				}
 			}
 			if (!projectCreated) {
-				cr.setLatexContent(cr.createProject2(xtextFileName), grid, xtextFileName);
+				cr.setLatexContent(cr.createProject2(xtextFileName), grid, xtextFileName,file.getLocation().toString());
 
 			}
 		} catch (InvocationTargetException e) {

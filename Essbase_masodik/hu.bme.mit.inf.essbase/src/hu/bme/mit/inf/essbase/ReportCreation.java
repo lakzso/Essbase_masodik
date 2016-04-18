@@ -20,6 +20,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 import com.essbase.api.base.EssException;
@@ -101,7 +103,7 @@ public class ReportCreation {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void setLatexContent(IFile mainFile, IEssGridView grid, String projectName) throws EssException {
+	public void setLatexContent(IFile mainFile, IEssGridView grid, String projectName,String repUrl) throws EssException {
 
 		Template t = new Template();
 		int cntRows = 0, cntCols = 0;
@@ -177,7 +179,27 @@ public class ReportCreation {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+        
+		
+		
+		IFolder rawFolder = latexProject.getFolder("raw");
+		try {
+			rawFolder.create(true, true, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		IFile rawFile = rawFolder.getFile("raw_rep.pl");
+		try {
+			rawFile.create(new StringBufferInputStream(URI.createFileURI(repUrl).toFileString()), 0, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
 		try {
 			mainFile.setContents(str, 1, null);
 		} catch (CoreException e) {
