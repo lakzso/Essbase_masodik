@@ -21,7 +21,7 @@ package org.xtext.example.mydsl.myDsl;
  * @model
  * @generated
  */
-public interface Link extends Statement
+public interface Link extends ReportQueryParameters
 {
   /**
    * Returns the value of the '<em><b>Desc</b></em>' containment reference.

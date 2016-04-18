@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Model#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Model#getQueries <em>Queries</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Model#getReports <em>Reports</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel()
@@ -26,19 +27,35 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Statement}.
+   * Returns the value of the '<em><b>Queries</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Query}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Queries</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statements</em>' containment reference list.
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel_Statements()
+   * @return the value of the '<em>Queries</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel_Queries()
    * @model containment="true"
    * @generated
    */
-  EList<Statement> getStatements();
+  EList<Query> getQueries();
+
+  /**
+   * Returns the value of the '<em><b>Reports</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Report}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Reports</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Reports</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel_Reports()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Report> getReports();
 
 } // Model

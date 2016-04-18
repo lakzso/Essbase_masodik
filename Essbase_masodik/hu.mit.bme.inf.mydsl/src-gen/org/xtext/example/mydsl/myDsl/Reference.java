@@ -20,7 +20,7 @@ package org.xtext.example.mydsl.myDsl;
  * @model
  * @generated
  */
-public interface Reference extends Statement
+public interface Reference extends ReportQueryParameters
 {
   /**
    * Returns the value of the '<em><b>Referred</b></em>' reference.

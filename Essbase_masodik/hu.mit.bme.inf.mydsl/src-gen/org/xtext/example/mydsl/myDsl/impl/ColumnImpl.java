@@ -32,7 +32,7 @@ import org.xtext.example.mydsl.myDsl.Reference;
  *
  * @generated
  */
-public class ColumnImpl extends StatementImpl implements Column
+public class ColumnImpl extends ReportQueryParametersImpl implements Column
 {
   /**
    * The cached value of the '{@link #getDimensions() <em>Dimensions</em>}' containment reference list.

@@ -21,7 +21,7 @@ package org.xtext.example.mydsl.myDsl;
  * @model
  * @generated
  */
-public interface Declaration extends Statement
+public interface Declaration extends ReportQueryParameters
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

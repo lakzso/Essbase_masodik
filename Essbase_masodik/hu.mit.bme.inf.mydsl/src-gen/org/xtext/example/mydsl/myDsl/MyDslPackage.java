@@ -68,13 +68,22 @@ public interface MyDslPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Queries</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__STATEMENTS = 0;
+  int MODEL__QUERIES = 0;
+
+  /**
+   * The feature id for the '<em><b>Reports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__REPORTS = 1;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -83,26 +92,91 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int MODEL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.QueryImpl <em>Query</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.StatementImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement()
+   * @see org.xtext.example.mydsl.myDsl.impl.QueryImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getQuery()
    * @generated
    */
-  int STATEMENT = 1;
+  int QUERY = 1;
 
   /**
-   * The number of structural features of the '<em>Statement</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 0;
+  int QUERY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Query</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY__QUERY = 1;
+
+  /**
+   * The number of structural features of the '<em>Query</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl <em>Report</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReportImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReport()
+   * @generated
+   */
+  int REPORT = 2;
+
+  /**
+   * The feature id for the '<em><b>Repout</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT__REPOUT = 0;
+
+  /**
+   * The number of structural features of the '<em>Report</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportQueryParametersImpl <em>Report Query Parameters</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ReportQueryParametersImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReportQueryParameters()
+   * @generated
+   */
+  int REPORT_QUERY_PARAMETERS = 3;
+
+  /**
+   * The number of structural features of the '<em>Report Query Parameters</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT_QUERY_PARAMETERS_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DescendantsImpl <em>Descendants</em>}' class.
@@ -112,7 +186,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDescendants()
    * @generated
    */
-  int DESCENDANTS = 2;
+  int DESCENDANTS = 4;
 
   /**
    * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -121,7 +195,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DESCENDANTS__GROUP = STATEMENT_FEATURE_COUNT + 0;
+  int DESCENDANTS__GROUP = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Dimension</b></em>' containment reference.
@@ -130,7 +204,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DESCENDANTS__DIMENSION = STATEMENT_FEATURE_COUNT + 1;
+  int DESCENDANTS__DIMENSION = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Descendants</em>' class.
@@ -139,7 +213,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DESCENDANTS_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int DESCENDANTS_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DeclarationImpl <em>Declaration</em>}' class.
@@ -149,7 +223,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 3;
+  int DECLARATION = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -158,7 +232,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATION__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int DECLARATION__NAME = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -167,7 +241,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATION__VALUE = STATEMENT_FEATURE_COUNT + 1;
+  int DECLARATION__VALUE = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Declaration</em>' class.
@@ -176,7 +250,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int DECLARATION_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DimensionDeclarationImpl <em>Dimension Declaration</em>}' class.
@@ -186,7 +260,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDimensionDeclaration()
    * @generated
    */
-  int DIMENSION_DECLARATION = 4;
+  int DIMENSION_DECLARATION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -223,7 +297,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGroupDeclaration()
    * @generated
    */
-  int GROUP_DECLARATION = 5;
+  int GROUP_DECLARATION = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -260,7 +334,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMemberDeclaration()
    * @generated
    */
-  int MEMBER_DECLARATION = 6;
+  int MEMBER_DECLARATION = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -297,7 +371,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRow()
    * @generated
    */
-  int ROW = 7;
+  int ROW = 9;
 
   /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
@@ -306,7 +380,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROW__DIMENSIONS = STATEMENT_FEATURE_COUNT + 0;
+  int ROW__DIMENSIONS = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Row</em>' class.
@@ -315,7 +389,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROW_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int ROW_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ColumnImpl <em>Column</em>}' class.
@@ -325,7 +399,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getColumn()
    * @generated
    */
-  int COLUMN = 8;
+  int COLUMN = 10;
 
   /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
@@ -334,7 +408,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN__DIMENSIONS = STATEMENT_FEATURE_COUNT + 0;
+  int COLUMN__DIMENSIONS = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Column</em>' class.
@@ -343,7 +417,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLUMN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int COLUMN_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LinkImpl <em>Link</em>}' class.
@@ -353,7 +427,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLink()
    * @generated
    */
-  int LINK = 9;
+  int LINK = 11;
 
   /**
    * The feature id for the '<em><b>Desc</b></em>' containment reference.
@@ -362,7 +436,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINK__DESC = STATEMENT_FEATURE_COUNT + 0;
+  int LINK__DESC = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Lev</b></em>' containment reference.
@@ -371,7 +445,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINK__LEV = STATEMENT_FEATURE_COUNT + 1;
+  int LINK__LEV = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Link</em>' class.
@@ -380,7 +454,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int LINK_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ChildImpl <em>Child</em>}' class.
@@ -390,7 +464,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getChild()
    * @generated
    */
-  int CHILD = 10;
+  int CHILD = 12;
 
   /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
@@ -399,7 +473,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHILD__DIMENSIONS = STATEMENT_FEATURE_COUNT + 0;
+  int CHILD__DIMENSIONS = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Child</em>' class.
@@ -408,35 +482,35 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHILD_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int CHILD_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl <em>Report</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportParameterImpl <em>Report Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.ReportImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReport()
+   * @see org.xtext.example.mydsl.myDsl.impl.ReportParameterImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReportParameter()
    * @generated
    */
-  int REPORT = 11;
+  int REPORT_PARAMETER = 13;
 
   /**
-   * The feature id for the '<em><b>Repout</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPORT__REPOUT = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Report</em>' class.
+   * The feature id for the '<em><b>Reparam</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPORT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int REPORT_PARAMETER__REPARAM = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Report Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPORT_PARAMETER_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -446,7 +520,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 12;
+  int REFERENCE = 14;
 
   /**
    * The feature id for the '<em><b>Referred</b></em>' reference.
@@ -455,7 +529,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE__REFERRED = STATEMENT_FEATURE_COUNT + 0;
+  int REFERENCE__REFERRED = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Reference</em>' class.
@@ -464,7 +538,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int REFERENCE_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.StringReferenceImpl <em>String Reference</em>}' class.
@@ -474,7 +548,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStringReference()
    * @generated
    */
-  int STRING_REFERENCE = 13;
+  int STRING_REFERENCE = 15;
 
   /**
    * The feature id for the '<em><b>Referred</b></em>' reference.
@@ -515,25 +589,89 @@ public interface MyDslPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getStatements <em>Statements</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getQueries <em>Queries</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Statements</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Model#getStatements()
+   * @return the meta object for the containment reference list '<em>Queries</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Model#getQueries()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Statements();
+  EReference getModel_Queries();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Statement <em>Statement</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getReports <em>Reports</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Statement</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Statement
+   * @return the meta object for the containment reference list '<em>Reports</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Model#getReports()
+   * @see #getModel()
    * @generated
    */
-  EClass getStatement();
+  EReference getModel_Reports();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Query <em>Query</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Query</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Query
+   * @generated
+   */
+  EClass getQuery();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Query#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Query#getName()
+   * @see #getQuery()
+   * @generated
+   */
+  EAttribute getQuery_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Query#getQuery <em>Query</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Query</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Query#getQuery()
+   * @see #getQuery()
+   * @generated
+   */
+  EReference getQuery_Query();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Report <em>Report</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Report</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Report
+   * @generated
+   */
+  EClass getReport();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Repout</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Report#getRepout()
+   * @see #getReport()
+   * @generated
+   */
+  EReference getReport_Repout();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReportQueryParameters <em>Report Query Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Report Query Parameters</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReportQueryParameters
+   * @generated
+   */
+  EClass getReportQueryParameters();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Descendants <em>Descendants</em>}'.
@@ -725,25 +863,25 @@ public interface MyDslPackage extends EPackage
   EReference getChild_Dimensions();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Report <em>Report</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReportParameter <em>Report Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Report</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Report
+   * @return the meta object for class '<em>Report Parameter</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReportParameter
    * @generated
    */
-  EClass getReport();
+  EClass getReportParameter();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ReportParameter#getReparam <em>Reparam</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Repout</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Report#getRepout()
-   * @see #getReport()
+   * @return the meta object for the containment reference '<em>Reparam</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ReportParameter#getReparam()
+   * @see #getReportParameter()
    * @generated
    */
-  EReference getReport_Repout();
+  EReference getReportParameter_Reparam();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Reference <em>Reference</em>}'.
@@ -821,22 +959,74 @@ public interface MyDslPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Queries</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__STATEMENTS = eINSTANCE.getModel_Statements();
+    EReference MODEL__QUERIES = eINSTANCE.getModel_Queries();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.
+     * The meta object literal for the '<em><b>Reports</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.StatementImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement()
      * @generated
      */
-    EClass STATEMENT = eINSTANCE.getStatement();
+    EReference MODEL__REPORTS = eINSTANCE.getModel_Reports();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.QueryImpl <em>Query</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.QueryImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getQuery()
+     * @generated
+     */
+    EClass QUERY = eINSTANCE.getQuery();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute QUERY__NAME = eINSTANCE.getQuery_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Query</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUERY__QUERY = eINSTANCE.getQuery_Query();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl <em>Report</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReportImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReport()
+     * @generated
+     */
+    EClass REPORT = eINSTANCE.getReport();
+
+    /**
+     * The meta object literal for the '<em><b>Repout</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REPORT__REPOUT = eINSTANCE.getReport_Repout();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportQueryParametersImpl <em>Report Query Parameters</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ReportQueryParametersImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReportQueryParameters()
+     * @generated
+     */
+    EClass REPORT_QUERY_PARAMETERS = eINSTANCE.getReportQueryParameters();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.DescendantsImpl <em>Descendants</em>}' class.
@@ -1001,22 +1191,22 @@ public interface MyDslPackage extends EPackage
     EReference CHILD__DIMENSIONS = eINSTANCE.getChild_Dimensions();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl <em>Report</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportParameterImpl <em>Report Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.ReportImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReport()
+     * @see org.xtext.example.mydsl.myDsl.impl.ReportParameterImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReportParameter()
      * @generated
      */
-    EClass REPORT = eINSTANCE.getReport();
+    EClass REPORT_PARAMETER = eINSTANCE.getReportParameter();
 
     /**
-     * The meta object literal for the '<em><b>Repout</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Reparam</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REPORT__REPOUT = eINSTANCE.getReport_Repout();
+    EReference REPORT_PARAMETER__REPARAM = eINSTANCE.getReportParameter_Reparam();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReferenceImpl <em>Reference</em>}' class.

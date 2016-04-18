@@ -66,7 +66,9 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     switch (eClass.getClassifierID())
     {
       case MyDslPackage.MODEL: return createModel();
-      case MyDslPackage.STATEMENT: return createStatement();
+      case MyDslPackage.QUERY: return createQuery();
+      case MyDslPackage.REPORT: return createReport();
+      case MyDslPackage.REPORT_QUERY_PARAMETERS: return createReportQueryParameters();
       case MyDslPackage.DESCENDANTS: return createDescendants();
       case MyDslPackage.DECLARATION: return createDeclaration();
       case MyDslPackage.DIMENSION_DECLARATION: return createDimensionDeclaration();
@@ -76,7 +78,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.COLUMN: return createColumn();
       case MyDslPackage.LINK: return createLink();
       case MyDslPackage.CHILD: return createChild();
-      case MyDslPackage.REPORT: return createReport();
+      case MyDslPackage.REPORT_PARAMETER: return createReportParameter();
       case MyDslPackage.REFERENCE: return createReference();
       case MyDslPackage.STRING_REFERENCE: return createStringReference();
       default:
@@ -100,10 +102,32 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Statement createStatement()
+  public Query createQuery()
   {
-    StatementImpl statement = new StatementImpl();
-    return statement;
+    QueryImpl query = new QueryImpl();
+    return query;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Report createReport()
+  {
+    ReportImpl report = new ReportImpl();
+    return report;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReportQueryParameters createReportQueryParameters()
+  {
+    ReportQueryParametersImpl reportQueryParameters = new ReportQueryParametersImpl();
+    return reportQueryParameters;
   }
 
   /**
@@ -210,10 +234,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Report createReport()
+  public ReportParameter createReportParameter()
   {
-    ReportImpl report = new ReportImpl();
-    return report;
+    ReportParameterImpl reportParameter = new ReportParameterImpl();
+    return reportParameter;
   }
 
   /**

@@ -81,9 +81,19 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseStatement(Statement object)
+      public Adapter caseQuery(Query object)
       {
-        return createStatementAdapter();
+        return createQueryAdapter();
+      }
+      @Override
+      public Adapter caseReport(Report object)
+      {
+        return createReportAdapter();
+      }
+      @Override
+      public Adapter caseReportQueryParameters(ReportQueryParameters object)
+      {
+        return createReportQueryParametersAdapter();
       }
       @Override
       public Adapter caseDescendants(Descendants object)
@@ -131,9 +141,9 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createChildAdapter();
       }
       @Override
-      public Adapter caseReport(Report object)
+      public Adapter caseReportParameter(ReportParameter object)
       {
-        return createReportAdapter();
+        return createReportParameterAdapter();
       }
       @Override
       public Adapter caseReference(Reference object)
@@ -183,16 +193,46 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Statement <em>Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Query <em>Query</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Statement
+   * @see org.xtext.example.mydsl.myDsl.Query
    * @generated
    */
-  public Adapter createStatementAdapter()
+  public Adapter createQueryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Report <em>Report</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Report
+   * @generated
+   */
+  public Adapter createReportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReportQueryParameters <em>Report Query Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ReportQueryParameters
+   * @generated
+   */
+  public Adapter createReportQueryParametersAdapter()
   {
     return null;
   }
@@ -333,16 +373,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Report <em>Report</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ReportParameter <em>Report Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Report
+   * @see org.xtext.example.mydsl.myDsl.ReportParameter
    * @generated
    */
-  public Adapter createReportAdapter()
+  public Adapter createReportParameterAdapter()
   {
     return null;
   }

@@ -27,7 +27,7 @@ import org.xtext.example.mydsl.myDsl.Reference;
  *
  * @generated
  */
-public class ReferenceImpl extends StatementImpl implements Reference
+public class ReferenceImpl extends ReportQueryParametersImpl implements Reference
 {
   /**
    * The cached value of the '{@link #getReferred() <em>Referred</em>}' reference.

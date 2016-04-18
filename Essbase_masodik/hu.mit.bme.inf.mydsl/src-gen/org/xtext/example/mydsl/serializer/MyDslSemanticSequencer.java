@@ -23,8 +23,10 @@ import org.xtext.example.mydsl.myDsl.Link;
 import org.xtext.example.mydsl.myDsl.MemberDeclaration;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Query;
 import org.xtext.example.mydsl.myDsl.Reference;
 import org.xtext.example.mydsl.myDsl.Report;
+import org.xtext.example.mydsl.myDsl.ReportParameter;
 import org.xtext.example.mydsl.myDsl.Row;
 import org.xtext.example.mydsl.myDsl.StringReference;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -67,11 +69,17 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
+			case MyDslPackage.QUERY:
+				sequence_Query(context, (Query) semanticObject); 
+				return; 
 			case MyDslPackage.REFERENCE:
 				sequence_Reference(context, (Reference) semanticObject); 
 				return; 
 			case MyDslPackage.REPORT:
 				sequence_Report(context, (Report) semanticObject); 
+				return; 
+			case MyDslPackage.REPORT_PARAMETER:
+				sequence_ReportParameter(context, (ReportParameter) semanticObject); 
 				return; 
 			case MyDslPackage.ROW:
 				sequence_Row(context, (Row) semanticObject); 
@@ -86,7 +94,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Child
+	 *     ReportQueryParameters returns Child
 	 *     Child returns Child
 	 *
 	 * Constraint:
@@ -99,7 +107,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Column
+	 *     ReportQueryParameters returns Column
 	 *     Column returns Column
 	 *
 	 * Constraint:
@@ -112,7 +120,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Descendants
+	 *     ReportQueryParameters returns Descendants
 	 *     Descendants returns Descendants
 	 *
 	 * Constraint:
@@ -134,7 +142,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns DimensionDeclaration
+	 *     ReportQueryParameters returns DimensionDeclaration
 	 *     Declaration returns DimensionDeclaration
 	 *     DimensionDeclaration returns DimensionDeclaration
 	 *
@@ -157,7 +165,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns GroupDeclaration
+	 *     ReportQueryParameters returns GroupDeclaration
 	 *     Declaration returns GroupDeclaration
 	 *     GroupDeclaration returns GroupDeclaration
 	 *
@@ -180,7 +188,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Link
+	 *     ReportQueryParameters returns Link
 	 *     Link returns Link
 	 *
 	 * Constraint:
@@ -202,7 +210,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns MemberDeclaration
+	 *     ReportQueryParameters returns MemberDeclaration
 	 *     Declaration returns MemberDeclaration
 	 *     MemberDeclaration returns MemberDeclaration
 	 *
@@ -228,7 +236,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     Statements+=Statement+
+	 *     ((Queries+=Query+ Reports+=Report+) | Reports+=Report+)?
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -237,7 +245,19 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Reference
+	 *     Query returns Query
+	 *
+	 * Constraint:
+	 *     (name=ID Query+=ReportQueryParameters*)
+	 */
+	protected void sequence_Query(ISerializationContext context, Query semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ReportQueryParameters returns Reference
 	 *     Reference returns Reference
 	 *
 	 * Constraint:
@@ -256,7 +276,25 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Report
+	 *     ReportQueryParameters returns ReportParameter
+	 *     ReportParameter returns ReportParameter
+	 *
+	 * Constraint:
+	 *     reparam=StringReference
+	 */
+	protected void sequence_ReportParameter(ISerializationContext context, ReportParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REPORT_PARAMETER__REPARAM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REPORT_PARAMETER__REPARAM));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getReportParameterAccess().getReparamStringReferenceParserRuleCall_3_0(), semanticObject.getReparam());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Report returns Report
 	 *
 	 * Constraint:
@@ -268,14 +306,14 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REPORT__REPOUT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_3_0(), semanticObject.getRepout());
+		feeder.accept(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_2_0(), semanticObject.getRepout());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Row
+	 *     ReportQueryParameters returns Row
 	 *     Row returns Row
 	 *
 	 * Constraint:
@@ -288,7 +326,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns StringReference
+	 *     ReportQueryParameters returns StringReference
 	 *     Reference returns StringReference
 	 *     StringReference returns StringReference
 	 *

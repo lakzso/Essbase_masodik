@@ -10,43 +10,42 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Report;
+import org.xtext.example.mydsl.myDsl.ReportParameter;
 import org.xtext.example.mydsl.myDsl.StringReference;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Report</b></em>'.
+ * An implementation of the model object '<em><b>Report Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReportImpl#getRepout <em>Repout</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ReportParameterImpl#getReparam <em>Reparam</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ReportImpl extends MinimalEObjectImpl.Container implements Report
+public class ReportParameterImpl extends ReportQueryParametersImpl implements ReportParameter
 {
   /**
-   * The cached value of the '{@link #getRepout() <em>Repout</em>}' containment reference.
+   * The cached value of the '{@link #getReparam() <em>Reparam</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRepout()
+   * @see #getReparam()
    * @generated
    * @ordered
    */
-  protected StringReference repout;
+  protected StringReference reparam;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ReportImpl()
+  protected ReportParameterImpl()
   {
     super();
   }
@@ -59,7 +58,7 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.REPORT;
+    return MyDslPackage.Literals.REPORT_PARAMETER;
   }
 
   /**
@@ -67,9 +66,9 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public StringReference getRepout()
+  public StringReference getReparam()
   {
-    return repout;
+    return reparam;
   }
 
   /**
@@ -77,13 +76,13 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRepout(StringReference newRepout, NotificationChain msgs)
+  public NotificationChain basicSetReparam(StringReference newReparam, NotificationChain msgs)
   {
-    StringReference oldRepout = repout;
-    repout = newRepout;
+    StringReference oldReparam = reparam;
+    reparam = newReparam;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__REPOUT, oldRepout, newRepout);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT_PARAMETER__REPARAM, oldReparam, newReparam);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +93,20 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRepout(StringReference newRepout)
+  public void setReparam(StringReference newReparam)
   {
-    if (newRepout != repout)
+    if (newReparam != reparam)
     {
       NotificationChain msgs = null;
-      if (repout != null)
-        msgs = ((InternalEObject)repout).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT__REPOUT, null, msgs);
-      if (newRepout != null)
-        msgs = ((InternalEObject)newRepout).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT__REPOUT, null, msgs);
-      msgs = basicSetRepout(newRepout, msgs);
+      if (reparam != null)
+        msgs = ((InternalEObject)reparam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT_PARAMETER__REPARAM, null, msgs);
+      if (newReparam != null)
+        msgs = ((InternalEObject)newReparam).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT_PARAMETER__REPARAM, null, msgs);
+      msgs = basicSetReparam(newReparam, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__REPOUT, newRepout, newRepout));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT_PARAMETER__REPARAM, newReparam, newReparam));
   }
 
   /**
@@ -120,8 +119,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__REPOUT:
-        return basicSetRepout(null, msgs);
+      case MyDslPackage.REPORT_PARAMETER__REPARAM:
+        return basicSetReparam(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +135,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__REPOUT:
-        return getRepout();
+      case MyDslPackage.REPORT_PARAMETER__REPARAM:
+        return getReparam();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +151,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__REPOUT:
-        setRepout((StringReference)newValue);
+      case MyDslPackage.REPORT_PARAMETER__REPARAM:
+        setReparam((StringReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +168,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__REPOUT:
-        setRepout((StringReference)null);
+      case MyDslPackage.REPORT_PARAMETER__REPARAM:
+        setReparam((StringReference)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +185,10 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
   {
     switch (featureID)
     {
-      case MyDslPackage.REPORT__REPOUT:
-        return repout != null;
+      case MyDslPackage.REPORT_PARAMETER__REPARAM:
+        return reparam != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ReportImpl
+} //ReportParameterImpl

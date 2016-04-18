@@ -80,10 +80,24 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.STATEMENT:
+      case MyDslPackage.QUERY:
       {
-        Statement statement = (Statement)theEObject;
-        T result = caseStatement(statement);
+        Query query = (Query)theEObject;
+        T result = caseQuery(query);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.REPORT:
+      {
+        Report report = (Report)theEObject;
+        T result = caseReport(report);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.REPORT_QUERY_PARAMETERS:
+      {
+        ReportQueryParameters reportQueryParameters = (ReportQueryParameters)theEObject;
+        T result = caseReportQueryParameters(reportQueryParameters);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -91,7 +105,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Descendants descendants = (Descendants)theEObject;
         T result = caseDescendants(descendants);
-        if (result == null) result = caseStatement(descendants);
+        if (result == null) result = caseReportQueryParameters(descendants);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -99,7 +113,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Declaration declaration = (Declaration)theEObject;
         T result = caseDeclaration(declaration);
-        if (result == null) result = caseStatement(declaration);
+        if (result == null) result = caseReportQueryParameters(declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -108,7 +122,7 @@ public class MyDslSwitch<T> extends Switch<T>
         DimensionDeclaration dimensionDeclaration = (DimensionDeclaration)theEObject;
         T result = caseDimensionDeclaration(dimensionDeclaration);
         if (result == null) result = caseDeclaration(dimensionDeclaration);
-        if (result == null) result = caseStatement(dimensionDeclaration);
+        if (result == null) result = caseReportQueryParameters(dimensionDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -117,7 +131,7 @@ public class MyDslSwitch<T> extends Switch<T>
         GroupDeclaration groupDeclaration = (GroupDeclaration)theEObject;
         T result = caseGroupDeclaration(groupDeclaration);
         if (result == null) result = caseDeclaration(groupDeclaration);
-        if (result == null) result = caseStatement(groupDeclaration);
+        if (result == null) result = caseReportQueryParameters(groupDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -126,7 +140,7 @@ public class MyDslSwitch<T> extends Switch<T>
         MemberDeclaration memberDeclaration = (MemberDeclaration)theEObject;
         T result = caseMemberDeclaration(memberDeclaration);
         if (result == null) result = caseDeclaration(memberDeclaration);
-        if (result == null) result = caseStatement(memberDeclaration);
+        if (result == null) result = caseReportQueryParameters(memberDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -134,7 +148,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Row row = (Row)theEObject;
         T result = caseRow(row);
-        if (result == null) result = caseStatement(row);
+        if (result == null) result = caseReportQueryParameters(row);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -142,7 +156,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Column column = (Column)theEObject;
         T result = caseColumn(column);
-        if (result == null) result = caseStatement(column);
+        if (result == null) result = caseReportQueryParameters(column);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,7 +164,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Link link = (Link)theEObject;
         T result = caseLink(link);
-        if (result == null) result = caseStatement(link);
+        if (result == null) result = caseReportQueryParameters(link);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -158,15 +172,15 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Child child = (Child)theEObject;
         T result = caseChild(child);
-        if (result == null) result = caseStatement(child);
+        if (result == null) result = caseReportQueryParameters(child);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.REPORT:
+      case MyDslPackage.REPORT_PARAMETER:
       {
-        Report report = (Report)theEObject;
-        T result = caseReport(report);
-        if (result == null) result = caseStatement(report);
+        ReportParameter reportParameter = (ReportParameter)theEObject;
+        T result = caseReportParameter(reportParameter);
+        if (result == null) result = caseReportQueryParameters(reportParameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -174,7 +188,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Reference reference = (Reference)theEObject;
         T result = caseReference(reference);
-        if (result == null) result = caseStatement(reference);
+        if (result == null) result = caseReportQueryParameters(reference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -183,7 +197,7 @@ public class MyDslSwitch<T> extends Switch<T>
         StringReference stringReference = (StringReference)theEObject;
         T result = caseStringReference(stringReference);
         if (result == null) result = caseReference(stringReference);
-        if (result == null) result = caseStatement(stringReference);
+        if (result == null) result = caseReportQueryParameters(stringReference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -208,17 +222,49 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Query</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Query</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStatement(Statement object)
+  public T caseQuery(Query object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Report</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Report</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReport(Report object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Report Query Parameters</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Report Query Parameters</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReportQueryParameters(ReportQueryParameters object)
   {
     return null;
   }
@@ -368,17 +414,17 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Report</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Report Parameter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Report</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Report Parameter</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseReport(Report object)
+  public T caseReportParameter(ReportParameter object)
   {
     return null;
   }

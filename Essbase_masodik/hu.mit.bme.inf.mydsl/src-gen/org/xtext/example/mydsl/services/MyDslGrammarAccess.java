@@ -27,34 +27,109 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cInitialStatementParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Assignment cStatementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStatementsStatementParserRuleCall_1_0 = (RuleCall)cStatementsAssignment_1.eContents().get(0);
-		private final Keyword cExclamationMarkKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cQueriesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cQueriesQueryParserRuleCall_0_0 = (RuleCall)cQueriesAssignment_0.eContents().get(0);
+		private final Assignment cReportsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cReportsReportParserRuleCall_1_0 = (RuleCall)cReportsAssignment_1.eContents().get(0);
 		
 		//Model:
-		//	InitialStatement
-		//	Statements+=Statement*
-		//	'!';
+		//	Queries+=Query*
+		//	Reports+=Report*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//InitialStatement Statements+=Statement* '!'
+		//Queries+=Query* Reports+=Report*
 		public Group getGroup() { return cGroup; }
 		
-		//InitialStatement
-		public RuleCall getInitialStatementParserRuleCall_0() { return cInitialStatementParserRuleCall_0; }
+		//Queries+=Query*
+		public Assignment getQueriesAssignment_0() { return cQueriesAssignment_0; }
 		
-		//Statements+=Statement*
-		public Assignment getStatementsAssignment_1() { return cStatementsAssignment_1; }
+		//Query
+		public RuleCall getQueriesQueryParserRuleCall_0_0() { return cQueriesQueryParserRuleCall_0_0; }
 		
-		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_1_0() { return cStatementsStatementParserRuleCall_1_0; }
+		//Reports+=Report*
+		public Assignment getReportsAssignment_1() { return cReportsAssignment_1; }
 		
-		//'!'
-		public Keyword getExclamationMarkKeyword_2() { return cExclamationMarkKeyword_2; }
+		//Report
+		public RuleCall getReportsReportParserRuleCall_1_0() { return cReportsReportParserRuleCall_1_0; }
 	}
-	public class StatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Statement");
+	public class QueryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Query");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cQueryKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cInitialStatementParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cQueryAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cQueryReportQueryParametersParserRuleCall_5_0 = (RuleCall)cQueryAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Query:
+		//	name=ID '=' 'query' '{'
+		//	InitialStatement
+		//	Query+=ReportQueryParameters* '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID '=' 'query' '{' InitialStatement Query+=ReportQueryParameters* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//'query'
+		public Keyword getQueryKeyword_2() { return cQueryKeyword_2; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//InitialStatement
+		public RuleCall getInitialStatementParserRuleCall_4() { return cInitialStatementParserRuleCall_4; }
+		
+		//Query+=ReportQueryParameters*
+		public Assignment getQueryAssignment_5() { return cQueryAssignment_5; }
+		
+		//ReportQueryParameters
+		public RuleCall getQueryReportQueryParametersParserRuleCall_5_0() { return cQueryReportQueryParametersParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class ReportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Report");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cReportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Action cReportAction_1 = (Action)cGroup.eContents().get(1);
+		private final Assignment cRepoutAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRepoutStringReferenceParserRuleCall_2_0 = (RuleCall)cRepoutAssignment_2.eContents().get(0);
+		
+		//Report:
+		//	'report' {Report} repout=StringReference;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'report' {Report} repout=StringReference
+		public Group getGroup() { return cGroup; }
+		
+		//'report'
+		public Keyword getReportKeyword_0() { return cReportKeyword_0; }
+		
+		//{Report}
+		public Action getReportAction_1() { return cReportAction_1; }
+		
+		//repout=StringReference
+		public Assignment getRepoutAssignment_2() { return cRepoutAssignment_2; }
+		
+		//StringReference
+		public RuleCall getRepoutStringReferenceParserRuleCall_2_0() { return cRepoutStringReferenceParserRuleCall_2_0; }
+	}
+	public class ReportQueryParametersElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReportQueryParameters");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cColumnParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cRowParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -63,13 +138,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cReferenceParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cChildParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cLinkParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cReportParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cReportParameterParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
-		//Statement:
-		//	Column | Row | Descendants | Declaration | Reference | Child | Link | Report;
+		//ReportQueryParameters:
+		//	Column | Row | Descendants | Declaration | Reference | Child | Link | ReportParameter;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Column | Row | Descendants | Declaration | Reference | Child | Link | Report
+		//Column | Row | Descendants | Declaration | Reference | Child | Link | ReportParameter
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Column
@@ -93,8 +168,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Link
 		public RuleCall getLinkParserRuleCall_6() { return cLinkParserRuleCall_6; }
 		
-		//Report
-		public RuleCall getReportParserRuleCall_7() { return cReportParserRuleCall_7; }
+		//ReportParameter
+		public RuleCall getReportParameterParserRuleCall_7() { return cReportParameterParserRuleCall_7; }
 	}
 	public class InitialStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.InitialStatement");
@@ -470,37 +545,37 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
-	public class ReportElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Report");
+	public class ReportParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReportParameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cReportOutputKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cReportAction_1 = (Action)cGroup.eContents().get(1);
+		private final Keyword cReportParameterKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Action cReportParameterAction_1 = (Action)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cRepoutAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRepoutStringReferenceParserRuleCall_3_0 = (RuleCall)cRepoutAssignment_3.eContents().get(0);
+		private final Assignment cReparamAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cReparamStringReferenceParserRuleCall_3_0 = (RuleCall)cReparamAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//Report:
-		//	'reportOutput' {Report} '{' repout=StringReference '}';
+		//ReportParameter:
+		//	'reportParameter' {ReportParameter} '{' reparam=StringReference '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'reportOutput' {Report} '{' repout=StringReference '}'
+		//'reportParameter' {ReportParameter} '{' reparam=StringReference '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'reportOutput'
-		public Keyword getReportOutputKeyword_0() { return cReportOutputKeyword_0; }
+		//'reportParameter'
+		public Keyword getReportParameterKeyword_0() { return cReportParameterKeyword_0; }
 		
-		//{Report}
-		public Action getReportAction_1() { return cReportAction_1; }
+		//{ReportParameter}
+		public Action getReportParameterAction_1() { return cReportParameterAction_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//repout=StringReference
-		public Assignment getRepoutAssignment_3() { return cRepoutAssignment_3; }
+		//reparam=StringReference
+		public Assignment getReparamAssignment_3() { return cReparamAssignment_3; }
 		
 		//StringReference
-		public RuleCall getRepoutStringReferenceParserRuleCall_3_0() { return cRepoutStringReferenceParserRuleCall_3_0; }
+		public RuleCall getReparamStringReferenceParserRuleCall_3_0() { return cReparamStringReferenceParserRuleCall_3_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -550,7 +625,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final ModelElements pModel;
-	private final StatementElements pStatement;
+	private final QueryElements pQuery;
+	private final ReportElements pReport;
+	private final ReportQueryParametersElements pReportQueryParameters;
 	private final InitialStatementElements pInitialStatement;
 	private final DescendantsElements pDescendants;
 	private final DeclarationElements pDeclaration;
@@ -561,7 +638,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ColumnElements pColumn;
 	private final LinkElements pLink;
 	private final ChildElements pChild;
-	private final ReportElements pReport;
+	private final ReportParameterElements pReportParameter;
 	private final ReferenceElements pReference;
 	private final StringReferenceElements pStringReference;
 	
@@ -575,7 +652,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pStatement = new StatementElements();
+		this.pQuery = new QueryElements();
+		this.pReport = new ReportElements();
+		this.pReportQueryParameters = new ReportQueryParametersElements();
 		this.pInitialStatement = new InitialStatementElements();
 		this.pDescendants = new DescendantsElements();
 		this.pDeclaration = new DeclarationElements();
@@ -586,7 +665,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pColumn = new ColumnElements();
 		this.pLink = new LinkElements();
 		this.pChild = new ChildElements();
-		this.pReport = new ReportElements();
+		this.pReportParameter = new ReportParameterElements();
 		this.pReference = new ReferenceElements();
 		this.pStringReference = new StringReferenceElements();
 	}
@@ -619,9 +698,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	InitialStatement
-	//	Statements+=Statement*
-	//	'!';
+	//	Queries+=Query*
+	//	Reports+=Report*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -630,14 +708,36 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
-	//Statement:
-	//	Column | Row | Descendants | Declaration | Reference | Child | Link | Report;
-	public StatementElements getStatementAccess() {
-		return pStatement;
+	//Query:
+	//	name=ID '=' 'query' '{'
+	//	InitialStatement
+	//	Query+=ReportQueryParameters* '}';
+	public QueryElements getQueryAccess() {
+		return pQuery;
 	}
 	
-	public ParserRule getStatementRule() {
-		return getStatementAccess().getRule();
+	public ParserRule getQueryRule() {
+		return getQueryAccess().getRule();
+	}
+	
+	//Report:
+	//	'report' {Report} repout=StringReference;
+	public ReportElements getReportAccess() {
+		return pReport;
+	}
+	
+	public ParserRule getReportRule() {
+		return getReportAccess().getRule();
+	}
+	
+	//ReportQueryParameters:
+	//	Column | Row | Descendants | Declaration | Reference | Child | Link | ReportParameter;
+	public ReportQueryParametersElements getReportQueryParametersAccess() {
+		return pReportQueryParameters;
+	}
+	
+	public ParserRule getReportQueryParametersRule() {
+		return getReportQueryParametersAccess().getRule();
 	}
 	
 	//InitialStatement:
@@ -746,14 +846,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getChildAccess().getRule();
 	}
 	
-	//Report:
-	//	'reportOutput' {Report} '{' repout=StringReference '}';
-	public ReportElements getReportAccess() {
-		return pReport;
+	//ReportParameter:
+	//	'reportParameter' {ReportParameter} '{' reparam=StringReference '}';
+	public ReportParameterElements getReportParameterAccess() {
+		return pReportParameter;
 	}
 	
-	public ParserRule getReportRule() {
-		return getReportAccess().getRule();
+	public ParserRule getReportParameterRule() {
+		return getReportParameterAccess().getRule();
 	}
 	
 	//Reference:

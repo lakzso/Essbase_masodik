@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Row extends Statement
+public interface Row extends ReportQueryParameters
 {
   /**
    * Returns the value of the '<em><b>Dimensions</b></em>' containment reference list.

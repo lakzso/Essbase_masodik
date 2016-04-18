@@ -35,10 +35,12 @@ public class MyDslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
+					put(grammarAccess.getReportQueryParametersAccess().getAlternatives(), "rule__ReportQueryParameters__Alternatives");
 					put(grammarAccess.getDeclarationAccess().getAlternatives(), "rule__Declaration__Alternatives");
 					put(grammarAccess.getReferenceAccess().getAlternatives(), "rule__Reference__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+					put(grammarAccess.getQueryAccess().getGroup(), "rule__Query__Group__0");
+					put(grammarAccess.getReportAccess().getGroup(), "rule__Report__Group__0");
 					put(grammarAccess.getDescendantsAccess().getGroup(), "rule__Descendants__Group__0");
 					put(grammarAccess.getDimensionDeclarationAccess().getGroup(), "rule__DimensionDeclaration__Group__0");
 					put(grammarAccess.getGroupDeclarationAccess().getGroup(), "rule__GroupDeclaration__Group__0");
@@ -50,8 +52,12 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkAccess().getGroup(), "rule__Link__Group__0");
 					put(grammarAccess.getChildAccess().getGroup(), "rule__Child__Group__0");
 					put(grammarAccess.getChildAccess().getGroup_4(), "rule__Child__Group_4__0");
-					put(grammarAccess.getReportAccess().getGroup(), "rule__Report__Group__0");
-					put(grammarAccess.getModelAccess().getStatementsAssignment_1(), "rule__Model__StatementsAssignment_1");
+					put(grammarAccess.getReportParameterAccess().getGroup(), "rule__ReportParameter__Group__0");
+					put(grammarAccess.getModelAccess().getQueriesAssignment_0(), "rule__Model__QueriesAssignment_0");
+					put(grammarAccess.getModelAccess().getReportsAssignment_1(), "rule__Model__ReportsAssignment_1");
+					put(grammarAccess.getQueryAccess().getNameAssignment_0(), "rule__Query__NameAssignment_0");
+					put(grammarAccess.getQueryAccess().getQueryAssignment_5(), "rule__Query__QueryAssignment_5");
+					put(grammarAccess.getReportAccess().getRepoutAssignment_2(), "rule__Report__RepoutAssignment_2");
 					put(grammarAccess.getDescendantsAccess().getGroupAssignment_1(), "rule__Descendants__GroupAssignment_1");
 					put(grammarAccess.getDescendantsAccess().getDimensionAssignment_3(), "rule__Descendants__DimensionAssignment_3");
 					put(grammarAccess.getDimensionDeclarationAccess().getNameAssignment_1(), "rule__DimensionDeclaration__NameAssignment_1");
@@ -68,7 +74,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkAccess().getLevAssignment_5(), "rule__Link__LevAssignment_5");
 					put(grammarAccess.getChildAccess().getDimensionsAssignment_3(), "rule__Child__DimensionsAssignment_3");
 					put(grammarAccess.getChildAccess().getDimensionsAssignment_4_1(), "rule__Child__DimensionsAssignment_4_1");
-					put(grammarAccess.getReportAccess().getRepoutAssignment_3(), "rule__Report__RepoutAssignment_3");
+					put(grammarAccess.getReportParameterAccess().getReparamAssignment_3(), "rule__ReportParameter__ReparamAssignment_3");
 					put(grammarAccess.getReferenceAccess().getReferredAssignment_0(), "rule__Reference__ReferredAssignment_0");
 					put(grammarAccess.getStringReferenceAccess().getValueAssignment(), "rule__StringReference__ValueAssignment");
 				}

@@ -7,9 +7,17 @@
   <genPackages prefix="MyDsl" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="mydsl" ecorePackage="MyDsl.ecore#/">
     <genClasses ecoreClass="MyDsl.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/Statements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/Queries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/Reports"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Statement"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Query">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Query/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Query/Query"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Report">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Report/repout"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReportQueryParameters"/>
     <genClasses ecoreClass="MyDsl.ecore#//Descendants">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Descendants/group"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Descendants/dimension"/>
@@ -34,8 +42,8 @@
     <genClasses ecoreClass="MyDsl.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Child/dimensions"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Report">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Report/repout"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ReportParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReportParameter/reparam"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Reference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Reference/referred"/>

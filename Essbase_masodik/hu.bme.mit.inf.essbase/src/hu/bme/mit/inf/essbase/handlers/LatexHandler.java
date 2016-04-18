@@ -1,6 +1,7 @@
 package hu.bme.mit.inf.essbase.handlers;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ListIterator;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -52,10 +53,15 @@ public class LatexHandler extends AbstractHandler {
 		String xtextFileName = file.getName().replaceFirst(".mydsl", "");
 		Boolean projectCreated = false;
 		ReportParser rp = new ReportParser();
-		String rawReport = rp.Parser(file.getLocation().toString());
+		rp.Parser(file.getLocation().toString());
 		DataQuery query = new DataQuery();
-		IEssGridView grid = query.query(rawReport);
+		IEssGridView grid = null;
 		ReportCreation cr = new ReportCreation();
+		
+		for (String rawReport : rp.ToQueryStringQueries) {
+			grid = query.query(rawReport);
+		}
+
 
 		try {
 			IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
@@ -66,9 +72,9 @@ public class LatexHandler extends AbstractHandler {
 					projectCreated = true;
 				}
 			}
-			if (!projectCreated){
-				cr.setLatexContent(cr.createProject2(xtextFileName), grid,xtextFileName);
-			
+			if (!projectCreated) {
+				cr.setLatexContent(cr.createProject2(xtextFileName), grid, xtextFileName);
+
 			}
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
@@ -94,8 +100,9 @@ public class LatexHandler extends AbstractHandler {
 		 * } catch (CoreException e) { // TODO Auto-generated catch block
 		 * e.printStackTrace(); }
 		 */
-		//IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		//MessageDialog.openInformation(window.getShell(), "Latex", rawReport);
+		// IWorkbenchWindow window =
+		// HandlerUtil.getActiveWorkbenchWindowChecked(event);
+		// MessageDialog.openInformation(window.getShell(), "Latex", rawReport);
 		return null;
 
 	}

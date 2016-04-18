@@ -19,7 +19,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Statement;
+import org.xtext.example.mydsl.myDsl.Query;
+import org.xtext.example.mydsl.myDsl.Report;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +30,8 @@ import org.xtext.example.mydsl.myDsl.Statement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl#getQueries <em>Queries</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl#getReports <em>Reports</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +39,24 @@ import org.xtext.example.mydsl.myDsl.Statement;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
+   * The cached value of the '{@link #getQueries() <em>Queries</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatements()
+   * @see #getQueries()
    * @generated
    * @ordered
    */
-  protected EList<Statement> statements;
+  protected EList<Query> queries;
+
+  /**
+   * The cached value of the '{@link #getReports() <em>Reports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Report> reports;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +84,27 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Statement> getStatements()
+  public EList<Query> getQueries()
   {
-    if (statements == null)
+    if (queries == null)
     {
-      statements = new EObjectContainmentEList<Statement>(Statement.class, this, MyDslPackage.MODEL__STATEMENTS);
+      queries = new EObjectContainmentEList<Query>(Query.class, this, MyDslPackage.MODEL__QUERIES);
     }
-    return statements;
+    return queries;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Report> getReports()
+  {
+    if (reports == null)
+    {
+      reports = new EObjectContainmentEList<Report>(Report.class, this, MyDslPackage.MODEL__REPORTS);
+    }
+    return reports;
   }
 
   /**
@@ -91,8 +117,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__STATEMENTS:
-        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.MODEL__QUERIES:
+        return ((InternalEList<?>)getQueries()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.MODEL__REPORTS:
+        return ((InternalEList<?>)getReports()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +135,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__STATEMENTS:
-        return getStatements();
+      case MyDslPackage.MODEL__QUERIES:
+        return getQueries();
+      case MyDslPackage.MODEL__REPORTS:
+        return getReports();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +154,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__STATEMENTS:
-        getStatements().clear();
-        getStatements().addAll((Collection<? extends Statement>)newValue);
+      case MyDslPackage.MODEL__QUERIES:
+        getQueries().clear();
+        getQueries().addAll((Collection<? extends Query>)newValue);
+        return;
+      case MyDslPackage.MODEL__REPORTS:
+        getReports().clear();
+        getReports().addAll((Collection<? extends Report>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +176,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__STATEMENTS:
-        getStatements().clear();
+      case MyDslPackage.MODEL__QUERIES:
+        getQueries().clear();
+        return;
+      case MyDslPackage.MODEL__REPORTS:
+        getReports().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +196,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case MyDslPackage.MODEL__STATEMENTS:
-        return statements != null && !statements.isEmpty();
+      case MyDslPackage.MODEL__QUERIES:
+        return queries != null && !queries.isEmpty();
+      case MyDslPackage.MODEL__REPORTS:
+        return reports != null && !reports.isEmpty();
     }
     return super.eIsSet(featureID);
   }

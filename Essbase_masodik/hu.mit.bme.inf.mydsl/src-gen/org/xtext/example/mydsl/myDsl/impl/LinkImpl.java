@@ -29,7 +29,7 @@ import org.xtext.example.mydsl.myDsl.Reference;
  *
  * @generated
  */
-public class LinkImpl extends StatementImpl implements Link
+public class LinkImpl extends ReportQueryParametersImpl implements Link
 {
   /**
    * The cached value of the '{@link #getDesc() <em>Desc</em>}' containment reference.

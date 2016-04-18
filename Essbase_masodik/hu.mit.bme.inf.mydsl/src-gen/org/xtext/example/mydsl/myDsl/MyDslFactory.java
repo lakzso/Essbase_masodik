@@ -33,13 +33,31 @@ public interface MyDslFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Statement</em>'.
+   * Returns a new object of class '<em>Query</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statement</em>'.
+   * @return a new object of class '<em>Query</em>'.
    * @generated
    */
-  Statement createStatement();
+  Query createQuery();
+
+  /**
+   * Returns a new object of class '<em>Report</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Report</em>'.
+   * @generated
+   */
+  Report createReport();
+
+  /**
+   * Returns a new object of class '<em>Report Query Parameters</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Report Query Parameters</em>'.
+   * @generated
+   */
+  ReportQueryParameters createReportQueryParameters();
 
   /**
    * Returns a new object of class '<em>Descendants</em>'.
@@ -123,13 +141,13 @@ public interface MyDslFactory extends EFactory
   Child createChild();
 
   /**
-   * Returns a new object of class '<em>Report</em>'.
+   * Returns a new object of class '<em>Report Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Report</em>'.
+   * @return a new object of class '<em>Report Parameter</em>'.
    * @generated
    */
-  Report createReport();
+  ReportParameter createReportParameter();
 
   /**
    * Returns a new object of class '<em>Reference</em>'.

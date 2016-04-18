@@ -21,7 +21,7 @@ package org.xtext.example.mydsl.myDsl;
  * @model
  * @generated
  */
-public interface Descendants extends Statement
+public interface Descendants extends ReportQueryParameters
 {
   /**
    * Returns the value of the '<em><b>Group</b></em>' attribute.

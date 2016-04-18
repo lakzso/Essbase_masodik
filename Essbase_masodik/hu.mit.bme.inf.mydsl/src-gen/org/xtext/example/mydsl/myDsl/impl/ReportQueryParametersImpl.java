@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Statement;
+import org.xtext.example.mydsl.myDsl.ReportQueryParameters;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Statement</b></em>'.
+ * An implementation of the model object '<em><b>Report Query Parameters</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class StatementImpl extends MinimalEObjectImpl.Container implements Statement
+public class ReportQueryParametersImpl extends MinimalEObjectImpl.Container implements ReportQueryParameters
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StatementImpl()
+  protected ReportQueryParametersImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.STATEMENT;
+    return MyDslPackage.Literals.REPORT_QUERY_PARAMETERS;
   }
 
-} //StatementImpl
+} //ReportQueryParametersImpl

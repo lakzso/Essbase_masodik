@@ -21,10 +21,12 @@ import org.xtext.example.mydsl.myDsl.MemberDeclaration;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Query;
 import org.xtext.example.mydsl.myDsl.Reference;
 import org.xtext.example.mydsl.myDsl.Report;
+import org.xtext.example.mydsl.myDsl.ReportParameter;
+import org.xtext.example.mydsl.myDsl.ReportQueryParameters;
 import org.xtext.example.mydsl.myDsl.Row;
-import org.xtext.example.mydsl.myDsl.Statement;
 import org.xtext.example.mydsl.myDsl.StringReference;
 
 /**
@@ -47,7 +49,21 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass statementEClass = null;
+  private EClass queryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reportEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reportQueryParametersEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,7 +133,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass reportEClass = null;
+  private EClass reportParameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,7 +227,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Statements()
+  public EReference getModel_Queries()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -221,9 +237,69 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStatement()
+  public EReference getModel_Reports()
   {
-    return statementEClass;
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getQuery()
+  {
+    return queryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getQuery_Name()
+  {
+    return (EAttribute)queryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQuery_Query()
+  {
+    return (EReference)queryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReport()
+  {
+    return reportEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReport_Repout()
+  {
+    return (EReference)reportEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReportQueryParameters()
+  {
+    return reportQueryParametersEClass;
   }
 
   /**
@@ -411,9 +487,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getReport()
+  public EClass getReportParameter()
   {
-    return reportEClass;
+    return reportParameterEClass;
   }
 
   /**
@@ -421,9 +497,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReport_Repout()
+  public EReference getReportParameter_Reparam()
   {
-    return (EReference)reportEClass.getEStructuralFeatures().get(0);
+    return (EReference)reportParameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -497,9 +573,17 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__STATEMENTS);
+    createEReference(modelEClass, MODEL__QUERIES);
+    createEReference(modelEClass, MODEL__REPORTS);
 
-    statementEClass = createEClass(STATEMENT);
+    queryEClass = createEClass(QUERY);
+    createEAttribute(queryEClass, QUERY__NAME);
+    createEReference(queryEClass, QUERY__QUERY);
+
+    reportEClass = createEClass(REPORT);
+    createEReference(reportEClass, REPORT__REPOUT);
+
+    reportQueryParametersEClass = createEClass(REPORT_QUERY_PARAMETERS);
 
     descendantsEClass = createEClass(DESCENDANTS);
     createEAttribute(descendantsEClass, DESCENDANTS__GROUP);
@@ -528,8 +612,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     childEClass = createEClass(CHILD);
     createEReference(childEClass, CHILD__DIMENSIONS);
 
-    reportEClass = createEClass(REPORT);
-    createEReference(reportEClass, REPORT__REPOUT);
+    reportParameterEClass = createEClass(REPORT_PARAMETER);
+    createEReference(reportParameterEClass, REPORT_PARAMETER__REPARAM);
 
     referenceEClass = createEClass(REFERENCE);
     createEReference(referenceEClass, REFERENCE__REFERRED);
@@ -567,24 +651,32 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    descendantsEClass.getESuperTypes().add(this.getStatement());
-    declarationEClass.getESuperTypes().add(this.getStatement());
+    descendantsEClass.getESuperTypes().add(this.getReportQueryParameters());
+    declarationEClass.getESuperTypes().add(this.getReportQueryParameters());
     dimensionDeclarationEClass.getESuperTypes().add(this.getDeclaration());
     groupDeclarationEClass.getESuperTypes().add(this.getDeclaration());
     memberDeclarationEClass.getESuperTypes().add(this.getDeclaration());
-    rowEClass.getESuperTypes().add(this.getStatement());
-    columnEClass.getESuperTypes().add(this.getStatement());
-    linkEClass.getESuperTypes().add(this.getStatement());
-    childEClass.getESuperTypes().add(this.getStatement());
-    reportEClass.getESuperTypes().add(this.getStatement());
-    referenceEClass.getESuperTypes().add(this.getStatement());
+    rowEClass.getESuperTypes().add(this.getReportQueryParameters());
+    columnEClass.getESuperTypes().add(this.getReportQueryParameters());
+    linkEClass.getESuperTypes().add(this.getReportQueryParameters());
+    childEClass.getESuperTypes().add(this.getReportQueryParameters());
+    reportParameterEClass.getESuperTypes().add(this.getReportQueryParameters());
+    referenceEClass.getESuperTypes().add(this.getReportQueryParameters());
     stringReferenceEClass.getESuperTypes().add(this.getReference());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Statements(), this.getStatement(), null, "Statements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Queries(), this.getQuery(), null, "Queries", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Reports(), this.getReport(), null, "Reports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getQuery_Name(), ecorePackage.getEString(), "name", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuery_Query(), this.getReportQueryParameters(), null, "Query", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reportEClass, Report.class, "Report", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReport_Repout(), this.getStringReference(), null, "repout", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reportQueryParametersEClass, ReportQueryParameters.class, "ReportQueryParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(descendantsEClass, Descendants.class, "Descendants", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDescendants_Group(), ecorePackage.getEString(), "group", null, 0, 1, Descendants.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -613,8 +705,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChild_Dimensions(), this.getReference(), null, "dimensions", null, 0, -1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(reportEClass, Report.class, "Report", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getReport_Repout(), this.getStringReference(), null, "repout", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(reportParameterEClass, ReportParameter.class, "ReportParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReportParameter_Reparam(), this.getStringReference(), null, "reparam", null, 0, 1, ReportParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReference_Referred(), this.getDeclaration(), null, "referred", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

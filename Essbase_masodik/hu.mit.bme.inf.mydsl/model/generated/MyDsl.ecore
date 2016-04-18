@@ -2,45 +2,56 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="myDsl" nsURI="http://www.xtext.org/example/mydsl/MyDsl" nsPrefix="myDsl">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Statements" upperBound="-1"
-        eType="#//Statement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Queries" upperBound="-1"
+        eType="#//Query" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Reports" upperBound="-1"
+        eType="#//Report" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Statement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Descendants" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Query">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Query" upperBound="-1"
+        eType="#//ReportQueryParameters" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Report">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repout" eType="#//StringReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReportQueryParameters"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Descendants" eSuperTypes="#//ReportQueryParameters">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" eType="#//Reference"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Declaration" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Declaration" eSuperTypes="#//ReportQueryParameters">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DimensionDeclaration" eSuperTypes="#//Declaration"/>
   <eClassifiers xsi:type="ecore:EClass" name="GroupDeclaration" eSuperTypes="#//Declaration"/>
   <eClassifiers xsi:type="ecore:EClass" name="MemberDeclaration" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Row" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Row" eSuperTypes="#//ReportQueryParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" upperBound="-1"
         eType="#//Reference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//ReportQueryParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" upperBound="-1"
         eType="#//Reference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//ReportQueryParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="desc" eType="#//Reference"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lev" eType="#//Reference"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Child" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Child" eSuperTypes="#//ReportQueryParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" upperBound="-1"
         eType="#//Reference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Report" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="repout" eType="#//StringReference"
+  <eClassifiers xsi:type="ecore:EClass" name="ReportParameter" eSuperTypes="#//ReportQueryParameters">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reparam" eType="#//StringReference"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//ReportQueryParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referred" eType="#//Declaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringReference" eSuperTypes="#//Reference">

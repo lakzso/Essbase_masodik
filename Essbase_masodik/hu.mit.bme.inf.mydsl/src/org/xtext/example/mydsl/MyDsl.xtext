@@ -3,12 +3,21 @@ grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
 
 Model:
+	(Queries+=Query)*
+	(Reports+=Report)*
+	;
+Query:
+	name=ID '=' 'query' '{'
 	InitialStatement
-	(Statements+=Statement)*
-	'!';
+	(Query+=ReportQueryParameters)* '}'
+	;
 
-Statement:
-	Column | Row | Descendants | Declaration | Reference | Child | Link | Report;
+Report:
+	'report' {Report} repout=StringReference
+;
+
+ReportQueryParameters:
+	Column | Row | Descendants | Declaration | Reference | Child | Link | ReportParameter;
 
 InitialStatement:
 "{SUPEMPTYROWS}
@@ -46,8 +55,8 @@ Link:
 Child:
 	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
 ; 	
-Report:
-	'reportOutput' {Report} '{' repout=StringReference '}'
+ReportParameter:
+	'reportParameter' {ReportParameter} '{' reparam=StringReference '}'
 ;
 
 Reference:

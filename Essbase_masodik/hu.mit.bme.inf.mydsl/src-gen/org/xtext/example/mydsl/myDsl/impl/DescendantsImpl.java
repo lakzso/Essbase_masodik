@@ -29,7 +29,7 @@ import org.xtext.example.mydsl.myDsl.Reference;
  *
  * @generated
  */
-public class DescendantsImpl extends StatementImpl implements Descendants
+public class DescendantsImpl extends ReportQueryParametersImpl implements Descendants
 {
   /**
    * The default value of the '{@link #getGroup() <em>Group</em>}' attribute.
