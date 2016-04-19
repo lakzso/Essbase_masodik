@@ -1,9 +1,8 @@
 package hu.bme.mit.inf.essbase
 
-import java.util.ArrayList
 
 class Template {
-	def getLatexContent(long ktgh,long szolg,long gepj,long ugyf) '''
+	def getLatexContent(long ktgh,long szolg,long gepj,long ugyf,String filename) '''
 		
 		%----------------------------------------------------------------------------------------
 		%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
@@ -145,7 +144,7 @@ class Template {
 		%	NAME AND CLASS SECTION
 		%----------------------------------------------------------------------------------------
 		
-		\newcommand{\hmwkTitle}{Teszt1\ } % Assignment title
+		\newcommand{\hmwkTitle}{«filename»\ } % Assignment title
 		\newcommand{\hmwkDueDate}{2016\ április\ 18} % Due date
 		\newcommand{\hmwkClass}{Riport Kimenet\ } % Course/class
 		\newcommand{\hmwkClassTime}{16:34} % Class/lecture time

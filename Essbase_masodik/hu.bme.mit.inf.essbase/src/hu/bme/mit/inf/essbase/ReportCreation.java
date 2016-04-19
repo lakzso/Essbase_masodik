@@ -4,12 +4,9 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Hashtable;
 
 import org.eclipse.core.resources.IFile;
@@ -21,18 +18,15 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 import com.essbase.api.base.EssException;
 import com.essbase.api.dataquery.IEssGridView;
 
-import net.sourceforge.texlipse.builder.TexlipseNature;
 import net.sourceforge.texlipse.properties.TexlipseProperties;
 import net.sourceforge.texlipse.wizards.TexlipseProjectAttributes;
-import net.sourceforge.texlipse.wizards.TexlipseProjectCreationOperation;
 
+@SuppressWarnings("deprecation")
 public class ReportCreation {
 	public static String reportOut;
 
@@ -163,7 +157,7 @@ public class ReportCreation {
 		ugyf /= sum;
 		ugyf *= 100;
 		InputStream str = new StringBufferInputStream(
-				t.getLatexContent(Math.round(ktgh), Math.round(szolg), Math.round(gepj), Math.round(ugyf)).toString());
+				t.getLatexContent(Math.round(ktgh), Math.round(szolg), Math.round(gepj), Math.round(ugyf),new File(repUrl).getName()).toString());
 
 		IProject latexProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 		IFolder plotFolder = latexProject.getFolder("plotdata");

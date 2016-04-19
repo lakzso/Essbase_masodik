@@ -4,7 +4,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
 public class Template {
-  public CharSequence getLatexContent(final long ktgh, final long szolg, final long gepj, final long ugyf) {
+  public CharSequence getLatexContent(final long ktgh, final long szolg, final long gepj, final long ugyf, final String filename) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
     _builder.append("%----------------------------------------------------------------------------------------");
@@ -296,8 +296,10 @@ public class Template {
     _builder.append("%----------------------------------------------------------------------------------------");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("\\newcommand{\\hmwkTitle}{Teszt1\\ } % Assignment title");
-    _builder.newLine();
+    _builder.append("\\newcommand{\\hmwkTitle}{");
+    _builder.append(filename, "");
+    _builder.append("\\ } % Assignment title");
+    _builder.newLineIfNotEmpty();
     _builder.append("\\newcommand{\\hmwkDueDate}{2016\\ április\\ 18} % Due date");
     _builder.newLine();
     _builder.append("\\newcommand{\\hmwkClass}{Riport Kimenet\\ } % Course/class");
