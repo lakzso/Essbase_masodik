@@ -1,0 +1,14 @@
+%----------------------------------------------------------------------------
+\chapter{Esettanulmány}\label{sect:Preliminaries}
+%----------------------------------------------------------------------------
+\section{Essbase adatbázis}
+Alapvetően kétféle adatbázis létezik lekérdezés szempontjából az OLTP (On Line
+Transaction Processing, online tranzakciófeldolgozás), ahol sok tranzakció van és ezek kis
+módosításokat (UPDATE,INSERT) vagy lekérdezéseket csinálnak az
+adatbázisban és az OLAP (On Line Analitical Processing vagy online
+analitikai feldolgozás), ami kimondottan a lekérdezésekre lett optimalizálva,
+jelentések készítésére. Például egy számla vezető rendszerbe a napi
+tranzakciókat és ezek könyvelését OLTP-be célszerű tárolni, ezzel szemben azt
+hogy a számla havi forgalma milyen volt aggregálva szeretnénk látni, ehhez már
+érdemes OLAP adatbázist használni, mert az ilyen jellegű lekérdezések OLTP-be
+nagyon lassúak. 
