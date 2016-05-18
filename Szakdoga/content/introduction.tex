@@ -1,7 +1,36 @@
 %----------------------------------------------------------------------------
 \chapter*{\bevezeto}\addcontentsline{toc}{chapter}{\bevezeto}
 %----------------------------------------------------------------------------
+Napjainkban, a vállalatoknál egyre több adattal dolgoznak, ezeket adattárházba mentik, 
+majd erre OLAP adatbázist építenek, hogy az adatok összefüggéseit lehessen vizsgálni, 
+azáltal hogy olyan lekérdezéseket lehet benne megfogalmazni, amivel az adatokat összevontan lehet nézni. 
+Ilyen például, a gyakorlatban igen sokszor használt és elterjedt adatbázis, az Essbase.
 
-A bevezető tartalmazza a diplomaterv-kiírás elemzését, történelmi előzményeit, a feladat indokoltságát (a motiváció leírását), az eddigi megoldásokat, és ennek tükrében a hallgató megoldásának összefoglalását.
+Az előzőekben említett lekérdezések megfogalmazásánál, ha például egy nagyobb OLAP kockáról van szó, 
+nehézséget okozhat fejlesztéskor, hogy egy sima szöveges fájlt szerkesztünk, 
+ebből következően nem lehet benne hibát keresni, objektumok beírásánál a
+fejlesztő környezet nem tudja azt validálni, ebből következően gyakran a
+lekérdezéseknél üres megoldást kapunk, valamint az eredmény halmazt egy
+n-dimenziós mátrixba kapjuk, ami átláthatatlan, és nehéz feldolgozni. Valamint
+ezeken kívűl, sokszor előforduló jelenség hogy mivel kétféle lekérdező nyelv van
+az Essbase-hez, különböző funkcionalitással, ezeket gyakran kombinálva kell
+használni, ami nehézkes, és átláthatatlan.
 
-A bevezető szokás szerint a diplomaterv felépítésével záródik, azaz annak rövid leírásával, hogy melyik fejezet mivel foglalkozik.
+Ezeket a problémákat szeretném kezelni dolgozatomban, mégpedig úgy hogy Xtext
+metamodellező nyelvben implementálok, saját lekérdező nyelvet, ami egyrészt
+megoldást kínál a felvetett problémákra, valamint kombinálja a kétféle lekérdező
+nyelv (Riport, MDX) előnyeit egybe. Célkitűzésem tehát egy magas szintű jelentés
+és lekérdező nyelv készítése, ami ezeket tudja.
+
+Dolgozatomban bemutatok egy olyan konkrét Xtext nyelvet ami le tud kérdezni az
+Essbase adatbázisból, valamint hogy ezt a gyakorlatba is lehessen használni,
+készítek hozzá egy szerkesztőt Eclipse környezetben, ahol a megírt lekérdezést
+lehet futtatni és egy latex Pdf ennek az eredményét ki lehet riportálni további
+felhasználás céljából.
+
+Mindezek alapján a fejlesztés sokkal gyorsabb és hatékonyabb lesz, mert nem kell
+kétféle programozási nyelvet használni, hatékonyabban, kevesebb munkával meg
+lehet ugyanazokat, vagy még bonyolultabb Essbase lekérdezéseket írni.
+
+
+ 
