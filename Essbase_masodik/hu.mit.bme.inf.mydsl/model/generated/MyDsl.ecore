@@ -13,8 +13,7 @@
         eType="#//ReportQueryParameters" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Report">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="repout" eType="#//StringReference"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repout" eType="#//Query"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReportQueryParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="Descendants" eSuperTypes="#//ReportQueryParameters">

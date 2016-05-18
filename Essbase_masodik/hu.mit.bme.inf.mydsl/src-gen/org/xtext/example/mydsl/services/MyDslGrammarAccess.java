@@ -107,13 +107,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReportKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Action cReportAction_1 = (Action)cGroup.eContents().get(1);
 		private final Assignment cRepoutAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cRepoutStringReferenceParserRuleCall_2_0 = (RuleCall)cRepoutAssignment_2.eContents().get(0);
+		private final CrossReference cRepoutQueryCrossReference_2_0 = (CrossReference)cRepoutAssignment_2.eContents().get(0);
+		private final RuleCall cRepoutQueryIDTerminalRuleCall_2_0_1 = (RuleCall)cRepoutQueryCrossReference_2_0.eContents().get(1);
 		
 		//Report:
-		//	'report' {Report} repout=StringReference;
+		//	'report' {Report} repout=[Query];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'report' {Report} repout=StringReference
+		//'report' {Report} repout=[Query]
 		public Group getGroup() { return cGroup; }
 		
 		//'report'
@@ -122,11 +123,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//{Report}
 		public Action getReportAction_1() { return cReportAction_1; }
 		
-		//repout=StringReference
+		//repout=[Query]
 		public Assignment getRepoutAssignment_2() { return cRepoutAssignment_2; }
 		
-		//StringReference
-		public RuleCall getRepoutStringReferenceParserRuleCall_2_0() { return cRepoutStringReferenceParserRuleCall_2_0; }
+		//[Query]
+		public CrossReference getRepoutQueryCrossReference_2_0() { return cRepoutQueryCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getRepoutQueryIDTerminalRuleCall_2_0_1() { return cRepoutQueryIDTerminalRuleCall_2_0_1; }
 	}
 	public class ReportQueryParametersElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReportQueryParameters");
@@ -721,7 +725,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Report:
-	//	'report' {Report} repout=StringReference;
+	//	'report' {Report} repout=[Query];
 	public ReportElements getReportAccess() {
 		return pReport;
 	}

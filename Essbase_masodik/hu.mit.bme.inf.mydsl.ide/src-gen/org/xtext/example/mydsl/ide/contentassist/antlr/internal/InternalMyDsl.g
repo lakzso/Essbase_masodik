@@ -2292,9 +2292,13 @@ rule__Report__RepoutAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_2_0()); }
-		ruleStringReference
-		{ after(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_2_0()); }
+		{ before(grammarAccess.getReportAccess().getRepoutQueryCrossReference_2_0()); }
+		(
+			{ before(grammarAccess.getReportAccess().getRepoutQueryIDTerminalRuleCall_2_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getReportAccess().getRepoutQueryIDTerminalRuleCall_2_0_1()); }
+		)
+		{ after(grammarAccess.getReportAccess().getRepoutQueryCrossReference_2_0()); }
 	)
 ;
 finally {

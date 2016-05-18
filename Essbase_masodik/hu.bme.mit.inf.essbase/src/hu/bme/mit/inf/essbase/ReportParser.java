@@ -90,8 +90,8 @@ public class ReportParser {
 			QueryString += " !";
 			Queries.put(q.getName().toString(), QueryString);
 			for (Report repout : m.getReports()) {
-				if (Queries.containsKey(repout.getRepout().getValue())) {
-					ToQueryStringQueries.add(Queries.get(repout.getRepout().getValue()));
+				if (Queries.containsKey(repout.getRepout().getName())) {
+					ToQueryStringQueries.add(Queries.get(repout.getRepout().getName()));
 				}
 
 			}

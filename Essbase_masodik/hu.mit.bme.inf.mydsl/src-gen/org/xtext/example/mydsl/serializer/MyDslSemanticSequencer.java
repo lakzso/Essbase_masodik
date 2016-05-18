@@ -298,7 +298,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Report returns Report
 	 *
 	 * Constraint:
-	 *     repout=StringReference
+	 *     repout=[Query|ID]
 	 */
 	protected void sequence_Report(ISerializationContext context, Report semanticObject) {
 		if (errorAcceptor != null) {
@@ -306,7 +306,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REPORT__REPOUT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_2_0(), semanticObject.getRepout());
+		feeder.accept(grammarAccess.getReportAccess().getRepoutQueryIDTerminalRuleCall_2_0_1(), semanticObject.getRepout());
 		feeder.finish();
 	}
 	

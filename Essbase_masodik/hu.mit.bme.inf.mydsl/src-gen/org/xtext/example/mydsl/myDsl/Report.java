@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Report extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Repout</b></em>' containment reference.
+   * Returns the value of the '<em><b>Repout</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Repout</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Repout</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Repout</em>' containment reference.
-   * @see #setRepout(StringReference)
+   * @return the value of the '<em>Repout</em>' reference.
+   * @see #setRepout(Query)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReport_Repout()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  StringReference getRepout();
+  Query getRepout();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Repout</em>' containment reference.
+   * @param value the new value of the '<em>Repout</em>' reference.
    * @see #getRepout()
    * @generated
    */
-  void setRepout(StringReference value);
+  void setRepout(Query value);
 
 } // Report

@@ -142,7 +142,7 @@ public interface MyDslPackage extends EPackage
   int REPORT = 2;
 
   /**
-   * The feature id for the '<em><b>Repout</b></em>' containment reference.
+   * The feature id for the '<em><b>Repout</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -653,10 +653,10 @@ public interface MyDslPackage extends EPackage
   EClass getReport();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Repout</em>'.
+   * @return the meta object for the reference '<em>Repout</em>'.
    * @see org.xtext.example.mydsl.myDsl.Report#getRepout()
    * @see #getReport()
    * @generated
@@ -1011,7 +1011,7 @@ public interface MyDslPackage extends EPackage
     EClass REPORT = eINSTANCE.getReport();
 
     /**
-     * The meta object literal for the '<em><b>Repout</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Repout</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

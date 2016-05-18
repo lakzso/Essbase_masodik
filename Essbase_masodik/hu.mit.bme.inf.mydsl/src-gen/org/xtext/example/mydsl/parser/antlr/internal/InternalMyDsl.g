@@ -226,19 +226,13 @@ ruleReport returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getReportAccess().getRepoutStringReferenceParserRuleCall_2_0());
-				}
-				lv_repout_2_0=ruleStringReference
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getReportRule());
+						$current = createModelElement(grammarAccess.getReportRule());
 					}
-					set(
-						$current,
-						"repout",
-						lv_repout_2_0,
-						"org.xtext.example.mydsl.MyDsl.StringReference");
-					afterParserOrEnumRuleCall();
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getReportAccess().getRepoutQueryCrossReference_2_0());
 				}
 			)
 		)

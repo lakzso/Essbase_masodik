@@ -13,7 +13,7 @@ Query:
 	;
 
 Report:
-	'report' {Report} repout=StringReference
+	'report' {Report} repout=[Query]
 ;
 
 ReportQueryParameters:

@@ -4,7 +4,6 @@
 package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -13,8 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Query;
 import org.xtext.example.mydsl.myDsl.Report;
-import org.xtext.example.mydsl.myDsl.StringReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,14 +31,14 @@ import org.xtext.example.mydsl.myDsl.StringReference;
 public class ReportImpl extends MinimalEObjectImpl.Container implements Report
 {
   /**
-   * The cached value of the '{@link #getRepout() <em>Repout</em>}' containment reference.
+   * The cached value of the '{@link #getRepout() <em>Repout</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRepout()
    * @generated
    * @ordered
    */
-  protected StringReference repout;
+  protected Query repout;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +66,27 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public StringReference getRepout()
+  public Query getRepout()
+  {
+    if (repout != null && repout.eIsProxy())
+    {
+      InternalEObject oldRepout = (InternalEObject)repout;
+      repout = (Query)eResolveProxy(oldRepout);
+      if (repout != oldRepout)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyDslPackage.REPORT__REPOUT, oldRepout, repout));
+      }
+    }
+    return repout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Query basicGetRepout()
   {
     return repout;
   }
@@ -77,53 +96,12 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRepout(StringReference newRepout, NotificationChain msgs)
+  public void setRepout(Query newRepout)
   {
-    StringReference oldRepout = repout;
+    Query oldRepout = repout;
     repout = newRepout;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__REPOUT, oldRepout, newRepout);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRepout(StringReference newRepout)
-  {
-    if (newRepout != repout)
-    {
-      NotificationChain msgs = null;
-      if (repout != null)
-        msgs = ((InternalEObject)repout).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT__REPOUT, null, msgs);
-      if (newRepout != null)
-        msgs = ((InternalEObject)newRepout).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.REPORT__REPOUT, null, msgs);
-      msgs = basicSetRepout(newRepout, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__REPOUT, newRepout, newRepout));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case MyDslPackage.REPORT__REPOUT:
-        return basicSetRepout(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.REPORT__REPOUT, oldRepout, repout));
   }
 
   /**
@@ -137,7 +115,8 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
     switch (featureID)
     {
       case MyDslPackage.REPORT__REPOUT:
-        return getRepout();
+        if (resolve) return getRepout();
+        return basicGetRepout();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,7 +132,7 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
     switch (featureID)
     {
       case MyDslPackage.REPORT__REPOUT:
-        setRepout((StringReference)newValue);
+        setRepout((Query)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,7 +149,7 @@ public class ReportImpl extends MinimalEObjectImpl.Container implements Report
     switch (featureID)
     {
       case MyDslPackage.REPORT__REPOUT:
-        setRepout((StringReference)null);
+        setRepout((Query)null);
         return;
     }
     super.eUnset(featureID);

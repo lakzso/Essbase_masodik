@@ -15,7 +15,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Query/Query"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Report">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Report/repout"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Report/repout"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReportQueryParameters"/>
     <genClasses ecoreClass="MyDsl.ecore#//Descendants">
