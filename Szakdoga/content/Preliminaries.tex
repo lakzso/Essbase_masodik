@@ -7,12 +7,17 @@ Transaction Processing, online tranzakciófeldolgozás), ahol sok tranzakció va
 módosításokat (UPDATE,INSERT) vagy lekérdezéseket csinálnak az
 adatbázisban és az OLAP (On Line Analitical Processing vagy online
 analitikai feldolgozás), ami kimondottan a lekérdezésekre lett optimalizálva,
-jelentések készítésére. Például egy számla vezető rendszerbe a napi
-tranzakciókat és ezek könyvelését OLTP-be célszerű tárolni, ezzel szemben azt
-hogy a számla havi forgalma milyen volt aggregálva szeretnénk látni, ehhez már
-érdemes OLAP adatbázist használni, mert az ilyen jellegű lekérdezések OLTP-be
-nagyon lassúak. Például az Essbase egy OLAP adatbázis, ami dolgozatom tárgya
-is.
+jelentések készítésére. Például hogy egy autó hova ment, közbe mennyi volt a
+fogyasztása ezt tipikusan OLTP adatbázisba szeretnénk tárolni, mert sok
+tranzakció keletkezik sok INSERT-el. Viszont ha van pár céges autónk egy vállalatnál, ezeknek az autóknak vannak kölségeik, 
+benzin, amortizáció, de ezek a költségek az OLTP adatbázisunkba vannak soronként
+egy táblába, egy adott szervezeti egységhez rendelve és szeretnénk tudni azt
+hogy aggregálva az autóknak mennyi volt a költségeik anélkül hogy egy ilyen
+lekérdezés órákig tartana (az egész táblát össze kéne adni majd egyenként
+leosztani valamilyen szempont alapján), ehhez már árdemes felépíteni egy OLAP
+kockát, ami automatikusan képes az ilyen jellegű aggregációra és arra is hogy az
+szervezeti egység költségeit el tudja osztani minden egyes autóra, vagy akár más
+objektumra, például szolgáltatásokra, költséghelyekre.
 
 \section{Xtext keretrendszer}
 

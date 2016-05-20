@@ -35,11 +35,16 @@ lehetősgéeit, így mindkét nyelv lehetsőségeit lehet használni 1 nyelvbe.
 
 Jelenleg elkészült parancsok, amiket a metamodellezőbe már definiáltam.
 \begin{itemize}
-  \item  query
-  \item dim
-  \item group
-  \item row
-  \item link
+  \item query: lekérdez az adatbázisból, a paraméterezésének megfelelően,
+  gyakorlatilag egy referenciaként lehet használni, amit ezután ki lehet
+  riportálni
+  \item dim: segítségével létrehozhatunk dimenzió referenciát, amivel ezután
+  tudunk hivatkozni más parancsokba
+  \item group: segítségével létrehozhatunk group referenciát, amivel ezután
+  tudunk hivatkozni más parancsokba
+  \item row: definiálhatjuk vele a sorokat, ami majd a kimeneti riportban meg
+  fog jelenni, dim vagy group
+  \item link: 
   \item reportParameter
   \item report
 \end{itemize}
@@ -47,8 +52,22 @@ Jelenleg elkészült parancsok, amiket a metamodellezőbe már definiáltam.
 
 \section{Validációs módszerek}
 
-\section{A riport kimenete}
+\section{Futtatás és a riport kimenete}
+ \begin{figure}[!ht]
+\centering
+\includegraphics[width=60mm, keepaspectratio]{figures/run.png}
+\caption{Riport futtatás Eclipse-ből} 
+\label{fig:Overview}
+\end{figure}
 
+
+
+ \begin{figure}[!ht]
+\centering
+\includegraphics[width=120mm, keepaspectratio]{figures/Report.png}
+\caption{Riport diagram példa} 
+\label{fig:Overview}
+\end{figure}
 
 
 
