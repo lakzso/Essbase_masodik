@@ -27,33 +27,27 @@ amit a program generál.
 \label{fig:Overview}
 \end{figure}
 
-\section{A lekérdező nyelv bemutatása}
+\section{Saját lekérdező nyelv bemutatása}
 
-\begin{lstlisting}[language=java,morekeywords={dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-SajatQuery1=query {
-	{SUPEMPTYROWS}
-{DECIMAL 10}
-{TABDELIMIT}
-{ROWREPEAT}
-{SUPBRACKETS}
-{SUPCOMMAS}
-{NOINDENTGEN}
+Először is Xtextbe létrehoztam egy metamodelt, amibe definiáltam a saját riport
+lekérdezőmbe a valid parancsokat, amik kombinálják az MDX és a Riport parancsok
+lehetősgéeit, így mindkét nyelv lehetsőségeit lehet használni 1 nyelvbe.
 
-dim ktg "Input_KN_Koltsegnem"
-dim obj "Input_Objektum"
-group objects "Input_Objektumok"
-group ktgs "Input_KN_Koltsegnemek"
+Jelenleg elkészült parancsok, amiket a metamodellezőbe már definiáltam.
+\begin{itemize}
+  \item  query
+  \item dim
+  \item group
+  \item row
+  \item link
+  \item reportParameter
+  \item report
+\end{itemize}
 
-row {obj,ktg}
-link {objects,obj}
-link {ktgs,ktg}
-reportParameter {"UGYF"}   }
-report SajatQuery1
-\end{lstlisting}
 
 \section{Validációs módszerek}
 
-
+\section{A riport kimenete}
 
 
 

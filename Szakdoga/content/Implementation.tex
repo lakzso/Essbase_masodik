@@ -1,3 +1,96 @@
 \chapter{Implementáció}\label{sect:Ellaboration}
 
 \section{Rendszer áttekintése}
+
+
+Xtext metamodell:
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+Model:
+	(Queries+=Query)*
+	(Reports+=Report)*
+	;
+Query:
+	name=ID '=' 'query' '{'
+	InitialStatement
+	(Query+=ReportQueryParameters)* '}'
+	;
+
+Report:
+	'report' {Report} repout=[Query]
+;
+
+ReportQueryParameters:
+	Column | Row | Descendants | Declaration | Reference | Child | Link | ReportParameter;
+
+InitialStatement:
+"{SUPEMPTYROWS}
+{DECIMAL 10}
+{TABDELIMIT}
+{ROWREPEAT}
+{SUPBRACKETS}
+{SUPCOMMAS}
+{NOINDENTGEN}";
+
+Descendants:
+	'descendants' group=ID ',' dimension=Reference;
+
+Declaration:
+	DimensionDeclaration | GroupDeclaration | MemberDeclaration;
+
+DimensionDeclaration:
+	'dim' name=ID value=STRING;
+
+GroupDeclaration:
+	'group' name=ID value=STRING;
+
+MemberDeclaration:
+	'member' name=ID value=STRING;
+
+Row:
+	'row' {Row} '{' dimensions+=Reference (',' dimensions+=Reference)* '}';
+
+Column:
+	'column' {Column} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
+; 	
+Link:
+	'link' {Link} '{' desc=Reference ',' lev=Reference '}'
+; 	
+Child:
+	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
+; 	
+ReportParameter:
+	'reportParameter' {ReportParameter} '{' reparam=StringReference '}'
+;
+
+Reference:
+	referred=[Declaration] | StringReference;
+
+StringReference:
+	value=STRING;
+\end{lstlisting}
+
+Példa lekérdezés:
+\begin{lstlisting}[language=java,morekeywords={dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+SajatQuery1=query {
+	{SUPEMPTYROWS}
+{DECIMAL 10}
+{TABDELIMIT}
+{ROWREPEAT}
+{SUPBRACKETS}
+{SUPCOMMAS}
+{NOINDENTGEN}
+
+dim ktg "Input_KN_Koltsegnem"
+dim obj "Input_Objektum"
+group objects "Input_Objektumok"
+group ktgs "Input_KN_Koltsegnemek"
+
+row {obj,ktg}
+link {objects,obj}
+link {ktgs,ktg}
+reportParameter {"UGYF"}   }
+report SajatQuery1
+\end{lstlisting}
