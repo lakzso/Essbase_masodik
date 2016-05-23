@@ -4,33 +4,33 @@
 \section{Essbase adatbázis}
 Alapvetően kétféle adatbázis létezik lekérdezés szempontjából az OLTP (On Line
 Transaction Processing, online tranzakciófeldolgozás), ahol sok tranzakció van és ezek kis
-módosításokat (UPDATE,INSERT) vagy lekérdezéseket csinálnak az
+módosításokat (UPDATE,INSERT) és lekérdezéseket csinálnak az
 adatbázisban és az OLAP (On Line Analitical Processing vagy online
 analitikai feldolgozás), ami kimondottan a lekérdezésekre lett optimalizálva,
 jelentések készítésére. Például hogy egy autó hova ment, közbe mennyi volt a
 fogyasztása ezt tipikusan OLTP adatbázisba szeretnénk tárolni, mert sok
 tranzakció keletkezik sok INSERT-el. Viszont ha van pár céges autónk egy vállalatnál, ezeknek az autóknak vannak kölségeik, 
-benzin, amortizáció, de ezek a költségek az OLTP adatbázisunkba vannak soronként
-egy táblába, egy adott szervezeti egységhez rendelve és szeretnénk tudni azt
+benzin, amortizáció és ezek a költségek az OLTP adatbázisunkba vannak soronként
+egy táblába egy adott szervezeti egységhez rendelve és szeretnénk tudni azt
 hogy aggregálva az autóknak mennyi volt a költségeik anélkül hogy egy ilyen
 lekérdezés órákig tartana (az egész táblát össze kéne adni majd egyenként
 leosztani valamilyen szempont alapján), ehhez már árdemes felépíteni egy OLAP
 kockát, ami automatikusan képes az ilyen jellegű aggregációra és arra is hogy az
-szervezeti egység költségeit el tudja osztani minden egyes autóra, vagy akár más
+szervezeti egység költségeit le tudja osztani minden egyes autóra vagy akár más
 objektumra, például szolgáltatásokra, költséghelyekre.
 
 \section{Xtext keretrendszer}
 Az Xtext gyakorlatilag egy olyan keretrendszer, amibe lehet definiálni egy
 saját, domén specifikus programozási nyelvet, metamodellt. Ha ez kész, akkor
-ebben a programozás nyelvben lehet utána fejleszteni, majd a kódot ezt a kódot az Xtext tudja validálni, 
+ebben a programozás nyelvben lehet utána fejleszteni, majd ezt a kódot az Xtext tudja validálni 
 és feldolgozni, ezeket az adatokat objekumokba megkapjuk és java-ban ezt utána
 fel lehet dolgozni.
 
 \section{Eclipse plugin}
 Eclipse környezetben lehet készíteni saját beépülő modulokat, amik miután
-föltelepültek gyakorlatilag teljes testre tudják szabni az Eclipse-t,
-dolgozatomban én is készítek egy saját plugint, szerkesztőt, amibe lehet
-szerkeszteni a létrehozott programozási nyelv kódját.
+föltelepültek gyakorlatilag teljesen testre tudják szabni az Eclipse-t,
+dolgozatomban én is készítek egy saját plugint, szerkesztőt, amibe létrehozott
+programozási nyelv kódját lehet szerkeszteni.
 
 \section{Latex és riportolási technikák}
 Megjelenítésre, riport kimenetnek a dolgozatomban én latexet választottam, mert
@@ -38,8 +38,8 @@ a forráskódja java kódból generálható és vannak olyan grafikus megjelení
 csomagjai, amivel az Essbase-ből kijövő nyers adatokat meg lehet jeleníteni.
 
 \section{Xtend}
-Sok új nyelvi elemmel rendelkező java továbbfejlesztése. Hasznos funkciója hogy
-lehet olyan sablont készíteni, amiből az Xtend java osztályokat generál
-StringBuilder-ek segítségével és egyszerű paraméterezéssel meg lehet adni a
+Sok új nyelvi elemmel rendelkező java nyelv továbbfejlesztése. Hasznos
+funkciója, hogy lehet olyan szöveg sablont készíteni, amiből az Xtend java
+osztályokat generál StringBuilder-ek segítségével és egyszerű paraméterezéssel meg lehet adni a
 sablonnak a változó értékeket.
 

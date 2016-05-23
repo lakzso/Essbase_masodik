@@ -7,13 +7,13 @@ azáltal hogy olyan lekérdezéseket lehet benne megfogalmazni, amivel az adatok
 Ilyen például, a gyakorlatban igen sokszor használt és elterjedt adatbázis, az Essbase.
 
 Az előzőekben említett lekérdezések megfogalmazásánál, ha például egy nagyobb OLAP kockáról van szó, 
-nehézséget okozhat fejlesztéskor, hogy egy sima szöveges fájlt szerkesztünk, 
-ebből következően nem lehet benne hibát keresni, objektumok beírásánál a
+nehézséget okozhat fejlesztéskor, hogy a fejlesztő környezetbe egy sima szöveges
+fájlt szerkesztünk, ebből következően nem lehet benne hibát keresni, objektumok beírásánál a
 fejlesztő környezet nem tudja azt validálni, ebből következően gyakran a
 lekérdezéseknél üres megoldást kapunk, valamint az eredmény halmazt egy
-n-dimenziós mátrixba kapjuk, ami átláthatatlan, és nehéz feldolgozni. Valamint
-ezeken kívűl, sokszor előforduló jelenség hogy mivel kétféle lekérdező nyelv van
-az Essbase-hez, különböző funkcionalitással, ezeket bizonyos problémáknál
+n-dimenziós mátrixba kapjuk, ami átláthatatlan és nehéz feldolgozni. Ezeken
+kívűl, sokszor előforduló jelenség hogy mivel kétféle lekérdező nyelv van az Essbase-hez, 
+különböző funkcionalitással, ezeket bizonyos problémáknál
 kombinálva kell használni, ami nehézkes, és átláthatatlan. Ilyen probléma
 például a költségfelosztás, amikor egyik memberben vagy csoportban lévő
 költséget (az eltárolt számot), két másik memberre vagy egy egész csoportra
@@ -23,17 +23,18 @@ Ezeket a problémákat szeretném kezelni dolgozatomban, mégpedig úgy hogy Xte
 metamodellező nyelvben implementálok saját lekérdező nyelvet, ami egyrészt
 megoldást kínál a felvetett problémákra, valamint kombinálja a kétféle lekérdező
 nyelv (Riport, MDX) előnyeit egybe. Célkitűzésem tehát egy magas szintű jelentés
-és lekérdező nyelv készítése, ami ezeket tudja.
+és lekérdező nyelv készítése, ami ezen problémákra választ ad.
 
-Dolgozatomban bemutatok egy olyan konkrét Xtext nyelvet ami le tud kérdezni az
+Dolgozatomban bemutatok egy olyan konkrét Xtext nyelvet, ami le tud kérdezni az
 Essbase adatbázisból, valamint hogy ezt a gyakorlatba is lehessen használni,
-készítek hozzá egy szerkesztőt Eclipse környezetben, ahol a megírt lekérdezést
-lehet futtatni és egy latex Pdf ennek az eredményét ki lehet riportálni további
+készítek hozzá egy szerkesztőt, Eclipse környezetben, ahol a megírt lekérdezést
+lehet futtatni és egy latex Pdf ennek az eredményét ki lehet riportálni, további
 felhasználás céljából.
 
 Mindezek alapján a fejlesztés sokkal gyorsabb és hatékonyabb lesz, mert nem kell
 kétféle programozási nyelvet használni, hatékonyabban, kevesebb munkával meg
-lehet ugyanazokat, vagy még bonyolultabb Essbase lekérdezéseket írni.
+lehet ugyanazokat, vagy még bonyolultabb Essbase lekérdezéseket vagy speciális
+műveleteket írni.
 
 
  
