@@ -1,13 +1,19 @@
 \chapter{Implementáció}\label{sect:Ellaboration}
+ %Xtextet csináltam ; osztálydiagram a lényeges cuccokkal; hogyan teszteltem,
+%mérési eredmények
+\section{Xtext metamodell}
+Az új lekérdező nyelv fejlesztáse során először is létrehoztam egy metamodellt
+Xtext-ben, ahol megadtam hogy hogyan épül föl Essbase lekérdezés, milyen
+parancsokból áll, közöttük milyen logika van, erre azért van szükség hogy az
+Xtext a már kész lekérdezést majd tudja validálni.
 
-\section{Rendszer áttekintése}
- Xtextet csináltam ; osztálydiagram a lényeges cuccokkal; hogyan teszteltem,
-mérési eredmények
+A metamodell alapján egy Essbase lekérdező nyelv alapvetően Query-ből,
+valamint a riport kimenetének megadásából (Reports-ból áll). A Query-n belűl
+kell megadni a lekérdezés részleteit, mennyire szeretnénk aggregálva látni az
+adatokat, valamint melyik diemnzót szerernénk látni.
 
 Xtext metamodell:
 \begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
-generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
 
 Model:
 	(Queries+=Query)*
@@ -73,6 +79,12 @@ StringReference:
 	value=STRING;
 \end{lstlisting}
 
+Az Xtext metamodell megírás után készítettem saját példa lekérdezést is, amit az
+Xtext már tud validálni. A példámban egy általán lekérdezést fogalmazok meg a
+kocka 2 dimenziójáról (Költségnem és Objektum), valamint 2 csoportjáról
+(Objektumok, és Költségnemek), ezeket az adatokat lekérdezzük a kockából, majd
+latex pdf-be aggregálva egy diagramon megjelenítjük őket.
+
 Példa lekérdezés:
 \begin{lstlisting}[language=java,morekeywords={dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 SajatQuery1=query {
@@ -84,10 +96,10 @@ SajatQuery1=query {
 {SUPCOMMAS}
 {NOINDENTGEN}
 
-dim ktg "Input_KN_Koltsegnem"
-dim obj "Input_Objektum"
-group objects "Input_Objektumok"
-group ktgs "Input_KN_Koltsegnemek"
+dim ktg "Koltsegnem"
+dim obj "Objektum"
+group objects "Objektumok"
+group ktgs "Koltsegnemek"
 
 row {obj,ktg}
 link {objects,obj}
