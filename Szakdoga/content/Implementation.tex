@@ -2,82 +2,123 @@
  %Xtextet csináltam ; osztálydiagram a lényeges cuccokkal; hogyan teszteltem,
 %mérési eredmények
 \section{Xtext metamodell}
-Az új lekérdező nyelv fejlesztáse során először is létrehoztam egy metamodellt
-Xtext-ben, ahol megadtam hogy hogyan épül föl Essbase lekérdezés, milyen
-parancsokból áll, közöttük milyen logika van, erre azért van szükség hogy az
-Xtext a már kész lekérdezést majd tudja validálni.
+Az új lekérdező nyelv fejlesztése során először is létrehoztam egy metamodellt Xtext-ben, ahol megadtam hogy hogyan épül föl Essbase lekérdezés, milyen parancsokból áll, közöttük milyen logika van. Mindezt azért hogy az Xtext a már kész lekérdezést majd tudja validálni.
 
-A metamodell alapján egy Essbase lekérdező nyelv alapvetően Query-ből,
-valamint a riport kimenetének megadásából (Reports-ból áll). A Query-n belűl
-kell megadni a lekérdezés részleteit, mennyire szeretnénk aggregálva látni az
-adatokat, valamint melyik diemnzót szerernénk látni.
+A metamodell alapján egy Essbase lekérdező nyelv alapvetően Query-kből, valamint a riport kimenetének megadásából (Reports-ból áll):
 
-Xtext metamodell:
 \begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-
 Model:
 	(Queries+=Query)*
 	(Reports+=Report)*
 	;
+\end{lstlisting}
+
+Riport kimenet megadásakor a 'report' kulcsszó után megadunk egy olyan Query referenciát, amit már előzőleg deifiniáltunk.
+
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+Report:
+	'report' {Report} repout=[Query]
+;
+\end{lstlisting}
+
+Definiálom hogy hogyan épül fel egy Query, adok neki egy azonosítót (ID) és előírom hozzá a paramétereket, amiket egy Queryba meg lehet adni:
+
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 Query:
 	name=ID '=' 'query' '{'
 	InitialStatement
 	(Query+=ReportQueryParameters)* '}'
 	;
 
-Report:
-	'report' {Report} repout=[Query]
-;
-
 ReportQueryParameters:
 	Column | Row | Descendants | Declaration | Reference | Child | Link | ReportParameter;
+	
+\end{lstlisting}
 
-InitialStatement:
-"{SUPEMPTYROWS}
-{DECIMAL 10}
-{TABDELIMIT}
-{ROWREPEAT}
-{SUPBRACKETS}
-{SUPCOMMAS}
-{NOINDENTGEN}";
+Létrehozok egy öröklési hierarchiát, hogy a dimenzió, csoport és tag deklarációkat hasonlóan kezelje a program.
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 
 Descendants:
 	'descendants' group=ID ',' dimension=Reference;
 
 Declaration:
 	DimensionDeclaration | GroupDeclaration | MemberDeclaration;
+\end{lstlisting}
+
+
+A következőkben definiálok objektum referenciákat, amik az Essbase kockában is vannak, ezen itt megadott objektmokra később lehet hivatkozni, elkerülve az esetleges elírásokat. Ilyen objektumok a
+
+\begin{itemize}
+  \item dimenziók
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 
 DimensionDeclaration:
 	'dim' name=ID value=STRING;
 
+\end{lstlisting}
+  \item csoportok
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+  
 GroupDeclaration:
 	'group' name=ID value=STRING;
+\end{lstlisting}
+  \item tagok
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 
 MemberDeclaration:
 	'member' name=ID value=STRING;
 
+\end{lstlisting}
+
+\end{itemize}
+
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+
 Row:
 	'row' {Row} '{' dimensions+=Reference (',' dimensions+=Reference)* '}';
+
+\end{lstlisting}
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 
 Column:
 	'column' {Column} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
 ; 	
+\end{lstlisting}
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+
 Link:
 	'link' {Link} '{' desc=Reference ',' lev=Reference '}'
 ; 	
+
+\end{lstlisting}
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+
 Child:
 	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
-; 	
+; 
+\end{lstlisting}
+
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+	
 ReportParameter:
 	'reportParameter' {ReportParameter} '{' reparam=StringReference '}'
 ;
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 
 Reference:
 	referred=[Declaration] | StringReference;
 
+\end{lstlisting}
+
+\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+
 StringReference:
 	value=STRING;
 \end{lstlisting}
+
 
 \section{Xtext példa lekérdezés}
 
