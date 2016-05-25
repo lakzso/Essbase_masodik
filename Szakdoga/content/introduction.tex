@@ -1,36 +1,12 @@
 %----------------------------------------------------------------------------
 \chapter*{Kivonat}\addcontentsline{toc}{chapter}{Kivonat}
 %----------------------------------------------------------------------------
-Napjainkban a vállalatoknál egyre több adattal dolgoznak. Ezeket
-tipikusan adattárházba mentik, majd erre OLAP(TODO) adatbázist építenek annak
-érdekében az adatok összefüggéseit lehessen vizsgálni. Az adatok összefüggéseit
-ti olyan lekérdezéseket megfogalmazni, amivel az adatokat
-összevontan lehet megjeleníteni (például összegezni vagy átlagolni).
-Ilyen OLAP adatbázis például, a gyakorlatban igen sokszor használt és elterjedt
-adatbázis, az Essbase.
+Napjainkban a vállalatoknál egyre több adattal dolgoznak. Ezeket az adatokat tipikusan adattárházba mentik, majd erre OLAP (On Line Analitical Processing) adatbázist építenek, annak érdekében az adatok összefüggéseit lehessen vizsgálni. Az adatok vizsgálatánál olyan lekérdezéseket fogalmaznak meg, hogy az adatok összevontan jelenjenek meg (például összegezve vagy átlagolva). Ilyen OLAP adatbázis például, a gyakorlatban igen sokszor használt és elterjedt adatbázis, az Essbase.
+Az előzőekben említett lekérdezések megfogalmazásánál nehézséget okoz fejlesztéskor, hogy (i) a fejlesztő környezet nem validálja a megírt kódot, (ii) mivel a nyelv deklaratív, nem lehet benne hibát keresni, (iii) hibáknál gyakran üres megoldást kapunk. Valamint, a fejlesztő környezet is kevés segítséget nyújt, mert a lekérdezés írásakor egy egyszerű szöveges fájlt kell szerkeszteni. Továbbá az eredmény halmaz egy n-dimenziós mátrix, ami átláthatatlan és nehéz feldolgozni. Ezen túlmenően, mivel kétféle különböző funkcionalitással bíró lekérdező nyelv van az Essbase-hez, sokszor előforduló jelenség, hogy ezeket kombinálva kell használni egy adott problémához, ami további nehézségeket okoz. Ilyen probléma például a költségfelosztás, amikor egyik elemben vagy csoportban lévő költséget (az eltárolt számot), két másik elemre vagy egy egész csoportra szeretnénk valahogy felosztani valamilyen, arány szerint.
+Ezeket a problémákat szeretném kezelni dolgozatomban, mégpedig úgy hogy saját lekérdező nyelvet és hozzá szerkesztőt készítek, ami egyrészt megoldást kínál a felvetett problémákra, valamint kombinálja a kétféle lekérdező nyelv (Riport, MDX) előnyeit egybe. Célkitűzésem tehát egy magas szintű jelentés és lekérdező nyelv készítése, ami ezen problémákra választ ad.
+Dolgozatomban bemutatok egy olyan Xtext alapú nyelvet, amely segítségével le lehet kérdezni az Essbase adatbázisból, valamint hogy ezt a gyakorlatba is lehessen használni, készítek hozzá egy Eclipse alapú szöveges szerkesztőt, ahol a megírt lekérdezést lehet futtatni. Végül a lekérdezések eredményét Latex segítségével egy PDF dokumentumba ábrázolom, amely tetszőlegesen szemléltetheti a megoldást.
+Mindezek alapján a fejlesztés sokkal gyorsabb és hatékonyabb lesz, mert nem kell kétféle programozási nyelvet használni, hatékonyabban, kevesebb munkával meg lehet ugyanazokat, vagy még bonyolultabb Essbase lekérdezéseket vagy speciális műveleteket írni.
 
-Az előzőekben említett lekérdezések megfogalmazásánál 
-nehézséget okoz fejlesztéskor, hogy (i) a fejlesztő környezet nem validálja a megírt kódot, (ii) mivel a nyelv deklaratív, nem lehet benne hibát keresni, (iii) hibáknál gyakran üres megoldást kapunk. Ezen kívűl a fejlesztő környezet is kevés segítséget nyújt, mert a lekérdezésekkor egy egyszerű szöveg fájlt kell megfogalmazni.
-Továbbá az eredmény halmaz egy n-dimenziós mátrix, ami átláthatatlan és nehéz feldolgozni. Ezeken
-kívűl, mivel kétféle különböző funkcionalitással bíró lekérdező nyelv van az Essbase-hez, sokszor előforduló jelenség 
-,hogy ezeket kombinálva kell használni, ami nehézkes ami további nehézségeket okoz. Ilyen probléma
-például a költségfelosztás, amikor egyik memberben vagy csoportban lévő
-költséget (az eltárolt számot), két másik memberre vagy egy egész csoportra
-szeretnénk valahogy felosztani valamilyen, arány szerint.
-
-Ezeket a problémákat szeretném kezelni dolgozatomban, mégpedig úgy hogy saját lekérdező nyelvet és hozzá szerkesztőt készítek, ami egyrészt megoldást kínál a felvetett problémákra, valamint kombinálja a kétféle lekérdező
-nyelv (Riport, MDX) előnyeit egybe. Célkitűzésem tehát egy magas szintű jelentés
-és lekérdező nyelv készítése, ami ezen problémákra választ ad.
-
-Dolgozatomban bemutatok egy olyan Xtext alapú nyelvet, amely segítségéveé le lehet kérdezni az
-Essbase adatbázisból, valamint hogy ezt a gyakorlatba is lehessen használni,
-készítek hozzá egy szerkesztőt Eclipse alapú szöveges szerkesztőt, ahol a megírt lekérdezést
-lehet futtatni. Végül a lekérdezések eredményét Latex segítségével egy PDF dokumentumba ábrázolom, amely testzőlegesen szempléltetheti a megoldást.
-
-Mindezek alapján a fejlesztés sokkal gyorsabb és hatékonyabb lesz, mert nem kell
-kétféle programozási nyelvet használni, hatékonyabban, kevesebb munkával meg
-lehet ugyanazokat, vagy még bonyolultabb Essbase lekérdezéseket vagy speciális
-műveleteket írni.
 
 
 
