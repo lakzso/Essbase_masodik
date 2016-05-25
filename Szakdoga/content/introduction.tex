@@ -1,35 +1,31 @@
 %----------------------------------------------------------------------------
 \chapter*{\bevezeto}\addcontentsline{toc}{chapter}{\bevezeto}
 %----------------------------------------------------------------------------
-Napjainkban, a vállalatoknál egyre több adattal dolgoznak, ezeket adattárházba mentik, 
-majd erre OLAP adatbázist építenek, hogy az adatok összefüggéseit lehessen vizsgálni, 
-azáltal hogy olyan lekérdezéseket lehet benne megfogalmazni, amivel az adatokat összevontan lehet nézni. 
-Ilyen például, a gyakorlatban igen sokszor használt és elterjedt adatbázis, az Essbase.
+Napjainkban a vállalatoknál egyre több adattal dolgoznak. Ezeket
+tipikusan adattárházba mentik, majd erre OLAP(TODO) adatbázist építenek annak
+érdekében az adatok összefüggéseit lehessen vizsgálni. Az adatok összefüggéseit
+ti olyan lekérdezéseket megfogalmazni, amivel az adatokat
+összevontan lehet megjeleníteni (például összegezni vagy átlagolni).
+Ilyen OLAP adatbázis például, a gyakorlatban igen sokszor használt és elterjedt
+adatbázis, az Essbase.
 
-Az előzőekben említett lekérdezések megfogalmazásánál, ha például egy nagyobb OLAP kockáról van szó, 
-nehézséget okozhat fejlesztéskor, hogy a fejlesztő környezetbe egy sima szöveges
-fájlt szerkesztünk, ebből következően nem lehet benne hibát keresni, objektumok beírásánál a
-fejlesztő környezet nem tudja azt validálni, ebből következően gyakran a
-lekérdezéseknél üres megoldást kapunk, valamint az eredmény halmazt egy
-n-dimenziós mátrixba kapjuk, ami átláthatatlan és nehéz feldolgozni. Ezeken
-kívűl, sokszor előforduló jelenség hogy mivel kétféle lekérdező nyelv van az Essbase-hez, 
-különböző funkcionalitással, ezeket bizonyos problémáknál
-kombinálva kell használni, ami nehézkes, és átláthatatlan. Ilyen probléma
+Az előzőekben említett lekérdezések megfogalmazásánál 
+nehézséget okoz fejlesztéskor, hogy (i) a fejlesztő környezet nem validálja a megírt kódot, (ii) mivel a nyelv deklaratív, nem lehet benne hibát keresni, (iii) hibáknál gyakran üres megoldást kapunk. Ezen kívűl a fejlesztő környezet is kevés segítséget nyújt, mert a lekérdezésekkor egy egyszerű szöveg fájlt kell megfogalmazni.
+Továbbá az eredmény halmaz egy n-dimenziós mátrix, ami átláthatatlan és nehéz feldolgozni. Ezeken
+kívűl, mivel kétféle különböző funkcionalitással bíró lekérdező nyelv van az Essbase-hez, sokszor előforduló jelenség 
+,hogy ezeket kombinálva kell használni, ami nehézkes ami további nehézségeket okoz. Ilyen probléma
 például a költségfelosztás, amikor egyik memberben vagy csoportban lévő
 költséget (az eltárolt számot), két másik memberre vagy egy egész csoportra
 szeretnénk valahogy felosztani valamilyen, arány szerint.
 
-Ezeket a problémákat szeretném kezelni dolgozatomban, mégpedig úgy hogy Xtext
-metamodellező nyelvben implementálok saját lekérdező nyelvet, ami egyrészt
-megoldást kínál a felvetett problémákra, valamint kombinálja a kétféle lekérdező
+Ezeket a problémákat szeretném kezelni dolgozatomban, mégpedig úgy hogy saját lekérdező nyelvet és hozzá szerkesztőt készítek, ami egyrészt megoldást kínál a felvetett problémákra, valamint kombinálja a kétféle lekérdező
 nyelv (Riport, MDX) előnyeit egybe. Célkitűzésem tehát egy magas szintű jelentés
 és lekérdező nyelv készítése, ami ezen problémákra választ ad.
 
-Dolgozatomban bemutatok egy olyan konkrét Xtext nyelvet, ami le tud kérdezni az
+Dolgozatomban bemutatok egy olyan Xtext alapú nyelvet, amely segítségéveé le lehet kérdezni az
 Essbase adatbázisból, valamint hogy ezt a gyakorlatba is lehessen használni,
-készítek hozzá egy szerkesztőt, Eclipse környezetben, ahol a megírt lekérdezést
-lehet futtatni és egy latex Pdf ennek az eredményét ki lehet riportálni, további
-felhasználás céljából.
+készítek hozzá egy szerkesztőt Eclipse alapú szöveges szerkesztőt, ahol a megírt lekérdezést
+lehet futtatni. Végül a lekérdezések eredményét Latex segítségével egy PDF dokumentumba ábrázolom, amely testzőlegesen szempléltetheti a megoldást.
 
 Mindezek alapján a fejlesztés sokkal gyorsabb és hatékonyabb lesz, mert nem kell
 kétféle programozási nyelvet használni, hatékonyabban, kevesebb munkával meg
