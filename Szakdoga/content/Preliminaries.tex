@@ -1,45 +1,23 @@
 %----------------------------------------------------------------------------
-\chapter{Alapfogalmak}\label{sect:Preliminaries}
+\chapter{Előismeretek}\label{sect:Preliminaries}
 %----------------------------------------------------------------------------
 \section{Essbase adatbázis}
-Alapvetően kétféle adatbázis létezik lekérdezés szempontjából az OLTP (On Line
-Transaction Processing, online tranzakciófeldolgozás), ahol sok tranzakció van és ezek kis
-módosításokat (UPDATE,INSERT) és lekérdezéseket csinálnak az
-adatbázisban és az OLAP (On Line Analitical Processing vagy online
-analitikai feldolgozás), ami kimondottan a lekérdezésekre lett optimalizálva,
-jelentések készítésére. Például hogy egy autó hova ment, közbe mennyi volt a
-fogyasztása ezt tipikusan OLTP adatbázisba szeretnénk tárolni, mert sok
-tranzakció keletkezik sok INSERT-el. Viszont ha van pár céges autónk egy vállalatnál, ezeknek az autóknak vannak kölségeik, 
-benzin, amortizáció és ezek a költségek az OLTP adatbázisunkba vannak soronként
-egy táblába egy adott szervezeti egységhez rendelve és szeretnénk tudni azt
-hogy aggregálva az autóknak mennyi volt a költségeik anélkül hogy egy ilyen
-lekérdezés órákig tartana (az egész táblát össze kéne adni majd egyenként
-leosztani valamilyen szempont alapján), ehhez már árdemes felépíteni egy OLAP
-kockát, ami automatikusan képes az ilyen jellegű aggregációra és arra is hogy az
-szervezeti egység költségeit le tudja osztani minden egyes autóra vagy akár más
-objektumra, például szolgáltatásokra, költséghelyekre.
+Alapvetően kétféle adatbázis típus létezik lekérdezés szempontjából. Az egyik az OLTP (On Line Transaction Processing, online tranzakciófeldolgozás), ahol sok tranzakció van és ezek kis módosításokat (UPDATE,INSERT) és lekérdezéseket végeznek el az adatbázisban. A másik az OLAP (On Line Analitical Processing vagy online analitikai feldolgozás), ami kimondottan a lekérdezésekre lett optimalizálva, jelentések készítésére. Ilyen adatbázis például az Essbase.
+
+\section{Esettanulmány}
+Tegyük föl, hogy van egy céges autónk és szeretnénk eltárolni, hogy egy autó hova ment, közbe mennyi volt a fogyasztása ezt tipikusan OLTP adatbázisba érdemes tárolni, mert sok
+tranzakció keletkezik, sok INSERT, UPDATE művelettel. Ellenben tegyük fel, hogy több céges autónk van és az autókra keletkeznek kölségek, például benzin, amortizáció. Valamint tételezzük föl hogy ezekből a költségekböl van olyan, ami az egész szervezeti egységhez kötődik, például a benzint egyszerre vesszük meg és mindenki tankol ebből annyit amennyire szüksége van. Ezek a költségek az OLTP adatbázisunkba vannak eltárolva
+egy táblába autókra és szervezeti egységekre külön. Ha megvannak ezek az adataink, akkor gyakran felmerülő igény, hogy le szeretnénk kérdezni valamilyen szempont szerint aggregálva ezeket a költségeket. Például összeadni hogy egy autóra és szervezeti egységre mennyi költség keletkezett. Egy ilyen lekérdezés nagy tábla esetén sokáig tart, mert a tábla összes sorát össze kell adni.  Ebben az esetben már érdemes felépíteni egy OLAP kockát, erre az OLTP adatbázisra, ami automatikusan képes az ilyen jellegű aggregációra, összeadásra. Ezen kívűl képes arra is, hogyha keletkezik olyan költség ami egy szervezeti egységhez köthető (az előzőekben említett benzin amit egyszerre veszünk), azt le tudja osztani minden egyes autóra.
 
 \section{Xtext keretrendszer}
-Az Xtext gyakorlatilag egy olyan keretrendszer, amibe lehet definiálni egy
-saját, domén specifikus programozási nyelvet, metamodellt. Ha ez kész, akkor
-ebben a programozás nyelvben lehet utána fejleszteni, majd ezt a kódot az Xtext tudja validálni 
-és feldolgozni, ezeket az adatokat objekumokba megkapjuk és java-ban ezt utána
-fel lehet dolgozni.
+Az Xtext gyakorlatilag egy olyan keretrendszer, amibe lehet definiálni egy saját, domén specifikus programozási nyelvet, metamodellt. Ha ez kész, akkor ebben a programozás nyelvben lehet utána fejleszteni, majd ezt a kódot az Xtext tudja validálni és feldolgozni, ezeket az adatokat objekumokba megkapjuk és java-ban ezt utána fel lehet dolgozni.
 
 \section{Eclipse plugin}
-Eclipse környezetben lehet készíteni saját beépülő modulokat, amik miután
-föltelepültek gyakorlatilag teljesen testre tudják szabni az Eclipse-t,
-dolgozatomban én is készítek egy saját plugint, szerkesztőt, amibe létrehozott
-programozási nyelv kódját lehet szerkeszteni.
+Eclipse környezetben lehet készíteni saját beépülő modulokat, amik miután föltelepültek gyakorlatilag teljesen testre tudják szabni az Eclipse-t, dolgozatomban én is készítek egy saját plugint, szerkesztőt, amibe létrehozott programozási nyelv kódját lehet szerkeszteni.
 
 \section{Latex és riportolási technikák}
-Megjelenítésre, riport kimenetnek a dolgozatomban én latexet választottam, mert
-a forráskódja java kódból generálható és vannak olyan grafikus megjelenítő
-csomagjai, amivel az Essbase-ből kijövő nyers adatokat meg lehet jeleníteni.
+Megjelenítésre, riport kimenetnek a dolgozatomban én latexet választottam, mert a forráskódja java kódból generálható és vannak olyan grafikus megjelenítő csomagjai, amivel az Essbase-ből kijövő nyers adatokat meg lehet jeleníteni.
 
 \section{Xtend}
-Sok új nyelvi elemmel rendelkező java nyelv továbbfejlesztése. Hasznos
-funkciója, hogy lehet olyan szöveg sablont készíteni, amiből az Xtend java
-osztályokat generál StringBuilder-ek segítségével és egyszerű paraméterezéssel meg lehet adni a
-sablonnak a változó értékeket.
+Sok új nyelvi elemmel rendelkező java nyelv továbbfejlesztése. Hasznos funkciója, hogy lehet olyan szöveg sablont készíteni, amiből az Xtend java osztályokat generál StringBuilder-ek segítségével és egyszerű paraméterezéssel meg lehet adni a sablonnak a változó értékeket.
 
