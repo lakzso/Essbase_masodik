@@ -10,7 +10,7 @@ OLAP Kocka:     Az elemezni kívánt dimenziók szintjei és hierarchiája alapj
 
 Tag: Azok az attribútumok, amikhez értékek kötődnek, például egy konkrét gépjármű.
 
-Csoport: Valamennyi tagok összessége.
+Csoport: Néhány tag összessége.
 
 Dimenzió: A szintek szervezett hierarchiáinak együttese egy kockában, amit a felhasználó megért, és az adatelemzés alapjaként használ. A földrajzi hely dimenziója például tartalmazhatja az ország, a megye és a város szinteket. Az idő dimenziója pedig tartalmazhatja az év, a negyedév, a hónap és a nap szintet. A kimutatásokban és kimutatásdiagramokban minden hierarchia mezőegyüttessé válik, amelyek kibonthatók és becsukhatók az alacsonyabb és magasabb szintek felfedése érdekében.
 
@@ -20,14 +20,14 @@ Hierarchia: A kocka megjelenítése két dimenzióban.
 
  \begin{figure}[!ht]
 \centering
-\includegraphics[width=80mm, keepaspectratio]{figures/cube1.png}
+\includegraphics[width=70mm, keepaspectratio]{figures/cube1.png}
 \caption{Példa kocka} 
 \label{fig:Cube1}
 \end{figure}
 
  \begin{figure}[!ht]
 \centering
-\includegraphics[width=100mm, keepaspectratio]{figures/hierarchy.png}
+\includegraphics[width=70mm, keepaspectratio]{figures/hierarchy.png}
 \caption{Példa Hierarchia} 
 \label{fig:Cube1}
 \end{figure}
@@ -35,11 +35,41 @@ Hierarchia: A kocka megjelenítése két dimenzióban.
 
 \subsection{Essbase lekérdezések}
 
-Essbase-ből alapvetően kétféle képpen lehet lekérdezni, riportban és mdx-ben. A riport lekérdező nyelv tipikusan kimutatásokhoz használható jól, ha valamit összevontan szeretnénk lekérdezni a kockából. Ezzel szemben az MDX egy standard lekérdező nyelv, amibe egyrészt lehet sql szerű lekérdezéseket írni, másrészt adatmódosító műveleteket is lehet használni. Ilyen adatmódosító művelet például az Allocation parancs, ahol egy csoportból vagy  
-\subsubsection{Riport}
+Essbase-ből alapvetően kétféle képpen lehet lekérdezni, riportban és mdx-ben. A riport lekérdező nyelv tipikusan kimutatásokhoz használható jól, ha valamit összevontan szeretnénk lekérdezni a kockából. Ezzel szemben az MDX egy standard lekérdező nyelv, amibe egyrészt lehet sql szerű lekérdezéseket írni, másrészt adatmódosító műveleteket is lehet használni. Ilyen adatmódosító művelet például az Allocation parancs, ahol egy csoportról vagy  tagról áttesszük az értékeket egy másik csoportra vagy tagra.
 
+\subsubsection{Riport példa}
 
-\subsubsection{MDX}
+A következő riport példában kilistázom a gépjármű csoport összes költségeit, költségnemenként.
+
+\begin{lstlisting}[language=java,morekeywords={dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+{SUPEMPTYROWS} 
+{TabDelim} 
+<Column ("KN_Koltsegnem")  
+<Row ("Objektum","GEPJ")  
+<Ichild "Objektum"  
+<Ichild "GEPJ" !
+\end{lstlisting}
+
+\subsubsection{MDX példa}
+
+A következőkben pedig, egy allocation példát írtam, ahol a költséghely F1015-ről átteszem a költségeket a gépkocsi csoportra, egyenlő részben.
+
+\begin{lstlisting}[language=java,morekeywords={dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+execute allocation process on database DEMO.DEMOXXX with
+pov '
+ NonEmptySubset(
+CrossJoin({([KH_F1015])},
+         {( [Partner_KN_Nincs], [2015], [Terv]
+         )}
+ ), ([C_Input]))...
+amount  1 * [C_Input]
+amountcontext [Partner_Obj_Nincs]
+target  [C_V2_FTECH01_In]
+offset [C_V2_FTECH01_Out],
+range Descendants([GEPK], [Partner_.ZGEPK].DIMENSION.LEVELS(0))
+basis  [C_V2_Driver] ...
+\end{lstlisting}
+
 
 \subsection{Essbase esettanulmány}
 Tegyük fel, hogy van egy céges autónk és szeretnénk eltárolni az autó forgalmi adatait, hová ment, közbe mennyi volt a fogyasztása. Ezt tipikusan OLTP adatbázisba érdemes tárolni, mert sok tranzakció keletkezik, sok beszúrás művelettel. Ellenben tegyük fel, hogy több céges autónk van és az autókra keletkeznek kölségek, például benzin, amortizáció. Valamint tételezzük föl hogy ezekből a költségekből van olyan, ami az egész szervezeti egységhez kötődik, például a benzint egyszerre vesszük meg és mindenki tankol ebből annyit amennyire szüksége van. Ezek a költségek az OLTP adatbázisunkba vannak eltárolva egy táblába autókra és szervezeti egységekre külön. Ha megvannak ezek az adataink, akkor gyakran felmerülő igény, hogy le szeretnénk kérdezni valamilyen szempont szerint aggregálva ezeket a költségeket. Például összeadni vagy átlagolni hogy egy autóra és szervezeti egységre mennyi költség keletkezett. Egy ilyen lekérdezés, nagy tábla esetén sokáig tart, mert a tábla összes során végig kell menni.  Ebben az esetben már érdemes felépíteni egy OLAP kockát, erre az OLTP adatbázisra, ami automatikusan képes az ilyen jellegű aggregációra, összeadásra, átlagolásra stb. Ezen kívűl képes arra is, hogyha keletkezik olyan költség ami egy szervezeti egységhez köthető (az előzőekben említett benzin amit egyszerre veszünk), azt le tudja osztani minden egyes autóra lebontva, például megtett út alapján.
@@ -51,8 +81,8 @@ Az Xtext egy olyan keretrendszer, amiben saját szakterület specifikus programo
 Az Eclipse fejlesztő környezet egy modulokkal (úgynevezett pluginekkel) bővíthető keretrendszer, melyek segítségével saját funkciókkal szabhatjuk testre a környezetet. Önálló laboratórium során, én is készítek egy saját plugint, szerkesztőt, amibe a létrehozott programozási nyelv kódját lehet szerkeszteni.
 
 \section{Latex és riportolási technikák}
-Megjelenítésre, riport kimenetnek a dolgozatomban én latexet választottam, mert a forráskódja java kódból generálható és vannak olyan grafikus megjelenítő csomagjai, amivel az Essbase-ből kijövő nyers adatokat meg lehet jeleníteni.
+Megjelenítésre, riport kimenetnek a dolgozatomban én latexet választottam, mert a forráskódja java kódból generálható és vannak olyan grafikus megjelenítő csomagjai, amivel az Essbase-ből kijövő nyers adatokat meg lehet jeleníteni. Valamint közbe lehet iktatni statisztikai, és diagram kezelő szoftvereket is, az adatok jobb megjelenítésére, ilyen például az R.
 
 \section{Xtend}
-Sok új nyelvi elemmel rendelkező java nyelv továbbfejlesztése. Hasznos funkciója, hogy lehet olyan szöveg sablont készíteni, amiből az Xtend java osztályokat generál StringBuilder-ek segítségével és egyszerű paraméterezéssel meg lehet adni a sablonnak a változó értékeket.
+Sok új nyelvi elemmel rendelkező java nyelv továbbfejlesztése, például sablon nyelv, funkcionális nyelv, lambda kifejezések, extensuion method. Ezekből én a sablon nyelvet használom, amivel lehet olyan szöveg sablont készíteni, amiből az Xtend java osztályokat generál és egyszerű paraméterezéssel meg lehet adni a sablonnak a változó értékeket.
 

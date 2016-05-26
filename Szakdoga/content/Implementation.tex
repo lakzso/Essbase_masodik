@@ -13,7 +13,7 @@ Model:
 	;
 \end{lstlisting}
 
-Riport kimenet megadásakor a 'report' kulcsszó után megadunk egy olyan Query referenciát, amit már előzőleg deifiniáltunk.
+Riport kimenet megadásakor a 'report' kulcsszó után megadunk egy olyan Query referenciát, amit már előzőleg definiáltunk.
 
 \begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 Report:
@@ -71,53 +71,47 @@ MemberDeclaration:
 \end{lstlisting}
 
 \end{itemize}
-
+Végül definiálok olyan parancsokat, amibe meg lehet adni, hogy a visszakapott mátrixba milyen sorok(row) és oszlopok(column) szerepeljenek, valamint a hierarchia milyen szintjéig jelenjenek meg a tagok(link):
 \begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
 
 Row:
 	'row' {Row} '{' dimensions+=Reference (',' dimensions+=Reference)* '}';
 
-\end{lstlisting}
-\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-
 Column:
 	'column' {Column} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
 ; 	
-\end{lstlisting}
-\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-
 Link:
 	'link' {Link} '{' desc=Reference ',' lev=Reference '}'
 ; 	
 
 \end{lstlisting}
-\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-
-Child:
-	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
-; 
-\end{lstlisting}
-
-\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-	
-ReportParameter:
-	'reportParameter' {ReportParameter} '{' reparam=StringReference '}'
-;
-\end{lstlisting}
-
-
-\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-
-Reference:
-	referred=[Declaration] | StringReference;
-
-\end{lstlisting}
-
-\begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
-
-StringReference:
-	value=STRING;
-\end{lstlisting}
+% \begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+% 
+% Child:
+% 	'child' {Child} '{' dimensions+=Reference (',' dimensions+=Reference)* '}'
+% ; 
+% \end{lstlisting}
+% 
+% \begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+% 	
+% ReportParameter:
+% 	'reportParameter' {ReportParameter} '{' reparam=StringReference '}'
+% ;
+% \end{lstlisting}
+% 
+% 
+% \begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+% 
+% Reference:
+% 	referred=[Declaration] | StringReference;
+% 
+% \end{lstlisting}
+% 
+% \begin{lstlisting}[language=java,morekeywords={generate,dim,group,row,link,reportParameter,report,query},alsoletter={-},breaklines=true]
+% 
+% StringReference:
+% 	value=STRING;
+% \end{lstlisting}
 
 
 \section{Xtext példa lekérdezés}
