@@ -44,8 +44,8 @@ public class DataQuery {
 	private static String s_analyticSvrName = "192.168.56.101";
 
 	private static String s_olapSvrName = "EssbaseCluster-1";
-	private static String s_appName = "NISZ";
-	private static String s_cubeName = "NISZV2";
+	private static String s_appName = "Szakdolgozat";
+	private static String s_cubeName = "SZKD";
 
 	private static final int FAILURE_CODE = 1;
 

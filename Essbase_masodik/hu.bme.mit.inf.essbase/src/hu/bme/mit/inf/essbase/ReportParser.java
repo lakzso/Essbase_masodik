@@ -17,6 +17,7 @@ import org.xtext.example.mydsl.myDsl.DimensionDeclaration;
 import org.xtext.example.mydsl.myDsl.Link;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.Query;
+import org.xtext.example.mydsl.myDsl.QueryReport;
 import org.xtext.example.mydsl.myDsl.Reference;
 import org.xtext.example.mydsl.myDsl.Report;
 import org.xtext.example.mydsl.myDsl.ReportParameter;
@@ -39,6 +40,7 @@ public class ReportParser {
 		ToQueryStringQueries = new ArrayList<String>();
 
 		for (Query q : m.getQueries()) {
+		  if (q  instanceof QueryReport) {
 			QueryString = "{SUPEMPTYROWS}";
 			QueryString += "{DECIMAL 10}";
 			QueryString += "{TABDELIMIT}";
@@ -52,8 +54,9 @@ public class ReportParser {
 			Child child;
 			Link link;
 			ReportParameter rep;
-
-			for (ReportQueryParameters RepParam : q.getQuery()) {
+			QueryReport qr=(QueryReport) q;
+			
+			for (ReportQueryParameters RepParam : qr.getQueryReport()) {
 				if (RepParam instanceof Column) {
 					col = (Column) RepParam;
 					QueryString += " <Column (";
@@ -97,6 +100,7 @@ public class ReportParser {
 			}
 
 		}
-
+        
+		}
 	}
 }

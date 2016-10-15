@@ -194,7 +194,6 @@ public class ReportCreation {
 		
 		
 		
-		
 		try {
 			mainFile.setContents(str, 1, null);
 		} catch (CoreException e) {
