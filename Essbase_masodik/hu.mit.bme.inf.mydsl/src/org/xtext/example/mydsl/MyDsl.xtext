@@ -14,18 +14,22 @@ database:
 	value=STRING
 ;
 
+MDXFunction:
+	value=STRING
+;
 QueryMDX:
 	name=ID '=' 'queryMDX' '{'
-	
-	'SELECT' (QueryMDX+=MDXQueryParameters)* 
-	'FROM'
-	from=database
+	'SELECT' '['r=MDXRows'].'fr=MDXFunction 'On' 'Rows' '['c=MDXCOlumns'].'fc=MDXFunction 'On' 'Columns'
 	'}'
 	;
 	
-MDXQueryParameters:
-	'Teszt';
+MDXRows:
+   value=STRING
+;
 
+MDXCOlumns:
+	value=STRING
+;
 
 QueryReport:
 	name=ID '=' 'queryReport' '{'

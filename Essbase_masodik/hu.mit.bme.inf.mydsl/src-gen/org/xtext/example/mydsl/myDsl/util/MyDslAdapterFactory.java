@@ -86,9 +86,29 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createQueryAdapter();
       }
       @Override
-      public Adapter caseMDXQuery(MDXQuery object)
+      public Adapter casedatabase(database object)
       {
-        return createMDXQueryAdapter();
+        return createdatabaseAdapter();
+      }
+      @Override
+      public Adapter caseMDXFunction(MDXFunction object)
+      {
+        return createMDXFunctionAdapter();
+      }
+      @Override
+      public Adapter caseQueryMDX(QueryMDX object)
+      {
+        return createQueryMDXAdapter();
+      }
+      @Override
+      public Adapter caseMDXRows(MDXRows object)
+      {
+        return createMDXRowsAdapter();
+      }
+      @Override
+      public Adapter caseMDXCOlumns(MDXCOlumns object)
+      {
+        return createMDXCOlumnsAdapter();
       }
       @Override
       public Adapter caseQueryReport(QueryReport object)
@@ -99,11 +119,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseReport(Report object)
       {
         return createReportAdapter();
-      }
-      @Override
-      public Adapter casedatabase(database object)
-      {
-        return createdatabaseAdapter();
       }
       @Override
       public Adapter caseReportQueryParameters(ReportQueryParameters object)
@@ -223,16 +238,76 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.MDXQuery <em>MDX Query</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.database <em>database</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.MDXQuery
+   * @see org.xtext.example.mydsl.myDsl.database
    * @generated
    */
-  public Adapter createMDXQueryAdapter()
+  public Adapter createdatabaseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.MDXFunction <em>MDX Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.MDXFunction
+   * @generated
+   */
+  public Adapter createMDXFunctionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.QueryMDX <em>Query MDX</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.QueryMDX
+   * @generated
+   */
+  public Adapter createQueryMDXAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.MDXRows <em>MDX Rows</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.MDXRows
+   * @generated
+   */
+  public Adapter createMDXRowsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.MDXCOlumns <em>MDXC Olumns</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.MDXCOlumns
+   * @generated
+   */
+  public Adapter createMDXCOlumnsAdapter()
   {
     return null;
   }
@@ -263,21 +338,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createReportAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.database <em>database</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.database
-   * @generated
-   */
-  public Adapter createdatabaseAdapter()
   {
     return null;
   }

@@ -67,10 +67,13 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     {
       case MyDslPackage.MODEL: return createModel();
       case MyDslPackage.QUERY: return createQuery();
-      case MyDslPackage.MDX_QUERY: return createMDXQuery();
+      case MyDslPackage.DATABASE: return createdatabase();
+      case MyDslPackage.MDX_FUNCTION: return createMDXFunction();
+      case MyDslPackage.QUERY_MDX: return createQueryMDX();
+      case MyDslPackage.MDX_ROWS: return createMDXRows();
+      case MyDslPackage.MDXC_OLUMNS: return createMDXCOlumns();
       case MyDslPackage.QUERY_REPORT: return createQueryReport();
       case MyDslPackage.REPORT: return createReport();
-      case MyDslPackage.DATABASE: return createdatabase();
       case MyDslPackage.REPORT_QUERY_PARAMETERS: return createReportQueryParameters();
       case MyDslPackage.DESCENDANTS: return createDescendants();
       case MyDslPackage.DECLARATION: return createDeclaration();
@@ -116,10 +119,54 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MDXQuery createMDXQuery()
+  public database createdatabase()
   {
-    MDXQueryImpl mdxQuery = new MDXQueryImpl();
-    return mdxQuery;
+    databaseImpl database = new databaseImpl();
+    return database;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MDXFunction createMDXFunction()
+  {
+    MDXFunctionImpl mdxFunction = new MDXFunctionImpl();
+    return mdxFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QueryMDX createQueryMDX()
+  {
+    QueryMDXImpl queryMDX = new QueryMDXImpl();
+    return queryMDX;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MDXRows createMDXRows()
+  {
+    MDXRowsImpl mdxRows = new MDXRowsImpl();
+    return mdxRows;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MDXCOlumns createMDXCOlumns()
+  {
+    MDXCOlumnsImpl mdxcOlumns = new MDXCOlumnsImpl();
+    return mdxcOlumns;
   }
 
   /**
@@ -142,17 +189,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ReportImpl report = new ReportImpl();
     return report;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public database createdatabase()
-  {
-    databaseImpl database = new databaseImpl();
-    return database;
   }
 
   /**

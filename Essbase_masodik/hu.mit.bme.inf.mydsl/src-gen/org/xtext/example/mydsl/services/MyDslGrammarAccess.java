@@ -56,39 +56,86 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Query");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cQueryReportParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cMDXQueryParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cQueryMDXParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Query:
-		//	QueryReport | MDXQuery;
+		//	QueryReport | QueryMDX;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//QueryReport | MDXQuery
+		//QueryReport | QueryMDX
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//QueryReport
 		public RuleCall getQueryReportParserRuleCall_0() { return cQueryReportParserRuleCall_0; }
 		
-		//MDXQuery
-		public RuleCall getMDXQueryParserRuleCall_1() { return cMDXQueryParserRuleCall_1; }
+		//QueryMDX
+		public RuleCall getQueryMDXParserRuleCall_1() { return cQueryMDXParserRuleCall_1; }
 	}
-	public class MDXQueryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.MDXQuery");
+	public class DatabaseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.database");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//database:
+		//	value=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=STRING
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
+	}
+	public class MDXFunctionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.MDXFunction");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//MDXFunction:
+		//	value=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=STRING
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
+	}
+	public class QueryMDXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.QueryMDX");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cQueryMDXKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cQueryMDXAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cQueryMDXMDXQueryParametersParserRuleCall_4_0 = (RuleCall)cQueryMDXAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cSELECTKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cLeftSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cRAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cRMDXRowsParserRuleCall_6_0 = (RuleCall)cRAssignment_6.eContents().get(0);
+		private final Keyword cRightSquareBracketFullStopKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cFrAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cFrMDXFunctionParserRuleCall_8_0 = (RuleCall)cFrAssignment_8.eContents().get(0);
+		private final Keyword cOnKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cRowsKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cLeftSquareBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cCAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cCMDXCOlumnsParserRuleCall_12_0 = (RuleCall)cCAssignment_12.eContents().get(0);
+		private final Keyword cRightSquareBracketFullStopKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Assignment cFcAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cFcMDXFunctionParserRuleCall_14_0 = (RuleCall)cFcAssignment_14.eContents().get(0);
+		private final Keyword cOnKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cColumnsKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
 		
-		//MDXQuery:
+		//QueryMDX:
 		//	name=ID '=' 'queryMDX' '{'
-		//	QueryMDX+=MDXQueryParameters* '}';
+		//	'SELECT' '[' r=MDXRows '].' fr=MDXFunction 'On' 'Rows' '[' c=MDXCOlumns '].' fc=MDXFunction 'On' 'Columns'
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID '=' 'queryMDX' '{' QueryMDX+=MDXQueryParameters* '}'
+		//name=ID '=' 'queryMDX' '{' 'SELECT' '[' r=MDXRows '].' fr=MDXFunction 'On' 'Rows' '[' c=MDXCOlumns '].' fc=MDXFunction
+		//'On' 'Columns' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -106,14 +153,89 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//QueryMDX+=MDXQueryParameters*
-		public Assignment getQueryMDXAssignment_4() { return cQueryMDXAssignment_4; }
+		//'SELECT'
+		public Keyword getSELECTKeyword_4() { return cSELECTKeyword_4; }
 		
-		//MDXQueryParameters
-		public RuleCall getQueryMDXMDXQueryParametersParserRuleCall_4_0() { return cQueryMDXMDXQueryParametersParserRuleCall_4_0; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_5() { return cLeftSquareBracketKeyword_5; }
+		
+		//r=MDXRows
+		public Assignment getRAssignment_6() { return cRAssignment_6; }
+		
+		//MDXRows
+		public RuleCall getRMDXRowsParserRuleCall_6_0() { return cRMDXRowsParserRuleCall_6_0; }
+		
+		//'].'
+		public Keyword getRightSquareBracketFullStopKeyword_7() { return cRightSquareBracketFullStopKeyword_7; }
+		
+		//fr=MDXFunction
+		public Assignment getFrAssignment_8() { return cFrAssignment_8; }
+		
+		//MDXFunction
+		public RuleCall getFrMDXFunctionParserRuleCall_8_0() { return cFrMDXFunctionParserRuleCall_8_0; }
+		
+		//'On'
+		public Keyword getOnKeyword_9() { return cOnKeyword_9; }
+		
+		//'Rows'
+		public Keyword getRowsKeyword_10() { return cRowsKeyword_10; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_11() { return cLeftSquareBracketKeyword_11; }
+		
+		//c=MDXCOlumns
+		public Assignment getCAssignment_12() { return cCAssignment_12; }
+		
+		//MDXCOlumns
+		public RuleCall getCMDXCOlumnsParserRuleCall_12_0() { return cCMDXCOlumnsParserRuleCall_12_0; }
+		
+		//'].'
+		public Keyword getRightSquareBracketFullStopKeyword_13() { return cRightSquareBracketFullStopKeyword_13; }
+		
+		//fc=MDXFunction
+		public Assignment getFcAssignment_14() { return cFcAssignment_14; }
+		
+		//MDXFunction
+		public RuleCall getFcMDXFunctionParserRuleCall_14_0() { return cFcMDXFunctionParserRuleCall_14_0; }
+		
+		//'On'
+		public Keyword getOnKeyword_15() { return cOnKeyword_15; }
+		
+		//'Columns'
+		public Keyword getColumnsKeyword_16() { return cColumnsKeyword_16; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_17() { return cRightCurlyBracketKeyword_17; }
+	}
+	public class MDXRowsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.MDXRows");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//MDXRows:
+		//	value=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=STRING
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
+	}
+	public class MDXCOlumnsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.MDXCOlumns");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//MDXCOlumns:
+		//	value=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=STRING
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
 	}
 	public class QueryReportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.QueryReport");
@@ -215,21 +337,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
-	public class DatabaseElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.database");
-		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
-		
-		//database:
-		//	value=STRING;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//value=STRING
-		public Assignment getValueAssignment() { return cValueAssignment; }
-		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
-	}
 	public class ReportQueryParametersElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ReportQueryParameters");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -272,17 +379,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ReportParameter
 		public RuleCall getReportParameterParserRuleCall_7() { return cReportParameterParserRuleCall_7; }
-	}
-	public class MDXQueryParametersElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.MDXQueryParameters");
-		private final Keyword cTesztKeyword = (Keyword)rule.eContents().get(1);
-		
-		//MDXQueryParameters:
-		//	'Teszt';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Teszt'
-		public Keyword getTesztKeyword() { return cTesztKeyword; }
 	}
 	public class InitialStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.InitialStatement");
@@ -739,12 +835,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final QueryElements pQuery;
-	private final MDXQueryElements pMDXQuery;
+	private final DatabaseElements pDatabase;
+	private final MDXFunctionElements pMDXFunction;
+	private final QueryMDXElements pQueryMDX;
+	private final MDXRowsElements pMDXRows;
+	private final MDXCOlumnsElements pMDXCOlumns;
 	private final QueryReportElements pQueryReport;
 	private final ReportElements pReport;
-	private final DatabaseElements pDatabase;
 	private final ReportQueryParametersElements pReportQueryParameters;
-	private final MDXQueryParametersElements pMDXQueryParameters;
 	private final InitialStatementElements pInitialStatement;
 	private final DescendantsElements pDescendants;
 	private final DeclarationElements pDeclaration;
@@ -770,12 +868,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pQuery = new QueryElements();
-		this.pMDXQuery = new MDXQueryElements();
+		this.pDatabase = new DatabaseElements();
+		this.pMDXFunction = new MDXFunctionElements();
+		this.pQueryMDX = new QueryMDXElements();
+		this.pMDXRows = new MDXRowsElements();
+		this.pMDXCOlumns = new MDXCOlumnsElements();
 		this.pQueryReport = new QueryReportElements();
 		this.pReport = new ReportElements();
-		this.pDatabase = new DatabaseElements();
 		this.pReportQueryParameters = new ReportQueryParametersElements();
-		this.pMDXQueryParameters = new MDXQueryParametersElements();
 		this.pInitialStatement = new InitialStatementElements();
 		this.pDescendants = new DescendantsElements();
 		this.pDeclaration = new DeclarationElements();
@@ -830,7 +930,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Query:
-	//	QueryReport | MDXQuery;
+	//	QueryReport | QueryMDX;
 	public QueryElements getQueryAccess() {
 		return pQuery;
 	}
@@ -839,15 +939,56 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getQueryAccess().getRule();
 	}
 	
-	//MDXQuery:
-	//	name=ID '=' 'queryMDX' '{'
-	//	QueryMDX+=MDXQueryParameters* '}';
-	public MDXQueryElements getMDXQueryAccess() {
-		return pMDXQuery;
+	//database:
+	//	value=STRING;
+	public DatabaseElements getDatabaseAccess() {
+		return pDatabase;
 	}
 	
-	public ParserRule getMDXQueryRule() {
-		return getMDXQueryAccess().getRule();
+	public ParserRule getDatabaseRule() {
+		return getDatabaseAccess().getRule();
+	}
+	
+	//MDXFunction:
+	//	value=STRING;
+	public MDXFunctionElements getMDXFunctionAccess() {
+		return pMDXFunction;
+	}
+	
+	public ParserRule getMDXFunctionRule() {
+		return getMDXFunctionAccess().getRule();
+	}
+	
+	//QueryMDX:
+	//	name=ID '=' 'queryMDX' '{'
+	//	'SELECT' '[' r=MDXRows '].' fr=MDXFunction 'On' 'Rows' '[' c=MDXCOlumns '].' fc=MDXFunction 'On' 'Columns'
+	//	'}';
+	public QueryMDXElements getQueryMDXAccess() {
+		return pQueryMDX;
+	}
+	
+	public ParserRule getQueryMDXRule() {
+		return getQueryMDXAccess().getRule();
+	}
+	
+	//MDXRows:
+	//	value=STRING;
+	public MDXRowsElements getMDXRowsAccess() {
+		return pMDXRows;
+	}
+	
+	public ParserRule getMDXRowsRule() {
+		return getMDXRowsAccess().getRule();
+	}
+	
+	//MDXCOlumns:
+	//	value=STRING;
+	public MDXCOlumnsElements getMDXCOlumnsAccess() {
+		return pMDXCOlumns;
+	}
+	
+	public ParserRule getMDXCOlumnsRule() {
+		return getMDXCOlumnsAccess().getRule();
 	}
 	
 	//QueryReport:
@@ -872,16 +1013,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getReportAccess().getRule();
 	}
 	
-	//database:
-	//	value=STRING;
-	public DatabaseElements getDatabaseAccess() {
-		return pDatabase;
-	}
-	
-	public ParserRule getDatabaseRule() {
-		return getDatabaseAccess().getRule();
-	}
-	
 	//ReportQueryParameters:
 	//	Column | Row | Descendants | Declaration | Reference | Child | Link | ReportParameter;
 	public ReportQueryParametersElements getReportQueryParametersAccess() {
@@ -890,16 +1021,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getReportQueryParametersRule() {
 		return getReportQueryParametersAccess().getRule();
-	}
-	
-	//MDXQueryParameters:
-	//	'Teszt';
-	public MDXQueryParametersElements getMDXQueryParametersAccess() {
-		return pMDXQueryParameters;
-	}
-	
-	public ParserRule getMDXQueryParametersRule() {
-		return getMDXQueryParametersAccess().getRule();
 	}
 	
 	//InitialStatement:

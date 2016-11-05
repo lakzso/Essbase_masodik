@@ -20,10 +20,13 @@ import org.xtext.example.mydsl.myDsl.Descendants;
 import org.xtext.example.mydsl.myDsl.DimensionDeclaration;
 import org.xtext.example.mydsl.myDsl.GroupDeclaration;
 import org.xtext.example.mydsl.myDsl.Link;
-import org.xtext.example.mydsl.myDsl.MDXQuery;
+import org.xtext.example.mydsl.myDsl.MDXCOlumns;
+import org.xtext.example.mydsl.myDsl.MDXFunction;
+import org.xtext.example.mydsl.myDsl.MDXRows;
 import org.xtext.example.mydsl.myDsl.MemberDeclaration;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.QueryMDX;
 import org.xtext.example.mydsl.myDsl.QueryReport;
 import org.xtext.example.mydsl.myDsl.Reference;
 import org.xtext.example.mydsl.myDsl.Report;
@@ -65,14 +68,23 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.LINK:
 				sequence_Link(context, (Link) semanticObject); 
 				return; 
-			case MyDslPackage.MDX_QUERY:
-				sequence_MDXQuery(context, (MDXQuery) semanticObject); 
+			case MyDslPackage.MDXC_OLUMNS:
+				sequence_MDXCOlumns(context, (MDXCOlumns) semanticObject); 
+				return; 
+			case MyDslPackage.MDX_FUNCTION:
+				sequence_MDXFunction(context, (MDXFunction) semanticObject); 
+				return; 
+			case MyDslPackage.MDX_ROWS:
+				sequence_MDXRows(context, (MDXRows) semanticObject); 
 				return; 
 			case MyDslPackage.MEMBER_DECLARATION:
 				sequence_MemberDeclaration(context, (MemberDeclaration) semanticObject); 
 				return; 
 			case MyDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case MyDslPackage.QUERY_MDX:
+				sequence_QueryMDX(context, (QueryMDX) semanticObject); 
 				return; 
 			case MyDslPackage.QUERY_REPORT:
 				sequence_QueryReport(context, (QueryReport) semanticObject); 
@@ -218,14 +230,55 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Query returns MDXQuery
-	 *     MDXQuery returns MDXQuery
+	 *     MDXCOlumns returns MDXCOlumns
 	 *
 	 * Constraint:
-	 *     (name=ID QueryMDX+=MDXQueryParameters*)
+	 *     value=STRING
 	 */
-	protected void sequence_MDXQuery(ISerializationContext context, MDXQuery semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_MDXCOlumns(ISerializationContext context, MDXCOlumns semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.MDXC_OLUMNS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.MDXC_OLUMNS__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMDXCOlumnsAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     MDXFunction returns MDXFunction
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_MDXFunction(ISerializationContext context, MDXFunction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.MDX_FUNCTION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.MDX_FUNCTION__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMDXFunctionAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     MDXRows returns MDXRows
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_MDXRows(ISerializationContext context, MDXRows semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.MDX_ROWS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.MDX_ROWS__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMDXRowsAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -261,6 +314,37 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Query returns QueryMDX
+	 *     QueryMDX returns QueryMDX
+	 *
+	 * Constraint:
+	 *     (name=ID r=MDXRows fr=MDXFunction c=MDXCOlumns fc=MDXFunction)
+	 */
+	protected void sequence_QueryMDX(ISerializationContext context, QueryMDX semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.QUERY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.QUERY__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.QUERY_MDX__R) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.QUERY_MDX__R));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.QUERY_MDX__FR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.QUERY_MDX__FR));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.QUERY_MDX__C) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.QUERY_MDX__C));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.QUERY_MDX__FC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.QUERY_MDX__FC));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getQueryMDXAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getQueryMDXAccess().getRMDXRowsParserRuleCall_6_0(), semanticObject.getR());
+		feeder.accept(grammarAccess.getQueryMDXAccess().getFrMDXFunctionParserRuleCall_8_0(), semanticObject.getFr());
+		feeder.accept(grammarAccess.getQueryMDXAccess().getCMDXCOlumnsParserRuleCall_12_0(), semanticObject.getC());
+		feeder.accept(grammarAccess.getQueryMDXAccess().getFcMDXFunctionParserRuleCall_14_0(), semanticObject.getFc());
+		feeder.finish();
 	}
 	
 	

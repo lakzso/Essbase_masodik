@@ -17,6 +17,7 @@ import org.xtext.example.mydsl.myDsl.DimensionDeclaration;
 import org.xtext.example.mydsl.myDsl.Link;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.Query;
+import org.xtext.example.mydsl.myDsl.QueryMDX;
 import org.xtext.example.mydsl.myDsl.QueryReport;
 import org.xtext.example.mydsl.myDsl.Reference;
 import org.xtext.example.mydsl.myDsl.Report;
@@ -40,67 +41,73 @@ public class ReportParser {
 		ToQueryStringQueries = new ArrayList<String>();
 
 		for (Query q : m.getQueries()) {
-		  if (q  instanceof QueryReport) {
-			QueryString = "{SUPEMPTYROWS}";
-			QueryString += "{DECIMAL 10}";
-			QueryString += "{TABDELIMIT}";
-			QueryString += "{ROWREPEAT}";
-			QueryString += "{SUPBRACKETS}";
-			QueryString += "{SUPCOMMAS}";
-			QueryString += "{NOINDENTGEN} ";
-			DimensionDeclaration dim = null;
-			Column col = null;
-			Row row = null;
-			Child child;
-			Link link;
-			ReportParameter rep;
-			QueryReport qr=(QueryReport) q;
-			
-			for (ReportQueryParameters RepParam : qr.getQueryReport()) {
-				if (RepParam instanceof Column) {
-					col = (Column) RepParam;
-					QueryString += " <Column (";
-					for (Reference ref : col.getDimensions()) {
-						QueryString += "\"" + ref.getReferred().getValue() + "\",";
-					}
-					QueryString = QueryString.substring(0, QueryString.length() - 1);
-					QueryString += ")";
-				} else if (RepParam instanceof Row) {
-					row = (Row) RepParam;
-					QueryString += " <Row (";
-					for (Reference ref : row.getDimensions()) {
-						QueryString += "\"" + ref.getReferred().getValue() + "\",";
-					}
-					QueryString = QueryString.substring(0, QueryString.length() - 1);
-					QueryString += ")";
-				} else if (RepParam instanceof Child) {
-					child = (Child) RepParam;
-					QueryString += " <Ichild ";
-					for (Reference ref : child.getDimensions()) {
-						QueryString += "\"" + ref.getReferred().getValue() + "\",";
-					}
-					QueryString = QueryString.substring(0, QueryString.length() - 1);
+			if (q instanceof QueryReport) {
+				QueryString = "{SUPEMPTYROWS}";
+				QueryString += "{DECIMAL 10}";
+				QueryString += "{TABDELIMIT}";
+				QueryString += "{ROWREPEAT}";
+				QueryString += "{SUPBRACKETS}";
+				QueryString += "{SUPCOMMAS}";
+				QueryString += "{NOINDENTGEN} ";
+				DimensionDeclaration dim = null;
+				Column col = null;
+				Row row = null;
+				Child child;
+				Link link;
+				ReportParameter rep;
+				QueryReport qr = (QueryReport) q;
 
-				} else if (RepParam instanceof Link) {
-					link = (Link) RepParam;
-					QueryString += " <LINK(<DESCENDANTS(\"" + link.getDesc().getReferred().getValue()
-							+ "\") AND <LEV (\"" + link.getLev().getReferred().getValue() + "\",  0))";
-				} else if (RepParam instanceof ReportParameter) {
-					rep = (ReportParameter) RepParam;
-					ReportCreation.reportOut = rep.getReparam().getValue().toString();
+				for (ReportQueryParameters RepParam : qr.getQueryReport()) {
+					if (RepParam instanceof Column) {
+						col = (Column) RepParam;
+						QueryString += " <Column (";
+						for (Reference ref : col.getDimensions()) {
+							QueryString += "\"" + ref.getReferred().getValue() + "\",";
+						}
+						QueryString = QueryString.substring(0, QueryString.length() - 1);
+						QueryString += ")";
+					} else if (RepParam instanceof Row) {
+						row = (Row) RepParam;
+						QueryString += " <Row (";
+						for (Reference ref : row.getDimensions()) {
+							QueryString += "\"" + ref.getReferred().getValue() + "\",";
+						}
+						QueryString = QueryString.substring(0, QueryString.length() - 1);
+						QueryString += ")";
+					} else if (RepParam instanceof Child) {
+						child = (Child) RepParam;
+						QueryString += " <Ichild ";
+						for (Reference ref : child.getDimensions()) {
+							QueryString += "\"" + ref.getReferred().getValue() + "\",";
+						}
+						QueryString = QueryString.substring(0, QueryString.length() - 1);
+
+					} else if (RepParam instanceof Link) {
+						link = (Link) RepParam;
+						QueryString += " <LINK(<DESCENDANTS(\"" + link.getDesc().getReferred().getValue()
+								+ "\") AND <LEV (\"" + link.getLev().getReferred().getValue() + "\",  0))";
+					} else if (RepParam instanceof ReportParameter) {
+						rep = (ReportParameter) RepParam;
+						ReportCreation.reportOut = rep.getReparam().getValue().toString();
+					}
+
 				}
-			}
-			QueryString += " !";
-			Queries.put(q.getName().toString(), QueryString);
-			for (Report repout : m.getReports()) {
-				if (Queries.containsKey(repout.getRepout().getName())) {
-					ToQueryStringQueries.add(Queries.get(repout.getRepout().getName()));
+				QueryString += " !";
+				Queries.put(q.getName().toString(), QueryString);
+				for (Report repout : m.getReports()) {
+					if (Queries.containsKey(repout.getRepout().getName())) {
+						ToQueryStringQueries.add(Queries.get(repout.getRepout().getName()));
+					}
+
 				}
 
 			}
+		   else if (q instanceof QueryMDX){
+			   
+			   QueryString=
+			   Queries.put(q.getName().toString(), QueryString);
+		   } 
 
-		}
-        
 		}
 	}
 }

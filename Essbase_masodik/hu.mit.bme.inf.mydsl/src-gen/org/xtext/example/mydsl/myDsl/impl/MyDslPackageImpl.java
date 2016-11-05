@@ -17,12 +17,15 @@ import org.xtext.example.mydsl.myDsl.Descendants;
 import org.xtext.example.mydsl.myDsl.DimensionDeclaration;
 import org.xtext.example.mydsl.myDsl.GroupDeclaration;
 import org.xtext.example.mydsl.myDsl.Link;
-import org.xtext.example.mydsl.myDsl.MDXQuery;
+import org.xtext.example.mydsl.myDsl.MDXCOlumns;
+import org.xtext.example.mydsl.myDsl.MDXFunction;
+import org.xtext.example.mydsl.myDsl.MDXRows;
 import org.xtext.example.mydsl.myDsl.MemberDeclaration;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Query;
+import org.xtext.example.mydsl.myDsl.QueryMDX;
 import org.xtext.example.mydsl.myDsl.QueryReport;
 import org.xtext.example.mydsl.myDsl.Reference;
 import org.xtext.example.mydsl.myDsl.Report;
@@ -59,7 +62,35 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass mdxQueryEClass = null;
+  private EClass databaseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mdxFunctionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass queryMDXEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mdxRowsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mdxcOlumnsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,13 +105,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass reportEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass databaseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -291,9 +315,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMDXQuery()
+  public EClass getdatabase()
   {
-    return mdxQueryEClass;
+    return databaseEClass;
   }
 
   /**
@@ -301,9 +325,119 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMDXQuery_QueryMDX()
+  public EAttribute getdatabase_Value()
   {
-    return (EAttribute)mdxQueryEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)databaseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMDXFunction()
+  {
+    return mdxFunctionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMDXFunction_Value()
+  {
+    return (EAttribute)mdxFunctionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getQueryMDX()
+  {
+    return queryMDXEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQueryMDX_R()
+  {
+    return (EReference)queryMDXEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQueryMDX_Fr()
+  {
+    return (EReference)queryMDXEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQueryMDX_C()
+  {
+    return (EReference)queryMDXEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQueryMDX_Fc()
+  {
+    return (EReference)queryMDXEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMDXRows()
+  {
+    return mdxRowsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMDXRows_Value()
+  {
+    return (EAttribute)mdxRowsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMDXCOlumns()
+  {
+    return mdxcOlumnsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMDXCOlumns_Value()
+  {
+    return (EAttribute)mdxcOlumnsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -354,26 +488,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   public EReference getReport_From()
   {
     return (EReference)reportEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getdatabase()
-  {
-    return databaseEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getdatabase_Value()
-  {
-    return (EAttribute)databaseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -663,8 +777,23 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     queryEClass = createEClass(QUERY);
     createEAttribute(queryEClass, QUERY__NAME);
 
-    mdxQueryEClass = createEClass(MDX_QUERY);
-    createEAttribute(mdxQueryEClass, MDX_QUERY__QUERY_MDX);
+    databaseEClass = createEClass(DATABASE);
+    createEAttribute(databaseEClass, DATABASE__VALUE);
+
+    mdxFunctionEClass = createEClass(MDX_FUNCTION);
+    createEAttribute(mdxFunctionEClass, MDX_FUNCTION__VALUE);
+
+    queryMDXEClass = createEClass(QUERY_MDX);
+    createEReference(queryMDXEClass, QUERY_MDX__R);
+    createEReference(queryMDXEClass, QUERY_MDX__FR);
+    createEReference(queryMDXEClass, QUERY_MDX__C);
+    createEReference(queryMDXEClass, QUERY_MDX__FC);
+
+    mdxRowsEClass = createEClass(MDX_ROWS);
+    createEAttribute(mdxRowsEClass, MDX_ROWS__VALUE);
+
+    mdxcOlumnsEClass = createEClass(MDXC_OLUMNS);
+    createEAttribute(mdxcOlumnsEClass, MDXC_OLUMNS__VALUE);
 
     queryReportEClass = createEClass(QUERY_REPORT);
     createEReference(queryReportEClass, QUERY_REPORT__QUERY_REPORT);
@@ -672,9 +801,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     reportEClass = createEClass(REPORT);
     createEReference(reportEClass, REPORT__REPOUT);
     createEReference(reportEClass, REPORT__FROM);
-
-    databaseEClass = createEClass(DATABASE);
-    createEAttribute(databaseEClass, DATABASE__VALUE);
 
     reportQueryParametersEClass = createEClass(REPORT_QUERY_PARAMETERS);
 
@@ -744,7 +870,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    mdxQueryEClass.getESuperTypes().add(this.getQuery());
+    queryMDXEClass.getESuperTypes().add(this.getQuery());
     queryReportEClass.getESuperTypes().add(this.getQuery());
     descendantsEClass.getESuperTypes().add(this.getReportQueryParameters());
     declarationEClass.getESuperTypes().add(this.getReportQueryParameters());
@@ -767,8 +893,23 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQuery_Name(), ecorePackage.getEString(), "name", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(mdxQueryEClass, MDXQuery.class, "MDXQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMDXQuery_QueryMDX(), ecorePackage.getEString(), "QueryMDX", null, 0, -1, MDXQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(databaseEClass, database.class, "database", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getdatabase_Value(), ecorePackage.getEString(), "value", null, 0, 1, database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mdxFunctionEClass, MDXFunction.class, "MDXFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMDXFunction_Value(), ecorePackage.getEString(), "value", null, 0, 1, MDXFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(queryMDXEClass, QueryMDX.class, "QueryMDX", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getQueryMDX_R(), this.getMDXRows(), null, "r", null, 0, 1, QueryMDX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQueryMDX_Fr(), this.getMDXFunction(), null, "fr", null, 0, 1, QueryMDX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQueryMDX_C(), this.getMDXCOlumns(), null, "c", null, 0, 1, QueryMDX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQueryMDX_Fc(), this.getMDXFunction(), null, "fc", null, 0, 1, QueryMDX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mdxRowsEClass, MDXRows.class, "MDXRows", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMDXRows_Value(), ecorePackage.getEString(), "value", null, 0, 1, MDXRows.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mdxcOlumnsEClass, MDXCOlumns.class, "MDXCOlumns", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMDXCOlumns_Value(), ecorePackage.getEString(), "value", null, 0, 1, MDXCOlumns.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(queryReportEClass, QueryReport.class, "QueryReport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getQueryReport_QueryReport(), this.getReportQueryParameters(), null, "QueryReport", null, 0, -1, QueryReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -776,9 +917,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(reportEClass, Report.class, "Report", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReport_Repout(), this.getQuery(), null, "repout", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getReport_From(), this.getdatabase(), null, "from", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(databaseEClass, database.class, "database", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getdatabase_Value(), ecorePackage.getEString(), "value", null, 0, 1, database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reportQueryParametersEClass, ReportQueryParameters.class, "ReportQueryParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

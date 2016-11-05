@@ -42,13 +42,49 @@ public interface MyDslFactory extends EFactory
   Query createQuery();
 
   /**
-   * Returns a new object of class '<em>MDX Query</em>'.
+   * Returns a new object of class '<em>database</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>MDX Query</em>'.
+   * @return a new object of class '<em>database</em>'.
    * @generated
    */
-  MDXQuery createMDXQuery();
+  database createdatabase();
+
+  /**
+   * Returns a new object of class '<em>MDX Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>MDX Function</em>'.
+   * @generated
+   */
+  MDXFunction createMDXFunction();
+
+  /**
+   * Returns a new object of class '<em>Query MDX</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Query MDX</em>'.
+   * @generated
+   */
+  QueryMDX createQueryMDX();
+
+  /**
+   * Returns a new object of class '<em>MDX Rows</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>MDX Rows</em>'.
+   * @generated
+   */
+  MDXRows createMDXRows();
+
+  /**
+   * Returns a new object of class '<em>MDXC Olumns</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>MDXC Olumns</em>'.
+   * @generated
+   */
+  MDXCOlumns createMDXCOlumns();
 
   /**
    * Returns a new object of class '<em>Query Report</em>'.
@@ -67,15 +103,6 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   Report createReport();
-
-  /**
-   * Returns a new object of class '<em>database</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>database</em>'.
-   * @generated
-   */
-  database createdatabase();
 
   /**
    * Returns a new object of class '<em>Report Query Parameters</em>'.

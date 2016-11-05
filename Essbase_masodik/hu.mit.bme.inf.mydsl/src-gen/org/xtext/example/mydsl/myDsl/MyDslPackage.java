@@ -123,14 +123,70 @@ public interface MyDslPackage extends EPackage
   int QUERY_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.MDXQueryImpl <em>MDX Query</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.databaseImpl <em>database</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.MDXQueryImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMDXQuery()
+   * @see org.xtext.example.mydsl.myDsl.impl.databaseImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getdatabase()
    * @generated
    */
-  int MDX_QUERY = 2;
+  int DATABASE = 2;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATABASE__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>database</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATABASE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.MDXFunctionImpl <em>MDX Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.MDXFunctionImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMDXFunction()
+   * @generated
+   */
+  int MDX_FUNCTION = 3;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MDX_FUNCTION__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>MDX Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MDX_FUNCTION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.QueryMDXImpl <em>Query MDX</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.QueryMDXImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getQueryMDX()
+   * @generated
+   */
+  int QUERY_MDX = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -139,25 +195,108 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MDX_QUERY__NAME = QUERY__NAME;
+  int QUERY_MDX__NAME = QUERY__NAME;
 
   /**
-   * The feature id for the '<em><b>Query MDX</b></em>' attribute list.
+   * The feature id for the '<em><b>R</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MDX_QUERY__QUERY_MDX = QUERY_FEATURE_COUNT + 0;
+  int QUERY_MDX__R = QUERY_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>MDX Query</em>' class.
+   * The feature id for the '<em><b>Fr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MDX_QUERY_FEATURE_COUNT = QUERY_FEATURE_COUNT + 1;
+  int QUERY_MDX__FR = QUERY_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY_MDX__C = QUERY_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Fc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY_MDX__FC = QUERY_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Query MDX</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUERY_MDX_FEATURE_COUNT = QUERY_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.MDXRowsImpl <em>MDX Rows</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.MDXRowsImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMDXRows()
+   * @generated
+   */
+  int MDX_ROWS = 5;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MDX_ROWS__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>MDX Rows</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MDX_ROWS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.MDXCOlumnsImpl <em>MDXC Olumns</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.MDXCOlumnsImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMDXCOlumns()
+   * @generated
+   */
+  int MDXC_OLUMNS = 6;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MDXC_OLUMNS__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>MDXC Olumns</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MDXC_OLUMNS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.QueryReportImpl <em>Query Report</em>}' class.
@@ -167,7 +306,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getQueryReport()
    * @generated
    */
-  int QUERY_REPORT = 3;
+  int QUERY_REPORT = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -204,7 +343,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReport()
    * @generated
    */
-  int REPORT = 4;
+  int REPORT = 8;
 
   /**
    * The feature id for the '<em><b>Repout</b></em>' reference.
@@ -234,34 +373,6 @@ public interface MyDslPackage extends EPackage
   int REPORT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.databaseImpl <em>database</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.databaseImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getdatabase()
-   * @generated
-   */
-  int DATABASE = 5;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATABASE__VALUE = 0;
-
-  /**
-   * The number of structural features of the '<em>database</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATABASE_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportQueryParametersImpl <em>Report Query Parameters</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -269,7 +380,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReportQueryParameters()
    * @generated
    */
-  int REPORT_QUERY_PARAMETERS = 6;
+  int REPORT_QUERY_PARAMETERS = 9;
 
   /**
    * The number of structural features of the '<em>Report Query Parameters</em>' class.
@@ -288,7 +399,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDescendants()
    * @generated
    */
-  int DESCENDANTS = 7;
+  int DESCENDANTS = 10;
 
   /**
    * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -325,7 +436,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 8;
+  int DECLARATION = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -362,7 +473,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDimensionDeclaration()
    * @generated
    */
-  int DIMENSION_DECLARATION = 9;
+  int DIMENSION_DECLARATION = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -399,7 +510,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGroupDeclaration()
    * @generated
    */
-  int GROUP_DECLARATION = 10;
+  int GROUP_DECLARATION = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -436,7 +547,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMemberDeclaration()
    * @generated
    */
-  int MEMBER_DECLARATION = 11;
+  int MEMBER_DECLARATION = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -473,7 +584,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRow()
    * @generated
    */
-  int ROW = 12;
+  int ROW = 15;
 
   /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
@@ -501,7 +612,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getColumn()
    * @generated
    */
-  int COLUMN = 13;
+  int COLUMN = 16;
 
   /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
@@ -529,7 +640,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLink()
    * @generated
    */
-  int LINK = 14;
+  int LINK = 17;
 
   /**
    * The feature id for the '<em><b>Desc</b></em>' containment reference.
@@ -566,7 +677,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getChild()
    * @generated
    */
-  int CHILD = 15;
+  int CHILD = 18;
 
   /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
@@ -594,7 +705,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReportParameter()
    * @generated
    */
-  int REPORT_PARAMETER = 16;
+  int REPORT_PARAMETER = 19;
 
   /**
    * The feature id for the '<em><b>Reparam</b></em>' containment reference.
@@ -622,7 +733,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 17;
+  int REFERENCE = 20;
 
   /**
    * The feature id for the '<em><b>Referred</b></em>' reference.
@@ -650,7 +761,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStringReference()
    * @generated
    */
-  int STRING_REFERENCE = 18;
+  int STRING_REFERENCE = 21;
 
   /**
    * The feature id for the '<em><b>Referred</b></em>' reference.
@@ -734,25 +845,142 @@ public interface MyDslPackage extends EPackage
   EAttribute getQuery_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.MDXQuery <em>MDX Query</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.database <em>database</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>MDX Query</em>'.
-   * @see org.xtext.example.mydsl.myDsl.MDXQuery
+   * @return the meta object for class '<em>database</em>'.
+   * @see org.xtext.example.mydsl.myDsl.database
    * @generated
    */
-  EClass getMDXQuery();
+  EClass getdatabase();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.MDXQuery#getQueryMDX <em>Query MDX</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.database#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Query MDX</em>'.
-   * @see org.xtext.example.mydsl.myDsl.MDXQuery#getQueryMDX()
-   * @see #getMDXQuery()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.myDsl.database#getValue()
+   * @see #getdatabase()
    * @generated
    */
-  EAttribute getMDXQuery_QueryMDX();
+  EAttribute getdatabase_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.MDXFunction <em>MDX Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>MDX Function</em>'.
+   * @see org.xtext.example.mydsl.myDsl.MDXFunction
+   * @generated
+   */
+  EClass getMDXFunction();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.MDXFunction#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.myDsl.MDXFunction#getValue()
+   * @see #getMDXFunction()
+   * @generated
+   */
+  EAttribute getMDXFunction_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.QueryMDX <em>Query MDX</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Query MDX</em>'.
+   * @see org.xtext.example.mydsl.myDsl.QueryMDX
+   * @generated
+   */
+  EClass getQueryMDX();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.QueryMDX#getR <em>R</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>R</em>'.
+   * @see org.xtext.example.mydsl.myDsl.QueryMDX#getR()
+   * @see #getQueryMDX()
+   * @generated
+   */
+  EReference getQueryMDX_R();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.QueryMDX#getFr <em>Fr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fr</em>'.
+   * @see org.xtext.example.mydsl.myDsl.QueryMDX#getFr()
+   * @see #getQueryMDX()
+   * @generated
+   */
+  EReference getQueryMDX_Fr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.QueryMDX#getC <em>C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>C</em>'.
+   * @see org.xtext.example.mydsl.myDsl.QueryMDX#getC()
+   * @see #getQueryMDX()
+   * @generated
+   */
+  EReference getQueryMDX_C();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.QueryMDX#getFc <em>Fc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fc</em>'.
+   * @see org.xtext.example.mydsl.myDsl.QueryMDX#getFc()
+   * @see #getQueryMDX()
+   * @generated
+   */
+  EReference getQueryMDX_Fc();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.MDXRows <em>MDX Rows</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>MDX Rows</em>'.
+   * @see org.xtext.example.mydsl.myDsl.MDXRows
+   * @generated
+   */
+  EClass getMDXRows();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.MDXRows#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.myDsl.MDXRows#getValue()
+   * @see #getMDXRows()
+   * @generated
+   */
+  EAttribute getMDXRows_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.MDXCOlumns <em>MDXC Olumns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>MDXC Olumns</em>'.
+   * @see org.xtext.example.mydsl.myDsl.MDXCOlumns
+   * @generated
+   */
+  EClass getMDXCOlumns();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.MDXCOlumns#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.myDsl.MDXCOlumns#getValue()
+   * @see #getMDXCOlumns()
+   * @generated
+   */
+  EAttribute getMDXCOlumns_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.QueryReport <em>Query Report</em>}'.
@@ -806,27 +1034,6 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getReport_From();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.database <em>database</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>database</em>'.
-   * @see org.xtext.example.mydsl.myDsl.database
-   * @generated
-   */
-  EClass getdatabase();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.database#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.xtext.example.mydsl.myDsl.database#getValue()
-   * @see #getdatabase()
-   * @generated
-   */
-  EAttribute getdatabase_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ReportQueryParameters <em>Report Query Parameters</em>}'.
@@ -1158,22 +1365,118 @@ public interface MyDslPackage extends EPackage
     EAttribute QUERY__NAME = eINSTANCE.getQuery_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.MDXQueryImpl <em>MDX Query</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.databaseImpl <em>database</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.MDXQueryImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMDXQuery()
+     * @see org.xtext.example.mydsl.myDsl.impl.databaseImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getdatabase()
      * @generated
      */
-    EClass MDX_QUERY = eINSTANCE.getMDXQuery();
+    EClass DATABASE = eINSTANCE.getdatabase();
 
     /**
-     * The meta object literal for the '<em><b>Query MDX</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MDX_QUERY__QUERY_MDX = eINSTANCE.getMDXQuery_QueryMDX();
+    EAttribute DATABASE__VALUE = eINSTANCE.getdatabase_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.MDXFunctionImpl <em>MDX Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.MDXFunctionImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMDXFunction()
+     * @generated
+     */
+    EClass MDX_FUNCTION = eINSTANCE.getMDXFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MDX_FUNCTION__VALUE = eINSTANCE.getMDXFunction_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.QueryMDXImpl <em>Query MDX</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.QueryMDXImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getQueryMDX()
+     * @generated
+     */
+    EClass QUERY_MDX = eINSTANCE.getQueryMDX();
+
+    /**
+     * The meta object literal for the '<em><b>R</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUERY_MDX__R = eINSTANCE.getQueryMDX_R();
+
+    /**
+     * The meta object literal for the '<em><b>Fr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUERY_MDX__FR = eINSTANCE.getQueryMDX_Fr();
+
+    /**
+     * The meta object literal for the '<em><b>C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUERY_MDX__C = eINSTANCE.getQueryMDX_C();
+
+    /**
+     * The meta object literal for the '<em><b>Fc</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUERY_MDX__FC = eINSTANCE.getQueryMDX_Fc();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.MDXRowsImpl <em>MDX Rows</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.MDXRowsImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMDXRows()
+     * @generated
+     */
+    EClass MDX_ROWS = eINSTANCE.getMDXRows();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MDX_ROWS__VALUE = eINSTANCE.getMDXRows_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.MDXCOlumnsImpl <em>MDXC Olumns</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.MDXCOlumnsImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMDXCOlumns()
+     * @generated
+     */
+    EClass MDXC_OLUMNS = eINSTANCE.getMDXCOlumns();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MDXC_OLUMNS__VALUE = eINSTANCE.getMDXCOlumns_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.QueryReportImpl <em>Query Report</em>}' class.
@@ -1218,24 +1521,6 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference REPORT__FROM = eINSTANCE.getReport_From();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.databaseImpl <em>database</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.databaseImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getdatabase()
-     * @generated
-     */
-    EClass DATABASE = eINSTANCE.getdatabase();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DATABASE__VALUE = eINSTANCE.getdatabase_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ReportQueryParametersImpl <em>Report Query Parameters</em>}' class.

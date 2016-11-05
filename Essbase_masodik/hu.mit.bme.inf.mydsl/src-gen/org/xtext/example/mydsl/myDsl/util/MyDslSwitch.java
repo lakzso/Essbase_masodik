@@ -87,11 +87,39 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.MDX_QUERY:
+      case MyDslPackage.DATABASE:
       {
-        MDXQuery mdxQuery = (MDXQuery)theEObject;
-        T result = caseMDXQuery(mdxQuery);
-        if (result == null) result = caseQuery(mdxQuery);
+        database database = (database)theEObject;
+        T result = casedatabase(database);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.MDX_FUNCTION:
+      {
+        MDXFunction mdxFunction = (MDXFunction)theEObject;
+        T result = caseMDXFunction(mdxFunction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.QUERY_MDX:
+      {
+        QueryMDX queryMDX = (QueryMDX)theEObject;
+        T result = caseQueryMDX(queryMDX);
+        if (result == null) result = caseQuery(queryMDX);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.MDX_ROWS:
+      {
+        MDXRows mdxRows = (MDXRows)theEObject;
+        T result = caseMDXRows(mdxRows);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.MDXC_OLUMNS:
+      {
+        MDXCOlumns mdxcOlumns = (MDXCOlumns)theEObject;
+        T result = caseMDXCOlumns(mdxcOlumns);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -107,13 +135,6 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Report report = (Report)theEObject;
         T result = caseReport(report);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.DATABASE:
-      {
-        database database = (database)theEObject;
-        T result = casedatabase(database);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -261,17 +282,81 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>MDX Query</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>database</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>MDX Query</em>'.
+   * @return the result of interpreting the object as an instance of '<em>database</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMDXQuery(MDXQuery object)
+  public T casedatabase(database object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>MDX Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>MDX Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMDXFunction(MDXFunction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Query MDX</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Query MDX</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQueryMDX(QueryMDX object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>MDX Rows</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>MDX Rows</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMDXRows(MDXRows object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>MDXC Olumns</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>MDXC Olumns</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMDXCOlumns(MDXCOlumns object)
   {
     return null;
   }
@@ -304,22 +389,6 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseReport(Report object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>database</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>database</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casedatabase(database object)
   {
     return null;
   }
