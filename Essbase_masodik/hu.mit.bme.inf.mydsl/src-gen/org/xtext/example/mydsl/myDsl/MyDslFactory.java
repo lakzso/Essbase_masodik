@@ -42,6 +42,24 @@ public interface MyDslFactory extends EFactory
   Query createQuery();
 
   /**
+   * Returns a new object of class '<em>MDX Query</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>MDX Query</em>'.
+   * @generated
+   */
+  MDXQuery createMDXQuery();
+
+  /**
+   * Returns a new object of class '<em>Query Report</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Query Report</em>'.
+   * @generated
+   */
+  QueryReport createQueryReport();
+
+  /**
    * Returns a new object of class '<em>Report</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +67,15 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   Report createReport();
+
+  /**
+   * Returns a new object of class '<em>database</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>database</em>'.
+   * @generated
+   */
+  database createdatabase();
 
   /**
    * Returns a new object of class '<em>Report Query Parameters</em>'.

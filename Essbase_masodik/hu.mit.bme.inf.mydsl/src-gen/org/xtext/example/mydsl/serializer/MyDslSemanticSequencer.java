@@ -20,15 +20,17 @@ import org.xtext.example.mydsl.myDsl.Descendants;
 import org.xtext.example.mydsl.myDsl.DimensionDeclaration;
 import org.xtext.example.mydsl.myDsl.GroupDeclaration;
 import org.xtext.example.mydsl.myDsl.Link;
+import org.xtext.example.mydsl.myDsl.MDXQuery;
 import org.xtext.example.mydsl.myDsl.MemberDeclaration;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Query;
+import org.xtext.example.mydsl.myDsl.QueryReport;
 import org.xtext.example.mydsl.myDsl.Reference;
 import org.xtext.example.mydsl.myDsl.Report;
 import org.xtext.example.mydsl.myDsl.ReportParameter;
 import org.xtext.example.mydsl.myDsl.Row;
 import org.xtext.example.mydsl.myDsl.StringReference;
+import org.xtext.example.mydsl.myDsl.database;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -63,14 +65,17 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.LINK:
 				sequence_Link(context, (Link) semanticObject); 
 				return; 
+			case MyDslPackage.MDX_QUERY:
+				sequence_MDXQuery(context, (MDXQuery) semanticObject); 
+				return; 
 			case MyDslPackage.MEMBER_DECLARATION:
 				sequence_MemberDeclaration(context, (MemberDeclaration) semanticObject); 
 				return; 
 			case MyDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case MyDslPackage.QUERY:
-				sequence_Query(context, (Query) semanticObject); 
+			case MyDslPackage.QUERY_REPORT:
+				sequence_QueryReport(context, (QueryReport) semanticObject); 
 				return; 
 			case MyDslPackage.REFERENCE:
 				sequence_Reference(context, (Reference) semanticObject); 
@@ -86,6 +91,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.STRING_REFERENCE:
 				sequence_StringReference(context, (StringReference) semanticObject); 
+				return; 
+			case MyDslPackage.DATABASE:
+				sequence_database(context, (database) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -210,6 +218,19 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Query returns MDXQuery
+	 *     MDXQuery returns MDXQuery
+	 *
+	 * Constraint:
+	 *     (name=ID QueryMDX+=MDXQueryParameters*)
+	 */
+	protected void sequence_MDXQuery(ISerializationContext context, MDXQuery semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ReportQueryParameters returns MemberDeclaration
 	 *     Declaration returns MemberDeclaration
 	 *     MemberDeclaration returns MemberDeclaration
@@ -245,12 +266,13 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Query returns Query
+	 *     Query returns QueryReport
+	 *     QueryReport returns QueryReport
 	 *
 	 * Constraint:
-	 *     (name=ID Query+=ReportQueryParameters*)
+	 *     (name=ID QueryReport+=ReportQueryParameters*)
 	 */
-	protected void sequence_Query(ISerializationContext context, Query semanticObject) {
+	protected void sequence_QueryReport(ISerializationContext context, QueryReport semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -298,15 +320,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Report returns Report
 	 *
 	 * Constraint:
-	 *     repout=[Query|ID]
+	 *     (repout=[Query|ID] from=database)
 	 */
 	protected void sequence_Report(ISerializationContext context, Report semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REPORT__REPOUT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REPORT__REPOUT));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.REPORT__FROM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.REPORT__FROM));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReportAccess().getRepoutQueryIDTerminalRuleCall_2_0_1(), semanticObject.getRepout());
+		feeder.accept(grammarAccess.getReportAccess().getRepoutQueryIDTerminalRuleCall_3_0_1(), semanticObject.getRepout());
+		feeder.accept(grammarAccess.getReportAccess().getFromDatabaseParserRuleCall_5_0(), semanticObject.getFrom());
 		feeder.finish();
 	}
 	
@@ -340,6 +365,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStringReferenceAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     database returns database
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_database(ISerializationContext context, database semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DATABASE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DATABASE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDatabaseAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

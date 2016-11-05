@@ -9,11 +9,22 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Query">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Query" upperBound="-1"
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MDXQuery" eSuperTypes="#//Query">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QueryMDX" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QueryReport" eSuperTypes="#//Query">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="QueryReport" upperBound="-1"
         eType="#//ReportQueryParameters" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Report">
     <eStructuralFeatures xsi:type="ecore:EReference" name="repout" eType="#//Query"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//database"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="database">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReportQueryParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="Descendants" eSuperTypes="#//ReportQueryParameters">

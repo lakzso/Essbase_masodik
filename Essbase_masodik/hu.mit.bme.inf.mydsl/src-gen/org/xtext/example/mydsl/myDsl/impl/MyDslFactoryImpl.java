@@ -67,7 +67,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     {
       case MyDslPackage.MODEL: return createModel();
       case MyDslPackage.QUERY: return createQuery();
+      case MyDslPackage.MDX_QUERY: return createMDXQuery();
+      case MyDslPackage.QUERY_REPORT: return createQueryReport();
       case MyDslPackage.REPORT: return createReport();
+      case MyDslPackage.DATABASE: return createdatabase();
       case MyDslPackage.REPORT_QUERY_PARAMETERS: return createReportQueryParameters();
       case MyDslPackage.DESCENDANTS: return createDescendants();
       case MyDslPackage.DECLARATION: return createDeclaration();
@@ -113,10 +116,43 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public MDXQuery createMDXQuery()
+  {
+    MDXQueryImpl mdxQuery = new MDXQueryImpl();
+    return mdxQuery;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QueryReport createQueryReport()
+  {
+    QueryReportImpl queryReport = new QueryReportImpl();
+    return queryReport;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Report createReport()
   {
     ReportImpl report = new ReportImpl();
     return report;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public database createdatabase()
+  {
+    databaseImpl database = new databaseImpl();
+    return database;
   }
 
   /**

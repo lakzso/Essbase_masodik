@@ -87,10 +87,33 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.MDX_QUERY:
+      {
+        MDXQuery mdxQuery = (MDXQuery)theEObject;
+        T result = caseMDXQuery(mdxQuery);
+        if (result == null) result = caseQuery(mdxQuery);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.QUERY_REPORT:
+      {
+        QueryReport queryReport = (QueryReport)theEObject;
+        T result = caseQueryReport(queryReport);
+        if (result == null) result = caseQuery(queryReport);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.REPORT:
       {
         Report report = (Report)theEObject;
         T result = caseReport(report);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.DATABASE:
+      {
+        database database = (database)theEObject;
+        T result = casedatabase(database);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -238,6 +261,38 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>MDX Query</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>MDX Query</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMDXQuery(MDXQuery object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Query Report</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Query Report</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQueryReport(QueryReport object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Report</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -249,6 +304,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseReport(Report object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>database</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>database</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casedatabase(database object)
   {
     return null;
   }

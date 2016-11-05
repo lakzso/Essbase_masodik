@@ -3,25 +3,15 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Query;
-import org.xtext.example.mydsl.myDsl.ReportQueryParameters;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +22,6 @@ import org.xtext.example.mydsl.myDsl.ReportQueryParameters;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.QueryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.QueryImpl#getQuery <em>Query</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,16 +47,6 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQuery()
-   * @generated
-   * @ordered
-   */
-  protected EList<ReportQueryParameters> query;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,36 +97,6 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ReportQueryParameters> getQuery()
-  {
-    if (query == null)
-    {
-      query = new EObjectContainmentEList<ReportQueryParameters>(ReportQueryParameters.class, this, MyDslPackage.QUERY__QUERY);
-    }
-    return query;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case MyDslPackage.QUERY__QUERY:
-        return ((InternalEList<?>)getQuery()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -155,8 +104,6 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
     {
       case MyDslPackage.QUERY__NAME:
         return getName();
-      case MyDslPackage.QUERY__QUERY:
-        return getQuery();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,7 +113,6 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -174,10 +120,6 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
     {
       case MyDslPackage.QUERY__NAME:
         setName((String)newValue);
-        return;
-      case MyDslPackage.QUERY__QUERY:
-        getQuery().clear();
-        getQuery().addAll((Collection<? extends ReportQueryParameters>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,9 +138,6 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
       case MyDslPackage.QUERY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MyDslPackage.QUERY__QUERY:
-        getQuery().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -215,8 +154,6 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
     {
       case MyDslPackage.QUERY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MyDslPackage.QUERY__QUERY:
-        return query != null && !query.isEmpty();
     }
     return super.eIsSet(featureID);
   }

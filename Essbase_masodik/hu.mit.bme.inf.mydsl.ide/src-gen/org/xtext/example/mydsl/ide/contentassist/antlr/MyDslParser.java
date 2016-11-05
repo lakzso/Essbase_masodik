@@ -35,11 +35,13 @@ public class MyDslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getQueryAccess().getAlternatives(), "rule__Query__Alternatives");
 					put(grammarAccess.getReportQueryParametersAccess().getAlternatives(), "rule__ReportQueryParameters__Alternatives");
 					put(grammarAccess.getDeclarationAccess().getAlternatives(), "rule__Declaration__Alternatives");
 					put(grammarAccess.getReferenceAccess().getAlternatives(), "rule__Reference__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
-					put(grammarAccess.getQueryAccess().getGroup(), "rule__Query__Group__0");
+					put(grammarAccess.getMDXQueryAccess().getGroup(), "rule__MDXQuery__Group__0");
+					put(grammarAccess.getQueryReportAccess().getGroup(), "rule__QueryReport__Group__0");
 					put(grammarAccess.getReportAccess().getGroup(), "rule__Report__Group__0");
 					put(grammarAccess.getDescendantsAccess().getGroup(), "rule__Descendants__Group__0");
 					put(grammarAccess.getDimensionDeclarationAccess().getGroup(), "rule__DimensionDeclaration__Group__0");
@@ -55,9 +57,13 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReportParameterAccess().getGroup(), "rule__ReportParameter__Group__0");
 					put(grammarAccess.getModelAccess().getQueriesAssignment_0(), "rule__Model__QueriesAssignment_0");
 					put(grammarAccess.getModelAccess().getReportsAssignment_1(), "rule__Model__ReportsAssignment_1");
-					put(grammarAccess.getQueryAccess().getNameAssignment_0(), "rule__Query__NameAssignment_0");
-					put(grammarAccess.getQueryAccess().getQueryAssignment_5(), "rule__Query__QueryAssignment_5");
-					put(grammarAccess.getReportAccess().getRepoutAssignment_2(), "rule__Report__RepoutAssignment_2");
+					put(grammarAccess.getMDXQueryAccess().getNameAssignment_0(), "rule__MDXQuery__NameAssignment_0");
+					put(grammarAccess.getMDXQueryAccess().getQueryMDXAssignment_4(), "rule__MDXQuery__QueryMDXAssignment_4");
+					put(grammarAccess.getQueryReportAccess().getNameAssignment_0(), "rule__QueryReport__NameAssignment_0");
+					put(grammarAccess.getQueryReportAccess().getQueryReportAssignment_5(), "rule__QueryReport__QueryReportAssignment_5");
+					put(grammarAccess.getReportAccess().getRepoutAssignment_3(), "rule__Report__RepoutAssignment_3");
+					put(grammarAccess.getReportAccess().getFromAssignment_5(), "rule__Report__FromAssignment_5");
+					put(grammarAccess.getDatabaseAccess().getValueAssignment(), "rule__Database__ValueAssignment");
 					put(grammarAccess.getDescendantsAccess().getGroupAssignment_1(), "rule__Descendants__GroupAssignment_1");
 					put(grammarAccess.getDescendantsAccess().getDimensionAssignment_3(), "rule__Descendants__DimensionAssignment_3");
 					put(grammarAccess.getDimensionDeclarationAccess().getNameAssignment_1(), "rule__DimensionDeclaration__NameAssignment_1");

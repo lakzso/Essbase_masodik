@@ -7,17 +7,41 @@ Model:
 	(Reports+=Report)*
 	;
 Query:
-	name=ID '=' 'query' '{'
+	QueryReport | QueryMDX
+;
+
+database:
+	value=STRING
+;
+
+QueryMDX:
+	name=ID '=' 'queryMDX' '{'
+	
+	'SELECT' (QueryMDX+=MDXQueryParameters)* 
+	'FROM'
+	from=database
+	'}'
+	;
+	
+MDXQueryParameters:
+	'Teszt';
+
+
+QueryReport:
+	name=ID '=' 'queryReport' '{'
 	InitialStatement
-	(Query+=ReportQueryParameters)* '}'
+	(QueryReport+=ReportQueryParameters)* '}'
 	;
 
 Report:
-	'report' {Report} repout=[Query]
+	'reportToLatex' '(' {Report} repout=[Query] ',' from=database ')'
 ;
+
 
 ReportQueryParameters:
 	Column | Row | Descendants | Declaration | Reference | Child | Link | ReportParameter;
+
+
 
 InitialStatement:
 "{SUPEMPTYROWS}

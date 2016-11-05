@@ -133,15 +133,51 @@ ruleQuery returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		{
+			newCompositeNode(grammarAccess.getQueryAccess().getQueryReportParserRuleCall_0());
+		}
+		this_QueryReport_0=ruleQueryReport
+		{
+			$current = $this_QueryReport_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getQueryAccess().getMDXQueryParserRuleCall_1());
+		}
+		this_MDXQuery_1=ruleMDXQuery
+		{
+			$current = $this_MDXQuery_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleMDXQuery
+entryRuleMDXQuery returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMDXQueryRule()); }
+	iv_ruleMDXQuery=ruleMDXQuery
+	{ $current=$iv_ruleMDXQuery.current; }
+	EOF;
+
+// Rule MDXQuery
+ruleMDXQuery returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		(
 			(
 				lv_name_0_0=RULE_ID
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getQueryAccess().getNameIDTerminalRuleCall_0_0());
+					newLeafNode(lv_name_0_0, grammarAccess.getMDXQueryAccess().getNameIDTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getQueryRule());
+						$current = createModelElement(grammarAccess.getMDXQueryRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -153,18 +189,90 @@ ruleQuery returns [EObject current=null]
 		)
 		otherlv_1='='
 		{
-			newLeafNode(otherlv_1, grammarAccess.getQueryAccess().getEqualsSignKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getMDXQueryAccess().getEqualsSignKeyword_1());
 		}
-		otherlv_2='query'
+		otherlv_2='queryMDX'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getQueryAccess().getQueryKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getMDXQueryAccess().getQueryMDXKeyword_2());
 		}
 		otherlv_3='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getQueryAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getMDXQueryAccess().getLeftCurlyBracketKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMDXQueryAccess().getQueryMDXMDXQueryParametersParserRuleCall_4_0());
+				}
+				lv_QueryMDX_4_0=ruleMDXQueryParameters
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMDXQueryRule());
+					}
+					add(
+						$current,
+						"QueryMDX",
+						lv_QueryMDX_4_0,
+						"org.xtext.example.mydsl.MyDsl.MDXQueryParameters");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getMDXQueryAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleQueryReport
+entryRuleQueryReport returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getQueryReportRule()); }
+	iv_ruleQueryReport=ruleQueryReport
+	{ $current=$iv_ruleQueryReport.current; }
+	EOF;
+
+// Rule QueryReport
+ruleQueryReport returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0=RULE_ID
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getQueryReportAccess().getNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getQueryReportRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_1='='
+		{
+			newLeafNode(otherlv_1, grammarAccess.getQueryReportAccess().getEqualsSignKeyword_1());
+		}
+		otherlv_2='queryReport'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getQueryReportAccess().getQueryReportKeyword_2());
+		}
+		otherlv_3='{'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getQueryReportAccess().getLeftCurlyBracketKeyword_3());
 		}
 		{
-			newCompositeNode(grammarAccess.getQueryAccess().getInitialStatementParserRuleCall_4());
+			newCompositeNode(grammarAccess.getQueryReportAccess().getInitialStatementParserRuleCall_4());
 		}
 		ruleInitialStatement
 		{
@@ -173,17 +281,17 @@ ruleQuery returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getQueryAccess().getQueryReportQueryParametersParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getQueryReportAccess().getQueryReportReportQueryParametersParserRuleCall_5_0());
 				}
-				lv_Query_5_0=ruleReportQueryParameters
+				lv_QueryReport_5_0=ruleReportQueryParameters
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getQueryRule());
+						$current = createModelElementForParent(grammarAccess.getQueryReportRule());
 					}
 					add(
 						$current,
-						"Query",
-						lv_Query_5_0,
+						"QueryReport",
+						lv_QueryReport_5_0,
 						"org.xtext.example.mydsl.MyDsl.ReportQueryParameters");
 					afterParserOrEnumRuleCall();
 				}
@@ -191,7 +299,7 @@ ruleQuery returns [EObject current=null]
 		)*
 		otherlv_6='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getQueryAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getQueryReportAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -212,14 +320,18 @@ ruleReport returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='report'
+		otherlv_0='reportToLatex'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getReportAccess().getReportKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getReportAccess().getReportToLatexKeyword_0());
+		}
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getReportAccess().getLeftParenthesisKeyword_1());
 		}
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getReportAccess().getReportAction_1(),
+					grammarAccess.getReportAccess().getReportAction_2(),
 					$current);
 			}
 		)
@@ -230,11 +342,73 @@ ruleReport returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getReportRule());
 					}
 				}
-				otherlv_2=RULE_ID
+				otherlv_3=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getReportAccess().getRepoutQueryCrossReference_2_0());
+					newLeafNode(otherlv_3, grammarAccess.getReportAccess().getRepoutQueryCrossReference_3_0());
 				}
 			)
+		)
+		otherlv_4=','
+		{
+			newLeafNode(otherlv_4, grammarAccess.getReportAccess().getCommaKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getReportAccess().getFromDatabaseParserRuleCall_5_0());
+				}
+				lv_from_5_0=ruledatabase
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getReportRule());
+					}
+					set(
+						$current,
+						"from",
+						lv_from_5_0,
+						"org.xtext.example.mydsl.MyDsl.database");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6=')'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getReportAccess().getRightParenthesisKeyword_6());
+		}
+	)
+;
+
+// Entry rule entryRuledatabase
+entryRuledatabase returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDatabaseRule()); }
+	iv_ruledatabase=ruledatabase
+	{ $current=$iv_ruledatabase.current; }
+	EOF;
+
+// Rule database
+ruledatabase returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_value_0_0=RULE_STRING
+			{
+				newLeafNode(lv_value_0_0, grammarAccess.getDatabaseAccess().getValueSTRINGTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getDatabaseRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"value",
+					lv_value_0_0,
+					"org.eclipse.xtext.common.Terminals.STRING");
+			}
 		)
 	)
 ;
@@ -327,6 +501,28 @@ ruleReportQueryParameters returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 	)
+;
+
+// Entry rule entryRuleMDXQueryParameters
+entryRuleMDXQueryParameters returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getMDXQueryParametersRule()); }
+	iv_ruleMDXQueryParameters=ruleMDXQueryParameters
+	{ $current=$iv_ruleMDXQueryParameters.current.getText(); }
+	EOF;
+
+// Rule MDXQueryParameters
+ruleMDXQueryParameters returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	kw='Teszt'
+	{
+		$current.merge(kw);
+		newLeafNode(kw, grammarAccess.getMDXQueryParametersAccess().getTesztKeyword());
+	}
 ;
 
 // Entry rule entryRuleInitialStatement

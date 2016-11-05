@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Report#getRepout <em>Repout</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Report#getFrom <em>From</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReport()
@@ -48,5 +49,31 @@ public interface Report extends EObject
    * @generated
    */
   void setRepout(Query value);
+
+  /**
+   * Returns the value of the '<em><b>From</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>From</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>From</em>' containment reference.
+   * @see #setFrom(database)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getReport_From()
+   * @model containment="true"
+   * @generated
+   */
+  database getFrom();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Report#getFrom <em>From</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>From</em>' containment reference.
+   * @see #getFrom()
+   * @generated
+   */
+  void setFrom(database value);
 
 } // Report

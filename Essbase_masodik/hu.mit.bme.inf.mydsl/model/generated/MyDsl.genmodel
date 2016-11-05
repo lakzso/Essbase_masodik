@@ -12,10 +12,19 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Query">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Query/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Query/Query"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//MDXQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MDXQuery/QueryMDX"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//QueryReport">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//QueryReport/QueryReport"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Report">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Report/repout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Report/from"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//database">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//database/value"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ReportQueryParameters"/>
     <genClasses ecoreClass="MyDsl.ecore#//Descendants">
