@@ -18,8 +18,7 @@ import com.essbase.api.metadata.*;
     In order for this sample to work in your environment, make sure to
     change the s_* to suit your environment.
 
-    @author Srini Ranga
-    @version 1.1, 18 Jul 06
+
  */
 public class GetMembers {
     // NOTE: Change the following variables to suit your setup.

@@ -32,7 +32,7 @@ import com.essbase.api.domain.*;
  * 
  *
  */
-public class DataQuery {
+public class ReportQuery {
 	private static String s_userName = "weblogic";
 	private static String s_password = "Admin123";
 
@@ -177,7 +177,7 @@ public class DataQuery {
 		} else if (args.length != 0) {
 			System.err.println("ERROR: Incorrect Usage of this sample.");
 			System.err.println(
-					"Usage: java " + DataQuery.class.getName() + " <user> <password> <analytic server> <provider>");
+					"Usage: java " + ReportQuery.class.getName() + " <user> <password> <analytic server> <provider>");
 			System.exit(1); // Simply end
 		}
 	}

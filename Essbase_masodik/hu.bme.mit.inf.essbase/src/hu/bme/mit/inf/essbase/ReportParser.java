@@ -26,9 +26,11 @@ import org.xtext.example.mydsl.myDsl.ReportQueryParameters;
 import org.xtext.example.mydsl.myDsl.Row;
 
 public class ReportParser {
-	public SortedMap<String, String> Queries;
-	public List<String> ToQueryStringQueries;
-
+	public SortedMap<String, String> QueriesReport;
+	public SortedMap<String, String> QueriesMDX;
+	public List<String> ToQueryReportQueries;
+	public List<String> ToQueryMDXQueries;
+	
 	public void Parser(String url) {
 
 		MyDslStandaloneSetup.doSetup();
@@ -37,9 +39,11 @@ public class ReportParser {
 		Model m = (Model) res.getContents().get(0);
 		String QueryString = null;
 
-		Queries = new TreeMap<String, String>();
-		ToQueryStringQueries = new ArrayList<String>();
+		QueriesReport = new TreeMap<String, String>();
+		QueriesMDX= new TreeMap<String, String>();
 
+		ToQueryReportQueries = new ArrayList<String>();
+		ToQueryMDXQueries= new ArrayList<String>();
 		for (Query q : m.getQueries()) {
 			if (q instanceof QueryReport) {
 				QueryString = "{SUPEMPTYROWS}";
@@ -56,7 +60,7 @@ public class ReportParser {
 				Link link;
 				ReportParameter rep;
 				QueryReport qr = (QueryReport) q;
-
+                
 				for (ReportQueryParameters RepParam : qr.getQueryReport()) {
 					if (RepParam instanceof Column) {
 						col = (Column) RepParam;
@@ -93,19 +97,25 @@ public class ReportParser {
 
 				}
 				QueryString += " !";
-				Queries.put(q.getName().toString(), QueryString);
+				QueriesReport.put(q.getName().toString(), QueryString);
 				for (Report repout : m.getReports()) {
-					if (Queries.containsKey(repout.getRepout().getName())) {
-						ToQueryStringQueries.add(Queries.get(repout.getRepout().getName()));
+					if (QueriesReport.containsKey(repout.getRepout().getName())) {
+						ToQueryReportQueries.add(QueriesReport.get(repout.getRepout().getName()));
 					}
 
 				}
 
 			}
-		   else if (q instanceof QueryMDX){
-			   
-			   QueryString=
-			   Queries.put(q.getName().toString(), QueryString);
+		  else if (q instanceof QueryMDX){
+			   QueryMDX mdx=(QueryMDX) q;
+			   QueryString="SELECT " + mdx.getR()+"."+ mdx.getFr()+  " On Rows " + mdx.getC()+"."+ mdx.getFc()+ " On Columns" ;
+			   QueriesMDX.put(q.getName().toString(), QueryString);
+			   for (Report repout : m.getReports()) {
+					if (QueriesMDX.containsKey(repout.getRepout().getName())) {
+						ToQueryMDXQueries.add(QueriesMDX.get(repout.getRepout().getName()));
+					}
+
+				}
 		   } 
 
 		}

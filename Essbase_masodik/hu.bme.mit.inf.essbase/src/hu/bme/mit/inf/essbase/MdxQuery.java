@@ -32,9 +32,7 @@ import com.essbase.api.domain.*;
  change the s_* variables to suit your environment. If you change s_appName
  and s_cubeName, make sure to edit the method performMdxQuery() accordingly. 
  </p>
- 
- @author Abhijeet Katariya
- @version 1.1, 19 Jul 06
+
  */
 public class MdxQuery {
 	// NOTE: Change the following variables to suit your setup.
@@ -55,7 +53,7 @@ public class MdxQuery {
 
 	private static final int FAILURE_CODE = 1;
 
-	public static void  main(String[] args ){
+	public void  ExecuteMDXQuery(String StringQuery){
         int statusCode = 0;
 		IEssbase ess = null;
 		IEssCubeView cv = null;
@@ -75,7 +73,7 @@ public class MdxQuery {
 				cv = dom.openCubeView("Mdx Query Example", s_olapSvrName,
 				        s_appName, s_cubeName);
 				
-				performMdxQuery(cv);
+				performMdxQuery(cv,StringQuery);
 			} catch (Exception x) {
 				System.out.println("Error: " + x.getMessage());
 				x.printStackTrace();
@@ -104,7 +102,7 @@ public class MdxQuery {
 		if (statusCode == FAILURE_CODE) System.exit(FAILURE_CODE);
 	}
 
-	private static void performMdxQuery(IEssCubeView cv) throws Exception {
+	private static void performMdxQuery(IEssCubeView cv,String q) throws Exception {
 		boolean bDataLess = false;
 		boolean bNeedCellAttributes = false;
 		boolean bHideData = true;
@@ -122,7 +120,7 @@ public class MdxQuery {
 				 + "FROM Sample.Basic WHERE {[Jan]}";*/ // Sample query 1
 
 		// Sample query 2
-		mdxquery = "SELECT [Output_SZGK].Children ON Rows, [Input_KN_Költségnemek].Children on Columns  FROM [Szakdolgozat.SZKD]";
+		mdxquery = q;
 		
 		//mdxquery = "SELECT {[Product]} on columns, {[Market].CHILDREN} on rows, {[Measures].CHILDREN} on pages from Sample.Basic";
 

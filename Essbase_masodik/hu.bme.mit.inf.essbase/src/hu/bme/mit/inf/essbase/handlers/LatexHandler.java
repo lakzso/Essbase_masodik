@@ -20,7 +20,8 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import com.essbase.api.base.EssException;
 import com.essbase.api.dataquery.IEssGridView;
 
-import hu.bme.mit.inf.essbase.DataQuery;
+import hu.bme.mit.inf.essbase.ReportQuery;
+import hu.bme.mit.inf.essbase.MdxQuery;
 import hu.bme.mit.inf.essbase.ReportCreation;
 import hu.bme.mit.inf.essbase.ReportParser;
 import net.sourceforge.texlipse.TexlipsePlugin;
@@ -55,14 +56,20 @@ public class LatexHandler extends AbstractHandler {
 		Boolean projectCreated = false;
 		ReportParser rp = new ReportParser();
 		rp.Parser(file.getLocation().toString());
-		DataQuery query = new DataQuery();
+		ReportQuery rquery = new ReportQuery();
+		MdxQuery mquery = new MdxQuery();
+		
 		IEssGridView grid = null;
 		ReportCreation cr = new ReportCreation();
 		
-		for (String rawReport : rp.ToQueryStringQueries) {
-			grid = query.query(rawReport);
+		for (String rawReport : rp.ToQueryReportQueries) {
+			grid = rquery.query(rawReport);
 		}
-
+		
+		for (String rawReport : rp.ToQueryMDXQueries) {
+			mquery.ExecuteMDXQuery(rawReport);
+		}
+	
 
 		try {
 			IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
