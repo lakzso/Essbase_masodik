@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated essbase_model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="essbase_model.presentation.Essbase_modelModelWizardID"
+            name="%_UI_Essbase_modelModelWizard_label"
+            class="essbase_model.presentation.Essbase_modelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Essbase_modelModelFile.gif">
+         <description>%_UI_Essbase_modelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated essbase_model -->
+      <editor
+            id="essbase_model.presentation.Essbase_modelEditorID"
+            name="%_UI_Essbase_modelEditor_label"
+            icon="icons/full/obj16/Essbase_modelModelFile.gif"
+            extensions="essbase_model"
+            class="essbase_model.presentation.Essbase_modelEditor"
+            contributorClass="essbase_model.presentation.Essbase_modelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
