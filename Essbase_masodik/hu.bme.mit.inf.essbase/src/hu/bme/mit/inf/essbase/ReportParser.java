@@ -66,7 +66,7 @@ public class ReportParser {
 						col = (Column) RepParam;
 						QueryString += " <Column (";
 						for (Reference ref : col.getDimensions()) {
-							QueryString += "\"" + ref.getReferred().getValue() + "\",";
+							QueryString += "\"" + ref.getReferred().getName() + "\",";
 						}
 						QueryString = QueryString.substring(0, QueryString.length() - 1);
 						QueryString += ")";
@@ -74,7 +74,7 @@ public class ReportParser {
 						row = (Row) RepParam;
 						QueryString += " <Row (";
 						for (Reference ref : row.getDimensions()) {
-							QueryString += "\"" + ref.getReferred().getValue() + "\",";
+							QueryString += "\"" + ref.getReferred().getName() + "\",";
 						}
 						QueryString = QueryString.substring(0, QueryString.length() - 1);
 						QueryString += ")";
@@ -82,14 +82,14 @@ public class ReportParser {
 						child = (Child) RepParam;
 						QueryString += " <Ichild ";
 						for (Reference ref : child.getDimensions()) {
-							QueryString += "\"" + ref.getReferred().getValue() + "\",";
+							QueryString += "\"" + ref.getReferred().getName() + "\",";
 						}
 						QueryString = QueryString.substring(0, QueryString.length() - 1);
 
 					} else if (RepParam instanceof Link) {
 						link = (Link) RepParam;
-						QueryString += " <LINK(<DESCENDANTS(\"" + link.getDesc().getReferred().getValue()
-								+ "\") AND <LEV (\"" + link.getLev().getReferred().getValue() + "\",  0))";
+						QueryString += " <LINK(<DESCENDANTS(\"" + link.getDesc().getReferred().getName()
+								+ "\") AND <LEV (\"" + link.getLev().getReferred().getName() + "\",  0))";
 					} else if (RepParam instanceof ReportParameter) {
 						rep = (ReportParameter) RepParam;
 						ReportCreation.reportOut = rep.getReparam().getValue().toString();

@@ -5473,7 +5473,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
             // InternalMyDsl.g:1810:1: ( rule__DimensionDeclaration__Group__1__Impl rule__DimensionDeclaration__Group__2 )
             // InternalMyDsl.g:1811:2: rule__DimensionDeclaration__Group__1__Impl rule__DimensionDeclaration__Group__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_22);
             rule__DimensionDeclaration__Group__1__Impl();
 
             state._fsp--;
@@ -9653,21 +9653,29 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DimensionDeclaration__ValueAssignment_2"
-    // InternalMyDsl.g:3268:1: rule__DimensionDeclaration__ValueAssignment_2 : ( RULE_STRING ) ;
+    // InternalMyDsl.g:3268:1: rule__DimensionDeclaration__ValueAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__DimensionDeclaration__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3272:1: ( ( RULE_STRING ) )
-            // InternalMyDsl.g:3273:2: ( RULE_STRING )
+            // InternalMyDsl.g:3272:1: ( ( ( RULE_ID ) ) )
+            // InternalMyDsl.g:3273:2: ( ( RULE_ID ) )
             {
-            // InternalMyDsl.g:3273:2: ( RULE_STRING )
-            // InternalMyDsl.g:3274:3: RULE_STRING
+            // InternalMyDsl.g:3273:2: ( ( RULE_ID ) )
+            // InternalMyDsl.g:3274:3: ( RULE_ID )
             {
-             before(grammarAccess.getDimensionDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getDimensionDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); 
+             before(grammarAccess.getDimensionDeclarationAccess().getValueDimensionCrossReference_2_0()); 
+            // InternalMyDsl.g:3275:3: ( RULE_ID )
+            // InternalMyDsl.g:3276:4: RULE_ID
+            {
+             before(grammarAccess.getDimensionDeclarationAccess().getValueDimensionIDTerminalRuleCall_2_0_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getDimensionDeclarationAccess().getValueDimensionIDTerminalRuleCall_2_0_1()); 
+
+            }
+
+             after(grammarAccess.getDimensionDeclarationAccess().getValueDimensionCrossReference_2_0()); 
 
             }
 
@@ -9690,17 +9698,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GroupDeclaration__NameAssignment_1"
-    // InternalMyDsl.g:3283:1: rule__GroupDeclaration__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalMyDsl.g:3287:1: rule__GroupDeclaration__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__GroupDeclaration__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3287:1: ( ( RULE_ID ) )
-            // InternalMyDsl.g:3288:2: ( RULE_ID )
+            // InternalMyDsl.g:3291:1: ( ( RULE_ID ) )
+            // InternalMyDsl.g:3292:2: ( RULE_ID )
             {
-            // InternalMyDsl.g:3288:2: ( RULE_ID )
-            // InternalMyDsl.g:3289:3: RULE_ID
+            // InternalMyDsl.g:3292:2: ( RULE_ID )
+            // InternalMyDsl.g:3293:3: RULE_ID
             {
              before(grammarAccess.getGroupDeclarationAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9727,17 +9735,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GroupDeclaration__ValueAssignment_2"
-    // InternalMyDsl.g:3298:1: rule__GroupDeclaration__ValueAssignment_2 : ( RULE_STRING ) ;
+    // InternalMyDsl.g:3302:1: rule__GroupDeclaration__ValueAssignment_2 : ( RULE_STRING ) ;
     public final void rule__GroupDeclaration__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3302:1: ( ( RULE_STRING ) )
-            // InternalMyDsl.g:3303:2: ( RULE_STRING )
+            // InternalMyDsl.g:3306:1: ( ( RULE_STRING ) )
+            // InternalMyDsl.g:3307:2: ( RULE_STRING )
             {
-            // InternalMyDsl.g:3303:2: ( RULE_STRING )
-            // InternalMyDsl.g:3304:3: RULE_STRING
+            // InternalMyDsl.g:3307:2: ( RULE_STRING )
+            // InternalMyDsl.g:3308:3: RULE_STRING
             {
              before(grammarAccess.getGroupDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -9764,17 +9772,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MemberDeclaration__NameAssignment_1"
-    // InternalMyDsl.g:3313:1: rule__MemberDeclaration__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalMyDsl.g:3317:1: rule__MemberDeclaration__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__MemberDeclaration__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3317:1: ( ( RULE_ID ) )
-            // InternalMyDsl.g:3318:2: ( RULE_ID )
+            // InternalMyDsl.g:3321:1: ( ( RULE_ID ) )
+            // InternalMyDsl.g:3322:2: ( RULE_ID )
             {
-            // InternalMyDsl.g:3318:2: ( RULE_ID )
-            // InternalMyDsl.g:3319:3: RULE_ID
+            // InternalMyDsl.g:3322:2: ( RULE_ID )
+            // InternalMyDsl.g:3323:3: RULE_ID
             {
              before(grammarAccess.getMemberDeclarationAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9801,17 +9809,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MemberDeclaration__ValueAssignment_2"
-    // InternalMyDsl.g:3328:1: rule__MemberDeclaration__ValueAssignment_2 : ( RULE_STRING ) ;
+    // InternalMyDsl.g:3332:1: rule__MemberDeclaration__ValueAssignment_2 : ( RULE_STRING ) ;
     public final void rule__MemberDeclaration__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3332:1: ( ( RULE_STRING ) )
-            // InternalMyDsl.g:3333:2: ( RULE_STRING )
+            // InternalMyDsl.g:3336:1: ( ( RULE_STRING ) )
+            // InternalMyDsl.g:3337:2: ( RULE_STRING )
             {
-            // InternalMyDsl.g:3333:2: ( RULE_STRING )
-            // InternalMyDsl.g:3334:3: RULE_STRING
+            // InternalMyDsl.g:3337:2: ( RULE_STRING )
+            // InternalMyDsl.g:3338:3: RULE_STRING
             {
              before(grammarAccess.getMemberDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -9838,17 +9846,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Row__DimensionsAssignment_3"
-    // InternalMyDsl.g:3343:1: rule__Row__DimensionsAssignment_3 : ( ruleReference ) ;
+    // InternalMyDsl.g:3347:1: rule__Row__DimensionsAssignment_3 : ( ruleReference ) ;
     public final void rule__Row__DimensionsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3347:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:3348:2: ( ruleReference )
+            // InternalMyDsl.g:3351:1: ( ( ruleReference ) )
+            // InternalMyDsl.g:3352:2: ( ruleReference )
             {
-            // InternalMyDsl.g:3348:2: ( ruleReference )
-            // InternalMyDsl.g:3349:3: ruleReference
+            // InternalMyDsl.g:3352:2: ( ruleReference )
+            // InternalMyDsl.g:3353:3: ruleReference
             {
              before(grammarAccess.getRowAccess().getDimensionsReferenceParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9879,17 +9887,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Row__DimensionsAssignment_4_1"
-    // InternalMyDsl.g:3358:1: rule__Row__DimensionsAssignment_4_1 : ( ruleReference ) ;
+    // InternalMyDsl.g:3362:1: rule__Row__DimensionsAssignment_4_1 : ( ruleReference ) ;
     public final void rule__Row__DimensionsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3362:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:3363:2: ( ruleReference )
+            // InternalMyDsl.g:3366:1: ( ( ruleReference ) )
+            // InternalMyDsl.g:3367:2: ( ruleReference )
             {
-            // InternalMyDsl.g:3363:2: ( ruleReference )
-            // InternalMyDsl.g:3364:3: ruleReference
+            // InternalMyDsl.g:3367:2: ( ruleReference )
+            // InternalMyDsl.g:3368:3: ruleReference
             {
              before(grammarAccess.getRowAccess().getDimensionsReferenceParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9920,17 +9928,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Column__DimensionsAssignment_3"
-    // InternalMyDsl.g:3373:1: rule__Column__DimensionsAssignment_3 : ( ruleReference ) ;
+    // InternalMyDsl.g:3377:1: rule__Column__DimensionsAssignment_3 : ( ruleReference ) ;
     public final void rule__Column__DimensionsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3377:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:3378:2: ( ruleReference )
+            // InternalMyDsl.g:3381:1: ( ( ruleReference ) )
+            // InternalMyDsl.g:3382:2: ( ruleReference )
             {
-            // InternalMyDsl.g:3378:2: ( ruleReference )
-            // InternalMyDsl.g:3379:3: ruleReference
+            // InternalMyDsl.g:3382:2: ( ruleReference )
+            // InternalMyDsl.g:3383:3: ruleReference
             {
              before(grammarAccess.getColumnAccess().getDimensionsReferenceParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9961,17 +9969,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Column__DimensionsAssignment_4_1"
-    // InternalMyDsl.g:3388:1: rule__Column__DimensionsAssignment_4_1 : ( ruleReference ) ;
+    // InternalMyDsl.g:3392:1: rule__Column__DimensionsAssignment_4_1 : ( ruleReference ) ;
     public final void rule__Column__DimensionsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3392:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:3393:2: ( ruleReference )
+            // InternalMyDsl.g:3396:1: ( ( ruleReference ) )
+            // InternalMyDsl.g:3397:2: ( ruleReference )
             {
-            // InternalMyDsl.g:3393:2: ( ruleReference )
-            // InternalMyDsl.g:3394:3: ruleReference
+            // InternalMyDsl.g:3397:2: ( ruleReference )
+            // InternalMyDsl.g:3398:3: ruleReference
             {
              before(grammarAccess.getColumnAccess().getDimensionsReferenceParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10002,17 +10010,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Link__DescAssignment_3"
-    // InternalMyDsl.g:3403:1: rule__Link__DescAssignment_3 : ( ruleReference ) ;
+    // InternalMyDsl.g:3407:1: rule__Link__DescAssignment_3 : ( ruleReference ) ;
     public final void rule__Link__DescAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3407:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:3408:2: ( ruleReference )
+            // InternalMyDsl.g:3411:1: ( ( ruleReference ) )
+            // InternalMyDsl.g:3412:2: ( ruleReference )
             {
-            // InternalMyDsl.g:3408:2: ( ruleReference )
-            // InternalMyDsl.g:3409:3: ruleReference
+            // InternalMyDsl.g:3412:2: ( ruleReference )
+            // InternalMyDsl.g:3413:3: ruleReference
             {
              before(grammarAccess.getLinkAccess().getDescReferenceParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -10043,17 +10051,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Link__LevAssignment_5"
-    // InternalMyDsl.g:3418:1: rule__Link__LevAssignment_5 : ( ruleReference ) ;
+    // InternalMyDsl.g:3422:1: rule__Link__LevAssignment_5 : ( ruleReference ) ;
     public final void rule__Link__LevAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3422:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:3423:2: ( ruleReference )
+            // InternalMyDsl.g:3426:1: ( ( ruleReference ) )
+            // InternalMyDsl.g:3427:2: ( ruleReference )
             {
-            // InternalMyDsl.g:3423:2: ( ruleReference )
-            // InternalMyDsl.g:3424:3: ruleReference
+            // InternalMyDsl.g:3427:2: ( ruleReference )
+            // InternalMyDsl.g:3428:3: ruleReference
             {
              before(grammarAccess.getLinkAccess().getLevReferenceParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -10084,17 +10092,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Child__DimensionsAssignment_3"
-    // InternalMyDsl.g:3433:1: rule__Child__DimensionsAssignment_3 : ( ruleReference ) ;
+    // InternalMyDsl.g:3437:1: rule__Child__DimensionsAssignment_3 : ( ruleReference ) ;
     public final void rule__Child__DimensionsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3437:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:3438:2: ( ruleReference )
+            // InternalMyDsl.g:3441:1: ( ( ruleReference ) )
+            // InternalMyDsl.g:3442:2: ( ruleReference )
             {
-            // InternalMyDsl.g:3438:2: ( ruleReference )
-            // InternalMyDsl.g:3439:3: ruleReference
+            // InternalMyDsl.g:3442:2: ( ruleReference )
+            // InternalMyDsl.g:3443:3: ruleReference
             {
              before(grammarAccess.getChildAccess().getDimensionsReferenceParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -10125,17 +10133,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Child__DimensionsAssignment_4_1"
-    // InternalMyDsl.g:3448:1: rule__Child__DimensionsAssignment_4_1 : ( ruleReference ) ;
+    // InternalMyDsl.g:3452:1: rule__Child__DimensionsAssignment_4_1 : ( ruleReference ) ;
     public final void rule__Child__DimensionsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3452:1: ( ( ruleReference ) )
-            // InternalMyDsl.g:3453:2: ( ruleReference )
+            // InternalMyDsl.g:3456:1: ( ( ruleReference ) )
+            // InternalMyDsl.g:3457:2: ( ruleReference )
             {
-            // InternalMyDsl.g:3453:2: ( ruleReference )
-            // InternalMyDsl.g:3454:3: ruleReference
+            // InternalMyDsl.g:3457:2: ( ruleReference )
+            // InternalMyDsl.g:3458:3: ruleReference
             {
              before(grammarAccess.getChildAccess().getDimensionsReferenceParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10166,17 +10174,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReportParameter__ReparamAssignment_3"
-    // InternalMyDsl.g:3463:1: rule__ReportParameter__ReparamAssignment_3 : ( ruleStringReference ) ;
+    // InternalMyDsl.g:3467:1: rule__ReportParameter__ReparamAssignment_3 : ( ruleStringReference ) ;
     public final void rule__ReportParameter__ReparamAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3467:1: ( ( ruleStringReference ) )
-            // InternalMyDsl.g:3468:2: ( ruleStringReference )
+            // InternalMyDsl.g:3471:1: ( ( ruleStringReference ) )
+            // InternalMyDsl.g:3472:2: ( ruleStringReference )
             {
-            // InternalMyDsl.g:3468:2: ( ruleStringReference )
-            // InternalMyDsl.g:3469:3: ruleStringReference
+            // InternalMyDsl.g:3472:2: ( ruleStringReference )
+            // InternalMyDsl.g:3473:3: ruleStringReference
             {
              before(grammarAccess.getReportParameterAccess().getReparamStringReferenceParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -10207,21 +10215,21 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__ReferredAssignment_0"
-    // InternalMyDsl.g:3478:1: rule__Reference__ReferredAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalMyDsl.g:3482:1: rule__Reference__ReferredAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Reference__ReferredAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3482:1: ( ( ( RULE_ID ) ) )
-            // InternalMyDsl.g:3483:2: ( ( RULE_ID ) )
+            // InternalMyDsl.g:3486:1: ( ( ( RULE_ID ) ) )
+            // InternalMyDsl.g:3487:2: ( ( RULE_ID ) )
             {
-            // InternalMyDsl.g:3483:2: ( ( RULE_ID ) )
-            // InternalMyDsl.g:3484:3: ( RULE_ID )
+            // InternalMyDsl.g:3487:2: ( ( RULE_ID ) )
+            // InternalMyDsl.g:3488:3: ( RULE_ID )
             {
              before(grammarAccess.getReferenceAccess().getReferredDeclarationCrossReference_0_0()); 
-            // InternalMyDsl.g:3485:3: ( RULE_ID )
-            // InternalMyDsl.g:3486:4: RULE_ID
+            // InternalMyDsl.g:3489:3: ( RULE_ID )
+            // InternalMyDsl.g:3490:4: RULE_ID
             {
              before(grammarAccess.getReferenceAccess().getReferredDeclarationIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -10252,17 +10260,17 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringReference__ValueAssignment"
-    // InternalMyDsl.g:3497:1: rule__StringReference__ValueAssignment : ( RULE_STRING ) ;
+    // InternalMyDsl.g:3501:1: rule__StringReference__ValueAssignment : ( RULE_STRING ) ;
     public final void rule__StringReference__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:3501:1: ( ( RULE_STRING ) )
-            // InternalMyDsl.g:3502:2: ( RULE_STRING )
+            // InternalMyDsl.g:3505:1: ( ( RULE_STRING ) )
+            // InternalMyDsl.g:3506:2: ( RULE_STRING )
             {
-            // InternalMyDsl.g:3502:2: ( RULE_STRING )
-            // InternalMyDsl.g:3503:3: RULE_STRING
+            // InternalMyDsl.g:3506:2: ( RULE_STRING )
+            // InternalMyDsl.g:3507:3: RULE_STRING
             {
              before(grammarAccess.getStringReferenceAccess().getValueSTRINGTerminalRuleCall_0()); 
             match(input,RULE_STRING,FOLLOW_2); 

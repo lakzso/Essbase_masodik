@@ -448,22 +448,13 @@ public interface MyDslPackage extends EPackage
   int DECLARATION__NAME = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION__VALUE = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Declaration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECLARATION_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 2;
+  int DECLARATION_FEATURE_COUNT = REPORT_QUERY_PARAMETERS_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DimensionDeclarationImpl <em>Dimension Declaration</em>}' class.
@@ -485,13 +476,13 @@ public interface MyDslPackage extends EPackage
   int DIMENSION_DECLARATION__NAME = DECLARATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DIMENSION_DECLARATION__VALUE = DECLARATION__VALUE;
+  int DIMENSION_DECLARATION__VALUE = DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Dimension Declaration</em>' class.
@@ -500,7 +491,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+  int DIMENSION_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.GroupDeclarationImpl <em>Group Declaration</em>}' class.
@@ -528,7 +519,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GROUP_DECLARATION__VALUE = DECLARATION__VALUE;
+  int GROUP_DECLARATION__VALUE = DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Group Declaration</em>' class.
@@ -537,7 +528,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GROUP_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+  int GROUP_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.MemberDeclarationImpl <em>Member Declaration</em>}' class.
@@ -565,7 +556,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_DECLARATION__VALUE = DECLARATION__VALUE;
+  int MEMBER_DECLARATION__VALUE = DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Member Declaration</em>' class.
@@ -574,7 +565,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+  int MEMBER_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.RowImpl <em>Row</em>}' class.
@@ -1099,17 +1090,6 @@ public interface MyDslPackage extends EPackage
   EAttribute getDeclaration_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Declaration#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Declaration#getValue()
-   * @see #getDeclaration()
-   * @generated
-   */
-  EAttribute getDeclaration_Value();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.DimensionDeclaration <em>Dimension Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1118,6 +1098,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getDimensionDeclaration();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.myDsl.DimensionDeclaration#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.myDsl.DimensionDeclaration#getValue()
+   * @see #getDimensionDeclaration()
+   * @generated
+   */
+  EReference getDimensionDeclaration_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.GroupDeclaration <em>Group Declaration</em>}'.
@@ -1130,6 +1121,17 @@ public interface MyDslPackage extends EPackage
   EClass getGroupDeclaration();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.GroupDeclaration#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.myDsl.GroupDeclaration#getValue()
+   * @see #getGroupDeclaration()
+   * @generated
+   */
+  EAttribute getGroupDeclaration_Value();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.MemberDeclaration <em>Member Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1138,6 +1140,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getMemberDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.MemberDeclaration#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.myDsl.MemberDeclaration#getValue()
+   * @see #getMemberDeclaration()
+   * @generated
+   */
+  EAttribute getMemberDeclaration_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Row <em>Row</em>}'.
@@ -1577,14 +1590,6 @@ public interface MyDslPackage extends EPackage
     EAttribute DECLARATION__NAME = eINSTANCE.getDeclaration_Name();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DECLARATION__VALUE = eINSTANCE.getDeclaration_Value();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.DimensionDeclarationImpl <em>Dimension Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1593,6 +1598,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass DIMENSION_DECLARATION = eINSTANCE.getDimensionDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIMENSION_DECLARATION__VALUE = eINSTANCE.getDimensionDeclaration_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.GroupDeclarationImpl <em>Group Declaration</em>}' class.
@@ -1605,6 +1618,14 @@ public interface MyDslPackage extends EPackage
     EClass GROUP_DECLARATION = eINSTANCE.getGroupDeclaration();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GROUP_DECLARATION__VALUE = eINSTANCE.getGroupDeclaration_Value();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.MemberDeclarationImpl <em>Member Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1613,6 +1634,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass MEMBER_DECLARATION = eINSTANCE.getMemberDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MEMBER_DECLARATION__VALUE = eINSTANCE.getMemberDeclaration_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.RowImpl <em>Row</em>}' class.

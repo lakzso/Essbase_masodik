@@ -21,7 +21,6 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.DeclarationImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.DeclarationImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,26 +46,6 @@ public class DeclarationImpl extends ReportQueryParametersImpl implements Declar
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,29 +96,6 @@ public class DeclarationImpl extends ReportQueryParametersImpl implements Declar
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.DECLARATION__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -147,8 +103,6 @@ public class DeclarationImpl extends ReportQueryParametersImpl implements Declar
     {
       case MyDslPackage.DECLARATION__NAME:
         return getName();
-      case MyDslPackage.DECLARATION__VALUE:
-        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -165,9 +119,6 @@ public class DeclarationImpl extends ReportQueryParametersImpl implements Declar
     {
       case MyDslPackage.DECLARATION__NAME:
         setName((String)newValue);
-        return;
-      case MyDslPackage.DECLARATION__VALUE:
-        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -186,9 +137,6 @@ public class DeclarationImpl extends ReportQueryParametersImpl implements Declar
       case MyDslPackage.DECLARATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MyDslPackage.DECLARATION__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -205,8 +153,6 @@ public class DeclarationImpl extends ReportQueryParametersImpl implements Declar
     {
       case MyDslPackage.DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MyDslPackage.DECLARATION__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -224,8 +170,6 @@ public class DeclarationImpl extends ReportQueryParametersImpl implements Declar
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", value: ");
-    result.append(value);
     result.append(')');
     return result.toString();
   }

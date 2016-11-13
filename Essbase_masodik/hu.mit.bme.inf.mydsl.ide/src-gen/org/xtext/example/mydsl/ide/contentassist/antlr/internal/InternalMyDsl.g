@@ -3271,9 +3271,13 @@ rule__DimensionDeclaration__ValueAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getDimensionDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getDimensionDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getDimensionDeclarationAccess().getValueDimensionCrossReference_2_0()); }
+		(
+			{ before(grammarAccess.getDimensionDeclarationAccess().getValueDimensionIDTerminalRuleCall_2_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getDimensionDeclarationAccess().getValueDimensionIDTerminalRuleCall_2_0_1()); }
+		)
+		{ after(grammarAccess.getDimensionDeclarationAccess().getValueDimensionCrossReference_2_0()); }
 	)
 ;
 finally {

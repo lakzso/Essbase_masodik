@@ -3,12 +3,19 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import essbase_model.Dimension;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Dimension Declaration</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.DimensionDeclaration#getValue <em>Value</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getDimensionDeclaration()
  * @model
@@ -16,4 +23,30 @@ package org.xtext.example.mydsl.myDsl;
  */
 public interface DimensionDeclaration extends Declaration
 {
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Value</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' reference.
+   * @see #setValue(Dimension)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getDimensionDeclaration_Value()
+   * @model
+   * @generated
+   */
+  Dimension getValue();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.DimensionDeclaration#getValue <em>Value</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' reference.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(Dimension value);
+
 } // DimensionDeclaration

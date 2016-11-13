@@ -468,13 +468,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final CrossReference cValueDimensionCrossReference_2_0 = (CrossReference)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueDimensionIDTerminalRuleCall_2_0_1 = (RuleCall)cValueDimensionCrossReference_2_0.eContents().get(1);
 		
 		//DimensionDeclaration:
-		//	'dim' name=ID value=STRING;
+		//	'dim' name=ID value=[str::Dimension];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'dim' name=ID value=STRING
+		//'dim' name=ID value=[str::Dimension]
 		public Group getGroup() { return cGroup; }
 		
 		//'dim'
@@ -486,11 +487,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//value=STRING
+		//value=[str::Dimension]
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_2_0() { return cValueSTRINGTerminalRuleCall_2_0; }
+		//[str::Dimension]
+		public CrossReference getValueDimensionCrossReference_2_0() { return cValueDimensionCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getValueDimensionIDTerminalRuleCall_2_0_1() { return cValueDimensionIDTerminalRuleCall_2_0_1; }
 	}
 	public class GroupDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.GroupDeclaration");
@@ -1060,7 +1064,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DimensionDeclaration:
-	//	'dim' name=ID value=STRING;
+	//	'dim' name=ID value=[str::Dimension];
 	public DimensionDeclarationElements getDimensionDeclarationAccess() {
 		return pDimensionDeclaration;
 	}

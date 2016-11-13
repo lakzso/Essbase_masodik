@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import essbase_model.Essbase_modelPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -244,6 +246,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     MyDslPackageImpl theMyDslPackage = (MyDslPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MyDslPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MyDslPackageImpl());
 
     isInited = true;
+
+    // Initialize simple dependencies
+    Essbase_modelPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theMyDslPackage.createPackageContents();
@@ -555,9 +560,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDeclaration_Value()
+  public EClass getDimensionDeclaration()
   {
-    return (EAttribute)declarationEClass.getEStructuralFeatures().get(1);
+    return dimensionDeclarationEClass;
   }
 
   /**
@@ -565,9 +570,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDimensionDeclaration()
+  public EReference getDimensionDeclaration_Value()
   {
-    return dimensionDeclarationEClass;
+    return (EReference)dimensionDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -585,9 +590,29 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getGroupDeclaration_Value()
+  {
+    return (EAttribute)groupDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMemberDeclaration()
   {
     return memberDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMemberDeclaration_Value()
+  {
+    return (EAttribute)memberDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -810,13 +835,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     declarationEClass = createEClass(DECLARATION);
     createEAttribute(declarationEClass, DECLARATION__NAME);
-    createEAttribute(declarationEClass, DECLARATION__VALUE);
 
     dimensionDeclarationEClass = createEClass(DIMENSION_DECLARATION);
+    createEReference(dimensionDeclarationEClass, DIMENSION_DECLARATION__VALUE);
 
     groupDeclarationEClass = createEClass(GROUP_DECLARATION);
+    createEAttribute(groupDeclarationEClass, GROUP_DECLARATION__VALUE);
 
     memberDeclarationEClass = createEClass(MEMBER_DECLARATION);
+    createEAttribute(memberDeclarationEClass, MEMBER_DECLARATION__VALUE);
 
     rowEClass = createEClass(ROW);
     createEReference(rowEClass, ROW__DIMENSIONS);
@@ -864,6 +891,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     setName(eNAME);
     setNsPrefix(eNS_PREFIX);
     setNsURI(eNS_URI);
+
+    // Obtain other dependent packages
+    Essbase_modelPackage theEssbase_modelPackage = (Essbase_modelPackage)EPackage.Registry.INSTANCE.getEPackage(Essbase_modelPackage.eNS_URI);
 
     // Create type parameters
 
@@ -926,13 +956,15 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDeclaration_Value(), ecorePackage.getEString(), "value", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dimensionDeclarationEClass, DimensionDeclaration.class, "DimensionDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDimensionDeclaration_Value(), theEssbase_modelPackage.getDimension(), null, "value", null, 0, 1, DimensionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(groupDeclarationEClass, GroupDeclaration.class, "GroupDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGroupDeclaration_Value(), ecorePackage.getEString(), "value", null, 0, 1, GroupDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberDeclarationEClass, MemberDeclaration.class, "MemberDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMemberDeclaration_Value(), ecorePackage.getEString(), "value", null, 0, 1, MemberDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRow_Dimensions(), this.getReference(), null, "dimensions", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

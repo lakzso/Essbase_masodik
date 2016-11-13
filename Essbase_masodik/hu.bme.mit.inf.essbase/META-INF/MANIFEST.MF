@@ -15,7 +15,9 @@ Require-Bundle: org.eclipse.ui,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ hu.bme.mit.inf.essbase_model;bundle-version="0.1.0",
+ org.eclipse.emf.ecore.xmi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: JARS/ess_es_server.jar,JARS/ess_japi.jar,JARS/ess_maxl.jar,.

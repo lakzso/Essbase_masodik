@@ -167,18 +167,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     DimensionDeclaration returns DimensionDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID value=STRING)
+	 *     (name=ID value=[Dimension|ID])
 	 */
 	protected void sequence_DimensionDeclaration(ISerializationContext context, DimensionDeclaration semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DECLARATION__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DECLARATION__NAME));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DECLARATION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DECLARATION__VALUE));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DIMENSION_DECLARATION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DIMENSION_DECLARATION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDimensionDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDimensionDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDimensionDeclarationAccess().getValueDimensionIDTerminalRuleCall_2_0_1(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -196,8 +196,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DECLARATION__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DECLARATION__NAME));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DECLARATION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DECLARATION__VALUE));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.GROUP_DECLARATION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.GROUP_DECLARATION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getGroupDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
@@ -295,8 +295,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DECLARATION__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DECLARATION__NAME));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DECLARATION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DECLARATION__VALUE));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.MEMBER_DECLARATION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.MEMBER_DECLARATION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMemberDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
