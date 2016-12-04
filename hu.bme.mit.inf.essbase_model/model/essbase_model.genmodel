@@ -19,5 +19,9 @@
     <genClasses ecoreClass="essbase_model.ecore#//Member">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute essbase_model.ecore#//Member/Name"/>
     </genClasses>
+    <genClasses ecoreClass="essbase_model.ecore#//Essbase_Cube">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference essbase_model.ecore#//Essbase_Cube/dimension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute essbase_model.ecore#//Essbase_Cube/Name"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

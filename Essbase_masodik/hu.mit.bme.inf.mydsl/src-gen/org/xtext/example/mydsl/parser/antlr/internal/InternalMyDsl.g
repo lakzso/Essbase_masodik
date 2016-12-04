@@ -926,19 +926,14 @@ ruleGroupDeclaration returns [EObject current=null]
 		)
 		(
 			(
-				lv_value_2_0=RULE_STRING
-				{
-					newLeafNode(lv_value_2_0, grammarAccess.getGroupDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0());
-				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getGroupDeclarationRule());
 					}
-					setWithLastConsumed(
-						$current,
-						"value",
-						lv_value_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getGroupDeclarationAccess().getValueGroupCrossReference_2_0());
 				}
 			)
 		)
@@ -985,19 +980,14 @@ ruleMemberDeclaration returns [EObject current=null]
 		)
 		(
 			(
-				lv_value_2_0=RULE_STRING
-				{
-					newLeafNode(lv_value_2_0, grammarAccess.getMemberDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0());
-				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getMemberDeclarationRule());
 					}
-					setWithLastConsumed(
-						$current,
-						"value",
-						lv_value_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getMemberDeclarationAccess().getValueMemberCrossReference_2_0());
 				}
 			)
 		)

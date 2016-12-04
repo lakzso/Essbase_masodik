@@ -205,6 +205,53 @@ public interface Essbase_modelPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link essbase_model.impl.Essbase_CubeImpl <em>Essbase Cube</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see essbase_model.impl.Essbase_CubeImpl
+	 * @see essbase_model.impl.Essbase_modelPackageImpl#getEssbase_Cube()
+	 * @generated
+	 */
+	int ESSBASE_CUBE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESSBASE_CUBE__DIMENSION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESSBASE_CUBE__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Essbase Cube</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESSBASE_CUBE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Essbase Cube</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESSBASE_CUBE_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link essbase_model.Dimension <em>Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -310,6 +357,38 @@ public interface Essbase_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMember_Name();
+
+	/**
+	 * Returns the meta object for class '{@link essbase_model.Essbase_Cube <em>Essbase Cube</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Essbase Cube</em>'.
+	 * @see essbase_model.Essbase_Cube
+	 * @generated
+	 */
+	EClass getEssbase_Cube();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link essbase_model.Essbase_Cube#getDimension <em>Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dimension</em>'.
+	 * @see essbase_model.Essbase_Cube#getDimension()
+	 * @see #getEssbase_Cube()
+	 * @generated
+	 */
+	EReference getEssbase_Cube_Dimension();
+
+	/**
+	 * Returns the meta object for the attribute '{@link essbase_model.Essbase_Cube#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see essbase_model.Essbase_Cube#getName()
+	 * @see #getEssbase_Cube()
+	 * @generated
+	 */
+	EAttribute getEssbase_Cube_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -419,6 +498,32 @@ public interface Essbase_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MEMBER__NAME = eINSTANCE.getMember_Name();
+
+		/**
+		 * The meta object literal for the '{@link essbase_model.impl.Essbase_CubeImpl <em>Essbase Cube</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see essbase_model.impl.Essbase_CubeImpl
+		 * @see essbase_model.impl.Essbase_modelPackageImpl#getEssbase_Cube()
+		 * @generated
+		 */
+		EClass ESSBASE_CUBE = eINSTANCE.getEssbase_Cube();
+
+		/**
+		 * The meta object literal for the '<em><b>Dimension</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ESSBASE_CUBE__DIMENSION = eINSTANCE.getEssbase_Cube_Dimension();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ESSBASE_CUBE__NAME = eINSTANCE.getEssbase_Cube_Name();
 
 	}
 

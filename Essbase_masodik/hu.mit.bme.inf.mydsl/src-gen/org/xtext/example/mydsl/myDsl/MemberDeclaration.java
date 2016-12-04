@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import essbase_model.Member;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,29 +24,29 @@ package org.xtext.example.mydsl.myDsl;
 public interface MemberDeclaration extends Declaration
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
+   * @return the value of the '<em>Value</em>' reference.
+   * @see #setValue(Member)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getMemberDeclaration_Value()
    * @model
    * @generated
    */
-  String getValue();
+  Member getValue();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.MemberDeclaration#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.MemberDeclaration#getValue <em>Value</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
+   * @param value the new value of the '<em>Value</em>' reference.
    * @see #getValue()
    * @generated
    */
-  void setValue(String value);
+  void setValue(Member value);
 
 } // MemberDeclaration

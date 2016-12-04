@@ -59,6 +59,7 @@ public class Essbase_modelFactoryImpl extends EFactoryImpl implements Essbase_mo
 			case Essbase_modelPackage.DIMENSION: return createDimension();
 			case Essbase_modelPackage.GROUP: return createGroup();
 			case Essbase_modelPackage.MEMBER: return createMember();
+			case Essbase_modelPackage.ESSBASE_CUBE: return createEssbase_Cube();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +93,16 @@ public class Essbase_modelFactoryImpl extends EFactoryImpl implements Essbase_mo
 	public Member createMember() {
 		MemberImpl member = new MemberImpl();
 		return member;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Essbase_Cube createEssbase_Cube() {
+		Essbase_CubeImpl essbase_Cube = new Essbase_CubeImpl();
+		return essbase_Cube;
 	}
 
 	/**

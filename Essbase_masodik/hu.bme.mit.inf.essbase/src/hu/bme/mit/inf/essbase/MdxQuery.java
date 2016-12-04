@@ -47,9 +47,9 @@ public class MdxQuery {
 	 */
 	private static String s_provider = "http://192.168.56.101:9001/aps/JAPI"; // Default
 
-	private static String s_appName = "Szakdolgozat";
+	private static String s_appName = "NISZ";
 
-	private static String s_cubeName = "SZKD";
+	private static String s_cubeName = "NISZV2";
 
 	private static final int FAILURE_CODE = 1;
 

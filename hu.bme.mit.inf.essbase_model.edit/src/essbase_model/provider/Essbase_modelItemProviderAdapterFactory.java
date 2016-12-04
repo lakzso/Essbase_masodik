@@ -141,6 +141,29 @@ public class Essbase_modelItemProviderAdapterFactory extends Essbase_modelAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link essbase_model.Essbase_Cube} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Essbase_CubeItemProvider essbase_CubeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link essbase_model.Essbase_Cube}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEssbase_CubeAdapter() {
+		if (essbase_CubeItemProvider == null) {
+			essbase_CubeItemProvider = new Essbase_CubeItemProvider(this);
+		}
+
+		return essbase_CubeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +265,7 @@ public class Essbase_modelItemProviderAdapterFactory extends Essbase_modelAdapte
 		if (dimensionItemProvider != null) dimensionItemProvider.dispose();
 		if (groupItemProvider != null) groupItemProvider.dispose();
 		if (memberItemProvider != null) memberItemProvider.dispose();
+		if (essbase_CubeItemProvider != null) essbase_CubeItemProvider.dispose();
 	}
 
 }

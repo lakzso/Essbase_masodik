@@ -503,13 +503,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final CrossReference cValueGroupCrossReference_2_0 = (CrossReference)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueGroupIDTerminalRuleCall_2_0_1 = (RuleCall)cValueGroupCrossReference_2_0.eContents().get(1);
 		
 		//GroupDeclaration:
-		//	'group' name=ID value=STRING;
+		//	'group' name=ID value=[str::Group];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'group' name=ID value=STRING
+		//'group' name=ID value=[str::Group]
 		public Group getGroup() { return cGroup; }
 		
 		//'group'
@@ -521,11 +522,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//value=STRING
+		//value=[str::Group]
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_2_0() { return cValueSTRINGTerminalRuleCall_2_0; }
+		//[str::Group]
+		public CrossReference getValueGroupCrossReference_2_0() { return cValueGroupCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getValueGroupIDTerminalRuleCall_2_0_1() { return cValueGroupIDTerminalRuleCall_2_0_1; }
 	}
 	public class MemberDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.MemberDeclaration");
@@ -534,13 +538,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final CrossReference cValueMemberCrossReference_2_0 = (CrossReference)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueMemberIDTerminalRuleCall_2_0_1 = (RuleCall)cValueMemberCrossReference_2_0.eContents().get(1);
 		
 		//MemberDeclaration:
-		//	'member' name=ID value=STRING;
+		//	'member' name=ID value=[str::Member];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'member' name=ID value=STRING
+		//'member' name=ID value=[str::Member]
 		public Group getGroup() { return cGroup; }
 		
 		//'member'
@@ -552,11 +557,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//value=STRING
+		//value=[str::Member]
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_2_0() { return cValueSTRINGTerminalRuleCall_2_0; }
+		//[str::Member]
+		public CrossReference getValueMemberCrossReference_2_0() { return cValueMemberCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getValueMemberIDTerminalRuleCall_2_0_1() { return cValueMemberIDTerminalRuleCall_2_0_1; }
 	}
 	public class RowElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Row");
@@ -1074,7 +1082,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GroupDeclaration:
-	//	'group' name=ID value=STRING;
+	//	'group' name=ID value=[str::Group];
 	public GroupDeclarationElements getGroupDeclarationAccess() {
 		return pGroupDeclaration;
 	}
@@ -1084,7 +1092,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MemberDeclaration:
-	//	'member' name=ID value=STRING;
+	//	'member' name=ID value=[str::Member];
 	public MemberDeclarationElements getMemberDeclarationAccess() {
 		return pMemberDeclaration;
 	}

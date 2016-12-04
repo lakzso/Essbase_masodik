@@ -28,6 +28,8 @@ import org.eclipse.emf.ecore.EClassifier
 import javax.lang.model.type.ReferenceType
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.EObjectDescription
+import essbase_model.Essbase_Cube
+import org.eclipse.emf.common.util.EList
 
 /**
  * This class contains custom scoping description.
@@ -42,10 +44,14 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 	Map<String, Object> m
 	ResourceSet resSet
 	Resource resource
+	Essbase_Cube cube
 	Dimension di
+	EList<Dimension> dimList
 	List<IEObjectDescription> candidates 
 	IResourceServiceProvider.Registry rspr
       IQualifiedNameConverter converter
+	
+	int i
 	
 	override getScope(EObject context, EReference reference) {
 	
@@ -70,21 +76,28 @@ class MyDslScopeProvider extends AbstractMyDslScopeProvider {
                 resSet = new ResourceSetImpl();
 
                 // Get the resource
-                resource = resSet.getResource(URI.createURI("platform:/resource/RiportTeszteles/src/teszt.essbase_model"), true);
+                resource = resSet.getResource(URI.createURI("platform:/resource/RiportTeszteles/src/Teszt.essbase_model"), true);
                 // Get the first model element and cast it to the right type, in my
                 // example everything is hierarchical included in this first node     
 
       	        
       	        candidates = new ArrayList<IEObjectDescription>();
       	
-      	        di =  resource.getContents().get(0) as Dimension;
-      	        candidates.add(EObjectDescription.create(di.name,di));
-
-
+      	        cube =  resource.getContents().get(0) as Essbase_Cube;
+      	        
+      	        
+      	         dimList=cube.dimension
+      	         
+      	        for( i=0; i <=1;i++){
+      	         candidates.add(EObjectDescription.create( dimList.get(i).name,dimList.get(i)));
+                    
+                }
        
             return new SimpleScope(candidates);
       }  
     
+    
+        
     return super.getScope(context, reference);
 }
 

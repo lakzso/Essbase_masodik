@@ -80,6 +80,10 @@ public class Essbase_modelAdapterFactory extends AdapterFactoryImpl {
 				return createMemberAdapter();
 			}
 			@Override
+			public Adapter caseEssbase_Cube(Essbase_Cube object) {
+				return createEssbase_CubeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -138,6 +142,20 @@ public class Essbase_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMemberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link essbase_model.Essbase_Cube <em>Essbase Cube</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see essbase_model.Essbase_Cube
+	 * @generated
+	 */
+	public Adapter createEssbase_CubeAdapter() {
 		return null;
 	}
 

@@ -3305,9 +3305,13 @@ rule__GroupDeclaration__ValueAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getGroupDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getGroupDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getGroupDeclarationAccess().getValueGroupCrossReference_2_0()); }
+		(
+			{ before(grammarAccess.getGroupDeclarationAccess().getValueGroupIDTerminalRuleCall_2_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getGroupDeclarationAccess().getValueGroupIDTerminalRuleCall_2_0_1()); }
+		)
+		{ after(grammarAccess.getGroupDeclarationAccess().getValueGroupCrossReference_2_0()); }
 	)
 ;
 finally {
@@ -3335,9 +3339,13 @@ rule__MemberDeclaration__ValueAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getMemberDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getMemberDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getMemberDeclarationAccess().getValueMemberCrossReference_2_0()); }
+		(
+			{ before(grammarAccess.getMemberDeclarationAccess().getValueMemberIDTerminalRuleCall_2_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getMemberDeclarationAccess().getValueMemberIDTerminalRuleCall_2_0_1()); }
+		)
+		{ after(grammarAccess.getMemberDeclarationAccess().getValueMemberCrossReference_2_0()); }
 	)
 ;
 finally {

@@ -3,9 +3,12 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import essbase_model.Member;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -28,24 +31,14 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class MemberDeclarationImpl extends DeclarationImpl implements MemberDeclaration
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected Member value;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,7 +66,27 @@ public class MemberDeclarationImpl extends DeclarationImpl implements MemberDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public Member getValue()
+  {
+    if (value != null && value.eIsProxy())
+    {
+      InternalEObject oldValue = (InternalEObject)value;
+      value = (Member)eResolveProxy(oldValue);
+      if (value != oldValue)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyDslPackage.MEMBER_DECLARATION__VALUE, oldValue, value));
+      }
+    }
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Member basicGetValue()
   {
     return value;
   }
@@ -83,9 +96,9 @@ public class MemberDeclarationImpl extends DeclarationImpl implements MemberDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public void setValue(Member newValue)
   {
-    String oldValue = value;
+    Member oldValue = value;
     value = newValue;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.MEMBER_DECLARATION__VALUE, oldValue, value));
@@ -102,7 +115,8 @@ public class MemberDeclarationImpl extends DeclarationImpl implements MemberDecl
     switch (featureID)
     {
       case MyDslPackage.MEMBER_DECLARATION__VALUE:
-        return getValue();
+        if (resolve) return getValue();
+        return basicGetValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,7 +132,7 @@ public class MemberDeclarationImpl extends DeclarationImpl implements MemberDecl
     switch (featureID)
     {
       case MyDslPackage.MEMBER_DECLARATION__VALUE:
-        setValue((String)newValue);
+        setValue((Member)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,7 +149,7 @@ public class MemberDeclarationImpl extends DeclarationImpl implements MemberDecl
     switch (featureID)
     {
       case MyDslPackage.MEMBER_DECLARATION__VALUE:
-        setValue(VALUE_EDEFAULT);
+        setValue((Member)null);
         return;
     }
     super.eUnset(featureID);
@@ -152,26 +166,9 @@ public class MemberDeclarationImpl extends DeclarationImpl implements MemberDecl
     switch (featureID)
     {
       case MyDslPackage.MEMBER_DECLARATION__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+        return value != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
   }
 
 } //MemberDeclarationImpl

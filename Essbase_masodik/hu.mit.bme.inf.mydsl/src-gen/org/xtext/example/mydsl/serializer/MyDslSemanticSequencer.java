@@ -190,7 +190,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     GroupDeclaration returns GroupDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID value=STRING)
+	 *     (name=ID value=[Group|ID])
 	 */
 	protected void sequence_GroupDeclaration(ISerializationContext context, GroupDeclaration semanticObject) {
 		if (errorAcceptor != null) {
@@ -201,7 +201,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getGroupDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getGroupDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getGroupDeclarationAccess().getValueGroupIDTerminalRuleCall_2_0_1(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -289,7 +289,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     MemberDeclaration returns MemberDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID value=STRING)
+	 *     (name=ID value=[Member|ID])
 	 */
 	protected void sequence_MemberDeclaration(ISerializationContext context, MemberDeclaration semanticObject) {
 		if (errorAcceptor != null) {
@@ -300,7 +300,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMemberDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMemberDeclarationAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMemberDeclarationAccess().getValueMemberIDTerminalRuleCall_2_0_1(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

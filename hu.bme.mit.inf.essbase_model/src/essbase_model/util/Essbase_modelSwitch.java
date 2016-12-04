@@ -84,6 +84,12 @@ public class Essbase_modelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case Essbase_modelPackage.ESSBASE_CUBE: {
+				Essbase_Cube essbase_Cube = (Essbase_Cube)theEObject;
+				T result = caseEssbase_Cube(essbase_Cube);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -130,6 +136,21 @@ public class Essbase_modelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMember(Member object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Essbase Cube</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Essbase Cube</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEssbase_Cube(Essbase_Cube object) {
 		return null;
 	}
 

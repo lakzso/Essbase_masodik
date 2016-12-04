@@ -590,9 +590,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGroupDeclaration_Value()
+  public EReference getGroupDeclaration_Value()
   {
-    return (EAttribute)groupDeclarationEClass.getEStructuralFeatures().get(0);
+    return (EReference)groupDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -610,9 +610,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMemberDeclaration_Value()
+  public EReference getMemberDeclaration_Value()
   {
-    return (EAttribute)memberDeclarationEClass.getEStructuralFeatures().get(0);
+    return (EReference)memberDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -840,10 +840,10 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(dimensionDeclarationEClass, DIMENSION_DECLARATION__VALUE);
 
     groupDeclarationEClass = createEClass(GROUP_DECLARATION);
-    createEAttribute(groupDeclarationEClass, GROUP_DECLARATION__VALUE);
+    createEReference(groupDeclarationEClass, GROUP_DECLARATION__VALUE);
 
     memberDeclarationEClass = createEClass(MEMBER_DECLARATION);
-    createEAttribute(memberDeclarationEClass, MEMBER_DECLARATION__VALUE);
+    createEReference(memberDeclarationEClass, MEMBER_DECLARATION__VALUE);
 
     rowEClass = createEClass(ROW);
     createEReference(rowEClass, ROW__DIMENSIONS);
@@ -961,10 +961,10 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getDimensionDeclaration_Value(), theEssbase_modelPackage.getDimension(), null, "value", null, 0, 1, DimensionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(groupDeclarationEClass, GroupDeclaration.class, "GroupDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGroupDeclaration_Value(), ecorePackage.getEString(), "value", null, 0, 1, GroupDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGroupDeclaration_Value(), theEssbase_modelPackage.getGroup(), null, "value", null, 0, 1, GroupDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberDeclarationEClass, MemberDeclaration.class, "MemberDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMemberDeclaration_Value(), ecorePackage.getEString(), "value", null, 0, 1, MemberDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMemberDeclaration_Value(), theEssbase_modelPackage.getMember(), null, "value", null, 0, 1, MemberDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRow_Dimensions(), this.getReference(), null, "dimensions", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

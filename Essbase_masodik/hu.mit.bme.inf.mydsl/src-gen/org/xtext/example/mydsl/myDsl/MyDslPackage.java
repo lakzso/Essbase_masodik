@@ -513,7 +513,7 @@ public interface MyDslPackage extends EPackage
   int GROUP_DECLARATION__NAME = DECLARATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -550,7 +550,7 @@ public interface MyDslPackage extends EPackage
   int MEMBER_DECLARATION__NAME = DECLARATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1121,15 +1121,15 @@ public interface MyDslPackage extends EPackage
   EClass getGroupDeclaration();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.GroupDeclaration#getValue <em>Value</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.myDsl.GroupDeclaration#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the reference '<em>Value</em>'.
    * @see org.xtext.example.mydsl.myDsl.GroupDeclaration#getValue()
    * @see #getGroupDeclaration()
    * @generated
    */
-  EAttribute getGroupDeclaration_Value();
+  EReference getGroupDeclaration_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.MemberDeclaration <em>Member Declaration</em>}'.
@@ -1142,15 +1142,15 @@ public interface MyDslPackage extends EPackage
   EClass getMemberDeclaration();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.MemberDeclaration#getValue <em>Value</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.myDsl.MemberDeclaration#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the reference '<em>Value</em>'.
    * @see org.xtext.example.mydsl.myDsl.MemberDeclaration#getValue()
    * @see #getMemberDeclaration()
    * @generated
    */
-  EAttribute getMemberDeclaration_Value();
+  EReference getMemberDeclaration_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Row <em>Row</em>}'.
@@ -1618,12 +1618,12 @@ public interface MyDslPackage extends EPackage
     EClass GROUP_DECLARATION = eINSTANCE.getGroupDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GROUP_DECLARATION__VALUE = eINSTANCE.getGroupDeclaration_Value();
+    EReference GROUP_DECLARATION__VALUE = eINSTANCE.getGroupDeclaration_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.MemberDeclarationImpl <em>Member Declaration</em>}' class.
@@ -1636,12 +1636,12 @@ public interface MyDslPackage extends EPackage
     EClass MEMBER_DECLARATION = eINSTANCE.getMemberDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MEMBER_DECLARATION__VALUE = eINSTANCE.getMemberDeclaration_Value();
+    EReference MEMBER_DECLARATION__VALUE = eINSTANCE.getMemberDeclaration_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.RowImpl <em>Row</em>}' class.

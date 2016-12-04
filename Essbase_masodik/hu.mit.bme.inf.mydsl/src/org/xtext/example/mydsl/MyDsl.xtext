@@ -71,10 +71,10 @@ DimensionDeclaration:
 	'dim' name=ID value=[str::Dimension];
 
 GroupDeclaration:
-	'group' name=ID value=STRING;
+	'group' name=ID value=[str::Group];
 
 MemberDeclaration:
-	'member' name=ID value=STRING;
+	'member' name=ID value=[str::Member];
 
 Row:
 	'row' {Row} '{' dimensions+=Reference (',' dimensions+=Reference)* '}';

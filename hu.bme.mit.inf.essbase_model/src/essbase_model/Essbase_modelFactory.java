@@ -49,6 +49,15 @@ public interface Essbase_modelFactory extends EFactory {
 	Member createMember();
 
 	/**
+	 * Returns a new object of class '<em>Essbase Cube</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Essbase Cube</em>'.
+	 * @generated
+	 */
+	Essbase_Cube createEssbase_Cube();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

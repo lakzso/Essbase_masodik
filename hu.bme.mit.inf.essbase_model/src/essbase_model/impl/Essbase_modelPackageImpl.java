@@ -3,6 +3,7 @@
 package essbase_model.impl;
 
 import essbase_model.Dimension;
+import essbase_model.Essbase_Cube;
 import essbase_model.Essbase_modelFactory;
 import essbase_model.Essbase_modelPackage;
 import essbase_model.Group;
@@ -42,6 +43,13 @@ public class Essbase_modelPackageImpl extends EPackageImpl implements Essbase_mo
 	 * @generated
 	 */
 	private EClass memberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass essbase_CubeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -199,6 +207,33 @@ public class Essbase_modelPackageImpl extends EPackageImpl implements Essbase_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEssbase_Cube() {
+		return essbase_CubeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEssbase_Cube_Dimension() {
+		return (EReference)essbase_CubeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEssbase_Cube_Name() {
+		return (EAttribute)essbase_CubeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Essbase_modelFactory getEssbase_modelFactory() {
 		return (Essbase_modelFactory)getEFactoryInstance();
 	}
@@ -234,6 +269,10 @@ public class Essbase_modelPackageImpl extends EPackageImpl implements Essbase_mo
 
 		memberEClass = createEClass(MEMBER);
 		createEAttribute(memberEClass, MEMBER__NAME);
+
+		essbase_CubeEClass = createEClass(ESSBASE_CUBE);
+		createEReference(essbase_CubeEClass, ESSBASE_CUBE__DIMENSION);
+		createEAttribute(essbase_CubeEClass, ESSBASE_CUBE__NAME);
 	}
 
 	/**
@@ -278,6 +317,10 @@ public class Essbase_modelPackageImpl extends EPackageImpl implements Essbase_mo
 
 		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMember_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(essbase_CubeEClass, Essbase_Cube.class, "Essbase_Cube", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEssbase_Cube_Dimension(), this.getDimension(), null, "dimension", null, 0, -1, Essbase_Cube.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEssbase_Cube_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Essbase_Cube.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

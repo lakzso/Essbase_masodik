@@ -53,10 +53,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/hu.bme.mit.inf.essbase_model/model/essbase_model.ecore#//Dimension"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GroupDeclaration" eSuperTypes="#//Declaration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/hu.bme.mit.inf.essbase_model/model/essbase_model.ecore#//Group"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MemberDeclaration" eSuperTypes="#//Declaration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/hu.bme.mit.inf.essbase_model/model/essbase_model.ecore#//Member"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Row" eSuperTypes="#//ReportQueryParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" upperBound="-1"

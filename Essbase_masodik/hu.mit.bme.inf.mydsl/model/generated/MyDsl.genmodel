@@ -50,10 +50,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DimensionDeclaration/value"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//GroupDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//GroupDeclaration/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//GroupDeclaration/value"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//MemberDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MemberDeclaration/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MemberDeclaration/value"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Row">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Row/dimensions"/>
