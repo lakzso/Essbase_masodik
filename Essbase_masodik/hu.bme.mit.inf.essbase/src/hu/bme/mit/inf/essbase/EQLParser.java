@@ -25,7 +25,7 @@ import org.xtext.example.mydsl.myDsl.ReportParameter;
 import org.xtext.example.mydsl.myDsl.ReportQueryParameters;
 import org.xtext.example.mydsl.myDsl.Row;
 
-public class ReportParser {
+public class EQLParser {
 	public SortedMap<String, String> QueriesReport;
 	public SortedMap<String, String> QueriesMDX;
 	public List<String> ToQueryReportQueries;

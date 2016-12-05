@@ -23,7 +23,7 @@ import com.essbase.api.dataquery.IEssGridView;
 import hu.bme.mit.inf.essbase.ReportQuery;
 import hu.bme.mit.inf.essbase.MdxQuery;
 import hu.bme.mit.inf.essbase.ReportCreation;
-import hu.bme.mit.inf.essbase.ReportParser;
+import hu.bme.mit.inf.essbase.EQLParser;
 import net.sourceforge.texlipse.TexlipsePlugin;
 import net.sourceforge.texlipse.builder.TexlipseBuilder;
 import net.sourceforge.texlipse.properties.TexlipseProperties;
@@ -54,7 +54,7 @@ public class LatexHandler extends AbstractHandler {
 				.getAdapter(IFile.class);
 		String xtextFileName = file.getName().replaceFirst(".mydsl", "");
 		Boolean projectCreated = false;
-		ReportParser rp = new ReportParser();
+		EQLParser rp = new EQLParser();
 		rp.Parser(file.getLocation().toString());
 		ReportQuery rquery = new ReportQuery();
 		MdxQuery mquery = new MdxQuery();
